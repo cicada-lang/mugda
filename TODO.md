@@ -1,5 +1,3 @@
-example tests
-
 Syntax of Mugda
 
 Semantics of Mugda expressions
