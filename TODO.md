@@ -1,18 +1,55 @@
-Syntax of Mugda
+`Telescope`
 
-Telescopes
-τ
-Identifiers:
+Constructor definitions
 
-We assume the following disjoint sets of identifiers:
+Clause definitions
 
-C ∋ c -- for constructors
-D ∋ D -- for data types
-F ∋ f, g -- for functions
-L ∋ l -- for global lets
-V ∋ x, y, i -- for variables
+Value
 
-Elements of C, D, F and L will be called constants.
+- Pi
+- Fn
+- Ap
+- Atom
+  - k -- generic value // neutral var?
+    "A generic value k ∈ N represents the computed value of a variable during"
+  - Type
+  - c -- constructor name
+  - f -- function name
+  - D -- data name
+
+Stmt
+
+- Data
+- Codata
+- Let
+- Mutual fun
+- Mutual cofun
+
+Signature
+
+- A global map, from name to different kinds of denotations.
+
+  We can make them `Value` and only map to `Value`,
+  or we can use `Den` -- like in EOPL.
+
+  - Σ : F → VAL × CLAUSE∗ × B
+
+    mapping a function constant to its type (as a value), the clauses and a
+    flag to indicate whether the clauses have been type-checked.
+
+  - Σ : L → EXPR × VAL
+
+    mapping a global let constant to the expression and its type.
+
+  - Σ : C → VAL
+
+    mapping a constructor constant to its type.
+
+  - Σ : D → VAL × N
+
+    mapping a data type constant to its type and arity.
+
+# Paper
 
 Semantics of Mugda expressions
 
