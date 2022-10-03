@@ -7,7 +7,7 @@
     "lib"
   ],
   "bin": {
-    "mugda": "bin/mugda.js"
+    "mu": "bin/mu.js"
   },
   "scripts": {
     "prepare": "husky install",
