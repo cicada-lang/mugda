@@ -1,19 +1,6 @@
-# Cicada Language
+# Mugda
 
-[ [HOMEPAGE](https://cicada-lang.org)
-| [MANUAL](https://readonly.link/manuals/cicada-lang/cicada)
-| [PLAYGROUND](https://cicada-lang.org/playground)
-| [ABOUT](https://cicada-lang.org/about) ]
-
-Welcome **\*^-^\*/**
-
-Cicada language is a _dependently typed programming language_ and an _interactive theorem prover_.
-
-> The aim of cicada project is to help people understand that
-> developing software and developing mathematics
-> are increasingly the same kind of activity,
-> and people who practice these developments
-> can learn from each other, and help each other in very good ways.
+An implementation of the Mugda paper.
 
 ## Development
 
@@ -26,32 +13,9 @@ npm run test          # Run test
 npm run test:watch    # Watch the testing
 ```
 
-## Community
-
-GitHub:
-
-- Organization: [github.com/cicada-lang](https://github.com/cicada-lang)
-- Main repo: [github.com/cicada-lang/cicada](https://github.com/cicada-lang/cicada)
-
-Telegram:
-
-- English chat group: [CicadaLanguage](https://t.me/CicadaLanguage)
-- Chinese chat group: [CicadaLanguageCN](https://t.me/CicadaLanguageCN)
-- News group: [CicadaRhapsody](https://t.me/CicadaRhapsody)
-
-## Thanks
-
-Thanks [PLCT Lab](https://github.com/plctlab), for sponsoring our community at very early stage of our project.
-
-Thanks [Dan Friedman](https://www.cs.indiana.edu/~dfried), for we learned most of our knowledge about programming language design from your little books.
-
-Thanks [David Christiansen](https://davidchristiansen.dk), for coauthoring ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-little-typer) with Dan, and writing up great tutorials ([1](https://davidchristiansen.dk/tutorials/nbe), [2](https://davidchristiansen.dk/tutorials/implementing-types-hs.pdf)) about dependent types.
-
 ## Contributions
 
-To make a contribution,
-[fork this project](https://github.com/cicada-lang/cicada/fork)
-and create a pull request.
+To make a contribution, fork this project and create a pull request.
 
 Please read the [STYLE-GUIDE.md](STYLE-GUIDE.md) before you change the code.
 
