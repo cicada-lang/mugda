@@ -1,5 +1,19 @@
 Syntax of Mugda
 
+Telescopes
+τ
+Identifiers:
+
+We assume the following disjoint sets of identifiers:
+
+C ∋ c -- for constructors
+D ∋ D -- for data types
+F ∋ f, g -- for functions
+L ∋ l -- for global lets
+V ∋ x, y, i -- for variables
+
+Elements of C, D, F and L will be called constants.
+
 Semantics of Mugda expressions
 
 - Values
