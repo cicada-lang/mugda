@@ -1,6 +1,6 @@
 # Mugda
 
-An implementation of the Mugda paper.
+An implementation of the [Mugda paper](docs/papers/termination-checking-for-a-dependently-typed-language--karl-mehltretter.pdf).
 
 ## Development
 
