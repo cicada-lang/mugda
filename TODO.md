@@ -1,5 +1,3 @@
-Pattern
-
 Telescope
 
 Constructor definitions

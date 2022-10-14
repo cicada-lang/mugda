@@ -2,6 +2,8 @@ export type Exp = Var | Pi | Fn | Ap | Let | Type
 
 /**
 
+   TODO Do we need to handle `ApUnfolded` directly?
+
    TODO Handle different identifiers:
 
    x -- variable
