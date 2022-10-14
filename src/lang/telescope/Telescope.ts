@@ -1,7 +1,49 @@
-export type Telescope = TelescopeNull | TelescopeParameter | TelescopeParameterStrictlyPositive
+import { Exp } from "../exp"
 
-export type TelescopeNull = {}
+export type Telescope = TelescopeNull | TelescopeParameter | TelescopeParameterPositive
 
-export type TelescopeParameter = {}
+export type TelescopeNull = {
+  kind: "TelescopeNull"
+}
 
-export type TelescopeParameterStrictlyPositive = {}
+export function TelescopeNull(): TelescopeNull {
+  return {
+    kind: "TelescopeNull",
+  }
+}
+
+export type TelescopeParameter = {
+  kind: "TelescopeParameter"
+  name: string
+  type: Exp
+  rest: Telescope
+}
+
+export function TelescopeParameter(name: string, type: Exp, rest: Telescope): TelescopeParameter {
+  return {
+    kind: "TelescopeParameter",
+    name,
+    type,
+    rest,
+  }
+}
+
+export type TelescopeParameterPositive = {
+  kind: "TelescopeParameterPositive"
+  name: string
+  type: Exp
+  rest: Telescope
+}
+
+export function TelescopeParameterPositive(
+  name: string,
+  type: Exp,
+  rest: Telescope,
+): TelescopeParameterPositive {
+  return {
+    kind: "TelescopeParameterPositive",
+    name,
+    type,
+    rest,
+  }
+}

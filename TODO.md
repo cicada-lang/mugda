@@ -1,7 +1,5 @@
 # 2 Semantics of Mugda expressions
 
-Telescope
-
 Constructor definitions
 
 Clause definitions
