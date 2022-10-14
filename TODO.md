@@ -1,29 +1,37 @@
 # 2 Semantics of Mugda expressions
 
-Constructor definitions
+Stmts.Data
 
-Clause definitions
+- with Telescope and Constructors definitions
 
-Stmt
+Stmts.Codata
 
-- Data
-- Codata
-- Let
-- Mutual fun
-- Mutual cofun
+- with Telescope and Constructors definitions
 
-Value
+Stmts.Let
 
-- Pi
-- Fn
-- Ap
-- Atom
-  - k -- generic value // neutral var?
-    "A generic value k ∈ N represents the computed value of a variable during"
-  - Type
-  - c -- constructor name
-  - f -- function name
-  - D -- data name
+Stmts.Fn
+
+- with Clause definitions
+
+Stmts.Cofn
+
+- with Clause definitions
+
+Values.Pi
+
+Values.Fn
+
+Values.Ap
+
+Values.Atom
+
+- k -- generic value // neutral var?
+  "A generic value k ∈ N represents the computed value of a variable during"
+- Type
+- c -- constructor name
+- f -- function name
+- D -- data name
 
 Signature
 
@@ -48,6 +56,12 @@ Signature
   - Σ : D → VAL × N
 
     mapping a data type constant to its type and arity.
+
+concrete syntax for Exp
+
+concrete syntax for Stmt
+
+evaluate
 
 # 2.4 Example programs
 
