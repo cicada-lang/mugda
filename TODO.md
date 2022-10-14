@@ -8,8 +8,6 @@ Stmts.Codata
 
 - with Telescope and Constructors definitions
 
-Stmts.Let
-
 Stmts.Fn
 
 - with Clause definitions
