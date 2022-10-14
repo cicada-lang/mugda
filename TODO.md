@@ -1,8 +1,18 @@
+# 2 Semantics of Mugda expressions
+
 Telescope
 
 Constructor definitions
 
 Clause definitions
+
+Stmt
+
+- Data
+- Codata
+- Let
+- Mutual fun
+- Mutual cofun
 
 Value
 
@@ -16,14 +26,6 @@ Value
   - c -- constructor name
   - f -- function name
   - D -- data name
-
-Stmt
-
-- Data
-- Codata
-- Let
-- Mutual fun
-- Mutual cofun
 
 Signature
 
@@ -49,15 +51,7 @@ Signature
 
     mapping a data type constant to its type and arity.
 
-# Paper
-
-Semantics of Mugda expressions
-
-- Values
-- Signatures
-- Evaluation
-
-Example programs
+# 2.4 Example programs
 
 - Identity function
 - Booleans
@@ -68,7 +62,7 @@ Example programs
 - Equality
 - Streams
 
-Type-Checking
+# 3 Type-Checking
 
 - Scope-Checking
 - Bidirectional type-checking
@@ -86,7 +80,7 @@ Type-Checking
   - Checking the whole declaration
 - Mugda programs
 
-Termination-Checking
+# 4 Termination-Checking
 
 - Motivation
 - Matrix notation
@@ -100,4 +94,4 @@ Termination-Checking
   - Examples
 - List reversion: Vectors to the rescue
 
-Sized data types
+# 5 Sized data types

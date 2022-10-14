@@ -2,15 +2,17 @@ export type Exp = Var | Pi | Fn | Ap | Let | Type
 
 /**
 
-   TODO Do we need to handle `ApUnfolded` directly?
+   TODO The paper uses `ApUnfolded` instead of `Ap`,
+   I am not sure this is necessary.
 
-   TODO Handle different identifiers:
+   TODO The paper distinguishes different identifiers,
+   I am not sure how to implement this yet.
 
-   x -- variable
-   c -- constructor name
-   D -- data type name
-   f -- function name
-   l -- let name
+   | x | variable         |
+   | c | constructor name |
+   | D | data type name   |
+   | f | function name    |
+   | l | let name         |
 
 **/
 
