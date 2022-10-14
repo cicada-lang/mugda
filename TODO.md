@@ -1,4 +1,6 @@
-`Telescope`
+Pattern
+
+Telescope
 
 Constructor definitions
 
