@@ -1,6 +1,6 @@
 # Mugda
 
-An implementation of the [Mugda paper](docs/papers/termination-checking-for-a-dependently-typed-language--karl-mehltretter.pdf).
+An implementation of the [Mugda paper](docs/papers/termination-checking-for-a-dependently-typed-language--karl-mehltretter.pdf) by Karl Mehltretter.
 
 - Use [S-expression](https://github.com/cicada-lang/sexp) as overall syntax, to expression ideas clearly. **LONG LIVE LISP!**
 - Close to the paper, so that the code is easy to be reviewed with the paper.
@@ -25,6 +25,10 @@ npm run format        # Format the code
 npm run test          # Run test
 npm run test:watch    # Watch the testing
 ```
+
+## Thanks
+
+Thank you, Karl Mehltretter, for writing this paper.
 
 ## Contributions
 
