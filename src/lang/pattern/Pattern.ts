@@ -33,4 +33,14 @@ export function Data(name: string, args: Array<Pattern>): Data {
 export type Inaccessible = {
   family: "Pattern"
   kind: "Inaccessible"
+  // TODO The paper said `Exp` instead of `Pattern`, I am not sure yet.
+  pattern: Pattern
+}
+
+export function Inaccessible(pattern: Pattern): Inaccessible {
+  return {
+    family: "Pattern",
+    kind: "Inaccessible",
+    pattern,
+  }
 }
