@@ -1,7 +1,5 @@
 # 2 Semantics of Mugda expressions
 
-Stmts.Fn & Stmts.Cofn
-
 Values.Pi
 
 Values.Fn
