@@ -1,23 +1,6 @@
 # 2 Semantics of Mugda expressions
 
-Denotation
-
-- Σ : F → VAL × CLAUSE∗ × B
-
-  mapping a function constant to its type (as a value), the clauses and a
-  flag to indicate whether the clauses have been type-checked.
-
-- Σ : L → EXPR × VAL
-
-  mapping a global let constant to the expression and its type.
-
-- Σ : C → VAL
-
-  mapping a constructor constant to its type.
-
-- Σ : D → VAL × N
-
-  mapping a data type constant to its type and arity.
+Denotation -- constructors
 
 docs/tests -- Identity function
 docs/tests -- Booleans
