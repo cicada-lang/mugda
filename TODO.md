@@ -1,28 +1,23 @@
 # 2 Semantics of Mugda expressions
 
-Signature
+Denotation
 
-- A global map, from name to different kinds of denotations.
+- Σ : F → VAL × CLAUSE∗ × B
 
-  We can make them `Value` and only map to `Value`,
-  or we can use `Den` -- like in EOPL.
+  mapping a function constant to its type (as a value), the clauses and a
+  flag to indicate whether the clauses have been type-checked.
 
-  - Σ : F → VAL × CLAUSE∗ × B
+- Σ : L → EXPR × VAL
 
-    mapping a function constant to its type (as a value), the clauses and a
-    flag to indicate whether the clauses have been type-checked.
+  mapping a global let constant to the expression and its type.
 
-  - Σ : L → EXPR × VAL
+- Σ : C → VAL
 
-    mapping a global let constant to the expression and its type.
+  mapping a constructor constant to its type.
 
-  - Σ : C → VAL
+- Σ : D → VAL × N
 
-    mapping a constructor constant to its type.
-
-  - Σ : D → VAL × N
-
-    mapping a data type constant to its type and arity.
+  mapping a data type constant to its type and arity.
 
 docs/tests -- Identity function
 docs/tests -- Booleans
