@@ -24,6 +24,15 @@ Signature
 
     mapping a data type constant to its type and arity.
 
+docs/tests -- Identity function
+docs/tests -- Booleans
+docs/tests -- Natural numbers
+docs/tests -- Lists
+docs/tests -- Finitely branching trees
+docs/tests -- Vectors
+docs/tests -- Equality
+docs/tests -- Streams
+
 concrete syntax for Exp
 
 concrete syntax for Stmt
@@ -31,24 +40,6 @@ concrete syntax for Stmt
 Closure
 
 evaluate
-
-# 2.4 Example programs
-
-Identity function
-
-Booleans
-
-Natural numbers
-
-Lists
-
-Finitely branching trees
-
-Vectors
-
-Equality
-
-Streams
 
 # 3 Type-Checking
 
