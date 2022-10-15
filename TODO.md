@@ -1,14 +1,5 @@
 # 2 Semantics of Mugda expressions
 
-Values.Atom
-
-- k -- generic value // neutral var?
-  "A generic value k ∈ N represents the computed value of a variable during"
-- Type
-- c -- constructor name
-- f -- function name
-- D -- data name
-
 Signature
 
 - A global map, from name to different kinds of denotations.
