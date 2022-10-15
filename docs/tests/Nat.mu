@@ -1,4 +1,4 @@
-(data Nat Set
+(data Nat Type
   [zero Nat]
   [add1 (-> Nat Nat)])
 

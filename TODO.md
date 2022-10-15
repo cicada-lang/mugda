@@ -1,4 +1,3 @@
-docs/tests -- Lists
 docs/tests -- Finitely branching trees
 docs/tests -- Vectors
 docs/tests -- Equality

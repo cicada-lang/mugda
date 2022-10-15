@@ -1,3 +1,3 @@
-(let id (Pi ([A Set]) (-> A A))
+(let id (Pi ([A Type]) (-> A A))
   (lambda (A)
     (lambda (a) a)))
