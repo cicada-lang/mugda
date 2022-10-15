@@ -28,9 +28,13 @@ docs/tests -- Vectors
 docs/tests -- Equality
 docs/tests -- Streams
 
+# syntax
+
 concrete syntax for Exp
 
 concrete syntax for Stmt
+
+# evaluation
 
 evaluate
 
