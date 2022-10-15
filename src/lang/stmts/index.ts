@@ -1,5 +1,5 @@
+export * from "./Codata"
+export * from "./Cofn"
 export * from "./Data"
-// export * from "./Codata"
+export * from "./Fn"
 export * from "./LetThe"
-// export * from "./Fn"
-// export * from "./Cofn"

@@ -1,11 +1,5 @@
 # 2 Semantics of Mugda expressions
 
-Values.Pi
-
-Values.Fn
-
-Values.Ap
-
 Values.Atom
 
 - k -- generic value // neutral var?
@@ -42,6 +36,8 @@ Signature
 concrete syntax for Exp
 
 concrete syntax for Stmt
+
+Closure
 
 evaluate
 
