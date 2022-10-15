@@ -3,15 +3,15 @@ docs/tests -- Vectors
 docs/tests -- Equality
 docs/tests -- Streams
 
+# evaluation
+
+evaluate
+
 # syntax
 
 concrete syntax for Exp
 
 concrete syntax for Stmt
-
-# evaluation
-
-evaluate
 
 # 3 Type-Checking
 
