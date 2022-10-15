@@ -1,12 +1,6 @@
 # 2 Semantics of Mugda expressions
 
-Stmts.Fn
-
-- with Clause definitions
-
-Stmts.Cofn
-
-- with Clause definitions
+Stmts.Fn & Stmts.Cofn
 
 Values.Pi
 
