@@ -1,13 +1,5 @@
 # 2 Semantics of Mugda expressions
 
-Stmts.Data
-
-- with Telescope and Constructors definitions
-
-Stmts.Codata
-
-- with Telescope and Constructors definitions
-
 Stmts.Fn
 
 - with Clause definitions
