@@ -1,6 +1,5 @@
 # 2 Semantics of Mugda expressions
 
-docs/tests -- Booleans
 docs/tests -- Natural numbers
 docs/tests -- Lists
 docs/tests -- Finitely branching trees
