@@ -37,8 +37,6 @@ concrete syntax for Exp
 
 concrete syntax for Stmt
 
-Closure
-
 evaluate
 
 # 3 Type-Checking
