@@ -1,7 +1,5 @@
 # 2 Semantics of Mugda expressions
 
-Denotation -- constructors
-
 docs/tests -- Identity function
 docs/tests -- Booleans
 docs/tests -- Natural numbers
