@@ -1,3 +1,4 @@
+import { Closure } from "../closure"
 import { Env } from "../env"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
@@ -17,11 +18,11 @@ export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
     }
 
     case "Pi": {
-      throw new Error("TODO")
+      return Values.Pi(evaluate(mod, env, exp.argType), Closure(mod, env, exp.name, exp.retType))
     }
 
     case "Fn": {
-      throw new Error("TODO")
+      return Values.Fn(Closure(mod, env, exp.name, exp.ret))
     }
 
     case "Ap": {

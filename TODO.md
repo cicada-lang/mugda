@@ -1,10 +1,8 @@
 # evaluation
 
-evaluate -- Var
-evaluate -- Pi
-evaluate -- Ap
-evaluate -- Fn
 evaluate -- Let
+evaluate -- Var
+evaluate -- Ap
 
 # syntax
 

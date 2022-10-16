@@ -53,16 +53,14 @@ export function Type(): Type {
 export type Pi = {
   family: "Value"
   kind: "Pi"
-  name: string
   argType: Value
   retTypeClosure: Closure
 }
 
-export function Pi(name: string, argType: Value, retTypeClosure: Closure): Pi {
+export function Pi(argType: Value, retTypeClosure: Closure): Pi {
   return {
     family: "Value",
     kind: "Pi",
-    name,
     argType,
     retTypeClosure,
   }
@@ -71,15 +69,13 @@ export function Pi(name: string, argType: Value, retTypeClosure: Closure): Pi {
 export type Fn = {
   family: "Value"
   kind: "Fn"
-  name: string
   retClosure: Closure
 }
 
-export function Fn(name: string, retClosure: Closure): Fn {
+export function Fn(retClosure: Closure): Fn {
   return {
     family: "Value",
     kind: "Fn",
-    name,
     retClosure,
   }
 }
