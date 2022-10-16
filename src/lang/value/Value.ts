@@ -8,7 +8,7 @@ export type Value = Var | Type | Pi | Fn | Ap | Ref
 
    NOTE The paper does not use `Neutral`, `Var` and `Ap` are values.
 
-   NOTE The paper uses `ApUnfolded` instead of `Ap`, I am not sure it is necessary.
+   NOTE The paper uses `ApUnfolded` instead of `Ap`.
 
    NOTE In the paper, `Neutrals.Var` is called generic value,
    and index is used instead of bound name.
