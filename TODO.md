@@ -1,6 +1,9 @@
 # evaluation
 
-evaluate -- Var
+evaluate -- Var -- lookup mod.denotations
+
+- LetThe is special
+- other names might be distinguished as different identifiers here
 
 Actions.doAp
 

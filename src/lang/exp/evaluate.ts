@@ -1,6 +1,7 @@
 import * as Actions from "../actions"
 import { Closure } from "../closure"
-import { Env, EnvCons } from "../env"
+import { Env, EnvCons, lookupValueInEnv } from "../env"
+import * as Errors from "../errors"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import * as Values from "../value"
@@ -15,7 +16,14 @@ import { Value } from "../value"
 export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
   switch (exp.kind) {
     case "Var": {
-      throw new Error("TODO")
+      const value = lookupValueInEnv(env, exp.name)
+      if (value === undefined) {
+        throw new Errors.EvaluationError(`Undefined name: ${exp.name}`)
+      }
+
+      // TODO lookup mod.denotations
+
+      return value
     }
 
     case "Pi": {
