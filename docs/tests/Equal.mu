@@ -7,7 +7,7 @@
     (Pi ([x Nat]) (Equal Nat (add x zero) x))
   (lambda (y) (refl Nat y)))
 
-;; NOTE The follow is a wrong proof,
+;; The follow is a wrong proof,
 ;; due to the definition of `add`.
 (let add-zero-x-is-equal-to-x--wrong-proof
     (Pi ([x Nat]) (Equal Nat (add zero x) x))
@@ -19,7 +19,7 @@
           (Equal Nat (add1 x) (add1 y))))
   [(add1-equal (# x) (# x) (refl (# Nat) x)) (refl Nat (add1 x))])
 
-;; NOTE Alternative syntax:
+;; Alternative syntax:
 (claim add1-equal
   (Pi ([x Nat] [y Nat])
     (-> (Equal Nat x y)

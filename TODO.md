@@ -1,5 +1,3 @@
-docs/tests -- Stream
-
 # evaluation
 
 evaluate
