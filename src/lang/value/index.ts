@@ -1,6 +1,6 @@
 import { Closure } from "../closure"
 
-export type Value = Var | Type | Pi | Fn | Ap
+export type Value = Var | Type | Pi | Fn | Ap | Ref
 
 /**
 
@@ -14,13 +14,6 @@ export type Value = Var | Type | Pi | Fn | Ap
    and index is used instead of bound name.
 
    "A generic value k ∈ N represents the computed value of a variable during type-checking."
-
-   `Var` of different kind of identifiers are distinguished in `Exp`,
-   I am not sure it is necessary.
-
-   | c | constructor name |
-   | f | function name    |
-   | D | data name        |
 
 **/
 
@@ -93,5 +86,49 @@ export function Ap(target: Value, arg: Value): Ap {
     kind: "Ap",
     target,
     arg,
+  }
+}
+
+export type Ref = RefFn | RefData | RefCtor
+
+export type RefFn = {
+  family: "Value"
+  kind: "RefFn"
+  name: string
+}
+
+export function RefFn(name: string): RefFn {
+  return {
+    family: "Value",
+    kind: "RefFn",
+    name,
+  }
+}
+
+export type RefData = {
+  family: "Value"
+  kind: "RefData"
+  name: string
+}
+
+export function RefData(name: string): RefData {
+  return {
+    family: "Value",
+    kind: "RefData",
+    name,
+  }
+}
+
+export type RefCtor = {
+  family: "Value"
+  kind: "RefCtor"
+  name: string
+}
+
+export function RefCtor(name: string): RefCtor {
+  return {
+    family: "Value",
+    kind: "RefCtor",
+    name,
   }
 }

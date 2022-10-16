@@ -2,8 +2,7 @@
 
 evaluate -- Var -- lookup mod.denotations
 
-- LetThe is special
-- other names might be distinguished as different identifiers here
+- `LetThe` need to be handled specially
 
 Actions.doAp
 
