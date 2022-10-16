@@ -1,5 +1,4 @@
-docs/tests -- Equality
-docs/tests -- Streams
+docs/tests -- Stream
 
 # evaluation
 
