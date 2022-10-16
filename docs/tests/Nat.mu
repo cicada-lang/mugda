@@ -8,7 +8,7 @@
 
 (fn add' (-> Nat Nat Nat)
   [(add' x zero) x]
-  [(add' x (add' y)) (add' (add y x))])
+  [(add' x (add' y)) (add1 (add‘ y x))])
 
 (data Boolean Type
   [true Boolean]
