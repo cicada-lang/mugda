@@ -1,5 +1,6 @@
 import * as Actions from "../actions"
 import { Closure } from "../closure"
+import { evaluateDenotation } from "../denotation"
 import { Env, EnvCons, lookupValueInEnv } from "../env"
 import * as Errors from "../errors"
 import { Exp } from "../exp"
@@ -17,13 +18,16 @@ export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
   switch (exp.kind) {
     case "Var": {
       const value = lookupValueInEnv(env, exp.name)
-      if (value === undefined) {
-        throw new Errors.EvaluationError(`Undefined name: ${exp.name}`)
+      if (value !== undefined) {
+        return value
       }
 
-      // TODO lookup mod.denotations
+      const denotation = mod.denotations.get(exp.name)
+      if (denotation !== undefined) {
+        return evaluateDenotation(mod, env, exp.name, denotation)
+      }
 
-      return value
+      throw new Errors.EvaluationError(`Undefined name: ${exp.name}`)
     }
 
     case "Pi": {

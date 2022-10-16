@@ -1,9 +1,3 @@
-# evaluation
-
-evaluate -- Var -- lookup mod.denotations
-
-- `LetThe` need to be handled specially
-
 Actions.doAp
 
 # syntax
