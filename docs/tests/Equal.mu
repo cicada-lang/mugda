@@ -19,14 +19,6 @@
           (Equal Nat (add1 x) (add1 y))))
   [(add1-equal (# x) (# x) (refl (# Nat) x)) (refl Nat (add1 x))])
 
-;; Alternative syntax:
-(claim add1-equal
-  (Pi ([x Nat] [y Nat])
-    (-> (Equal Nat x y)
-        (Equal Nat (add1 x) (add1 y)))))
-(case (add1-equal (# x) (# x) (refl (# Nat) x))
-  (refl Nat (add1 x)))
-
 (fn add-zero-x-is-equal-to-x
     (Pi ([x Nat]) (Equal Nat (add zero x) x))
   [(add-zero-x-is-equal-to-x zero) (refl Nat zero)]
