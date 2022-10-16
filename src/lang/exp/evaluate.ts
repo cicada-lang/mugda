@@ -1,3 +1,4 @@
+import * as Actions from "../actions"
 import { Closure } from "../closure"
 import { Env } from "../env"
 import { Exp } from "../exp"
@@ -26,7 +27,7 @@ export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
     }
 
     case "Ap": {
-      throw new Error("TODO")
+      return Actions.doAp(evaluate(mod, env, exp.target), evaluate(mod, env, exp.arg))
     }
 
     case "Let": {

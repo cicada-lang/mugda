@@ -2,7 +2,8 @@
 
 evaluate -- Let
 evaluate -- Var
-evaluate -- Ap
+
+Actions.doAp
 
 # syntax
 
