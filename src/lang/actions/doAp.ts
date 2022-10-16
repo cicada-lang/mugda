@@ -7,19 +7,8 @@ export function doAp(target: Value, arg: Value): Value {
     return applyClosure(target.retClosure, arg)
   }
 
-  // case "Fn": {
-  //   throw new Error("TODO")
-  // }
-
-  // case "RefFn": {
-  //   throw new Error("TODO")
-  // }
-
-  // case "RefCtor": {
-  //   return target.throw new Error("TODO")
-  // }
-
-  return Values.Ap(target, arg)
+  const unfolded = Values.unfoldAp(target, arg)
+  return doApUnfolded(unfolded.target, unfolded.args)
 }
 
 export function doApUnfolded(target: Value, args: Array<Value>): Value {
