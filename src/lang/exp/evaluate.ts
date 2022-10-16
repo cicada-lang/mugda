@@ -1,6 +1,6 @@
 import * as Actions from "../actions"
 import { Closure } from "../closure"
-import { Env } from "../env"
+import { Env, EnvCons } from "../env"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import * as Values from "../value"
@@ -31,7 +31,8 @@ export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
     }
 
     case "Let": {
-      throw new Error("TODO")
+      env = EnvCons(exp.name, evaluate(mod, env, exp.exp), env)
+      return evaluate(mod, env, exp.ret)
     }
 
     case "Type": {

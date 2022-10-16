@@ -83,20 +83,20 @@ export function Ap(target: Exp, arg: Exp): Ap {
 export type Let = {
   family: "Exp"
   kind: "Let"
-  name: Exp
+  name: string
   type: Exp
   exp: Exp
-  boby: Exp
+  ret: Exp
 }
 
-export function Let(name: Exp, type: Exp, exp: Exp, boby: Exp): Let {
+export function Let(name: string, type: Exp, exp: Exp, ret: Exp): Let {
   return {
     family: "Exp",
     kind: "Let",
     name,
     type,
     exp,
-    boby,
+    ret,
   }
 }
 

@@ -1,6 +1,5 @@
 # evaluation
 
-evaluate -- Let
 evaluate -- Var
 
 Actions.doAp
