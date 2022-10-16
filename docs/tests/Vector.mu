@@ -5,6 +5,7 @@
   [cons (Pi ([n Nat]) (-> A (Vector A n) (Vector A (add1 n))))])
 
 ;; We use `(#)` for inaccessible pattern.
+
 (fn head (Pi ([A Type] [n Nat]) (-> (Vector A (add1 n)) A))
   [(head (# B) (# m) (cons B m x xl)) x])
 
