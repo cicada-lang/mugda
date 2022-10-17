@@ -8,8 +8,8 @@ export function doAp(target: Value, arg: Value): Value {
     return applyClosure(target.retClosure, arg)
   }
 
-  const unfolded = Values.unfoldAp(target, arg)
-  return doApUnfolded(unfolded.target, unfolded.args)
+  const unfolded = Values.unfoldAp(target)
+  return doApUnfolded(unfolded.target, [...unfolded.args, arg])
 }
 
 export function doApUnfolded(target: Value, args: Array<Value>): Value {
