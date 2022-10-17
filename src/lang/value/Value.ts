@@ -1,6 +1,7 @@
+import { Clause } from "../clause"
 import { Closure } from "../closure"
 
-export type Value = Var | Type | Pi | Fn | Ap | Ref
+export type Value = Var | Type | Pi | Fn | FnClauses | Ap | Data | Ctor
 
 /**
 
@@ -73,6 +74,24 @@ export function Fn(retClosure: Closure): Fn {
   }
 }
 
+export type FnClauses = {
+  family: "Value"
+  kind: "FnClauses"
+  type: Value
+  clauses: Array<Clause>
+  isTypeChecked: boolean
+}
+
+export function FnClauses(type: Value, clauses: Array<Clause>, isTypeChecked: boolean): FnClauses {
+  return {
+    family: "Value",
+    kind: "FnClauses",
+    type,
+    clauses,
+    isTypeChecked,
+  }
+}
+
 export type Ap = {
   family: "Value"
   kind: "Ap"
@@ -89,46 +108,32 @@ export function Ap(target: Value, arg: Value): Ap {
   }
 }
 
-export type Ref = RefFn | RefData | RefCtor
-
-export type RefFn = {
+export type Ctor = {
   family: "Value"
-  kind: "RefFn"
-  name: string
+  kind: "Ctor"
+  type: Value
 }
 
-export function RefFn(name: string): RefFn {
+export function Ctor(type: Value): Ctor {
   return {
     family: "Value",
-    kind: "RefFn",
-    name,
+    kind: "Ctor",
+    type,
   }
 }
 
-export type RefData = {
+export type Data = {
   family: "Value"
-  kind: "RefData"
-  name: string
+  kind: "Data"
+  type: Value
+  arity: number
 }
 
-export function RefData(name: string): RefData {
+export function Data(type: Value, arity: number): Data {
   return {
     family: "Value",
-    kind: "RefData",
-    name,
-  }
-}
-
-export type RefCtor = {
-  family: "Value"
-  kind: "RefCtor"
-  name: string
-}
-
-export function RefCtor(name: string): RefCtor {
-  return {
-    family: "Value",
-    kind: "RefCtor",
-    name,
+    kind: "Data",
+    type,
+    arity,
   }
 }

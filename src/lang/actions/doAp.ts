@@ -12,5 +12,6 @@ export function doAp(target: Value, arg: Value): Value {
 }
 
 export function doApUnfolded(target: Value, args: Array<Value>): Value {
-  throw new Error()
+  // TODO
+  return args.reduce((value, arg) => Values.Ap(value, arg), target)
 }
