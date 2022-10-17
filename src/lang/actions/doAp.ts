@@ -13,7 +13,7 @@ export function doAp(target: Value, arg: Value): Value {
 }
 
 export function doApUnfolded(target: Value, args: Array<Value>): Value {
-  if (target.kind === "FnClauses" && target.isTypeChecked) {
+  if (target.kind === "FnClauses" && target.isChecked) {
     return matchClauses(target.clauses, args)
   }
 

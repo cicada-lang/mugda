@@ -79,16 +79,16 @@ export type FnClauses = {
   kind: "FnClauses"
   type: Value
   clauses: Array<Clause>
-  isTypeChecked: boolean
+  isChecked: boolean
 }
 
-export function FnClauses(type: Value, clauses: Array<Clause>, isTypeChecked: boolean): FnClauses {
+export function FnClauses(type: Value, clauses: Array<Clause>, isChecked: boolean): FnClauses {
   return {
     family: "Value",
     kind: "FnClauses",
     type,
     clauses,
-    isTypeChecked,
+    isChecked,
   }
 }
 

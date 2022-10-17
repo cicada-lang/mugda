@@ -2,6 +2,8 @@ matchClauses
 
 matchClause
 
+matchPattern
+
 # syntax
 
 concrete syntax for Exp
