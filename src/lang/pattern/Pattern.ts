@@ -1,4 +1,4 @@
-export type Pattern = Var | Data | Inaccessible
+export type Pattern = Var | Ctor | Coctor | Inaccessible
 
 export type Var = {
   family: "Pattern"
@@ -14,17 +14,33 @@ export function Var(name: string): Var {
   }
 }
 
-export type Data = {
+export type Ctor = {
   family: "Pattern"
-  kind: "Data"
+  kind: "Ctor"
   name: string
   args: Array<Pattern>
 }
 
-export function Data(name: string, args: Array<Pattern>): Data {
+export function Ctor(name: string, args: Array<Pattern>): Ctor {
   return {
     family: "Pattern",
-    kind: "Data",
+    kind: "Ctor",
+    name,
+    args,
+  }
+}
+
+export type Coctor = {
+  family: "Pattern"
+  kind: "Coctor"
+  name: string
+  args: Array<Pattern>
+}
+
+export function Coctor(name: string, args: Array<Pattern>): Coctor {
+  return {
+    family: "Pattern",
+    kind: "Coctor",
     name,
     args,
   }
@@ -33,7 +49,6 @@ export function Data(name: string, args: Array<Pattern>): Data {
 export type Inaccessible = {
   family: "Pattern"
   kind: "Inaccessible"
-  // TODO The paper said `Exp` instead of `Pattern`, I am not sure yet.
   pattern: Pattern
 }
 
