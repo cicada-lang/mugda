@@ -1,6 +1,7 @@
 import { Env, EnvCons } from "../env"
 import { Pattern } from "../pattern"
-import { unfoldAp, Value } from "../value"
+import * as Values from "../value"
+import { Value } from "../value"
 
 export function matchPattern(
   env: Env,
@@ -13,14 +14,15 @@ export function matchPattern(
     }
 
     case "Ctor": {
-      const unfolded = unfoldAp(value)
+      const unfolded = Values.unfoldAp(value)
       if (unfolded.target.kind !== "Ctor") return undefined
       if (unfolded.target.kind !== pattern.name) return undefined
       return matchPatterns(env, pattern.args, unfolded.args)
     }
 
     case "Coctor": {
-      const unfolded = unfoldAp(value)
+      value = Values.force(value)
+      const unfolded = Values.unfoldAp(value)
       if (unfolded.target.kind !== "Coctor") return undefined
       if (unfolded.target.kind !== pattern.name) return undefined
       return matchPatterns(env, pattern.args, unfolded.args)

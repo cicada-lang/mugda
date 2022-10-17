@@ -1,4 +1,8 @@
-matchPattern -- `force` for `Coctor`
+Values.force
+
+evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
+
+- Add `Values.Lazy`
 
 # syntax
 
