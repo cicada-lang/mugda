@@ -1,3 +1,4 @@
+import { matchClauses } from "../clause"
 import { applyClosure } from "../closure"
 import * as Values from "../value"
 import { Value } from "../value"
@@ -12,6 +13,9 @@ export function doAp(target: Value, arg: Value): Value {
 }
 
 export function doApUnfolded(target: Value, args: Array<Value>): Value {
-  // TODO
+  if (target.kind === "FnClauses" && target.isTypeChecked) {
+    return matchClauses(target.clauses, args)
+  }
+
   return args.reduce((value, arg) => Values.Ap(value, arg), target)
 }
