@@ -14,7 +14,8 @@ export function doAp(target: Value, arg: Value): Value {
 
 export function doApUnfolded(target: Value, args: Array<Value>): Value {
   if (target.kind === "FnClauses" && target.isChecked) {
-    return matchClauses(target.clauses, args)
+    const value = matchClauses(target.clauses, args)
+    if (value !== undefined) return value
   }
 
   return args.reduce((value, arg) => Values.Ap(value, arg), target)

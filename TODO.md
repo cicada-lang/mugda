@@ -1,8 +1,4 @@
-matchClause
-
 matchPattern
-
-[maybe] `doApUnfolded` -- handles `arity`
 
 # syntax
 
