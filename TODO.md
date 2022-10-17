@@ -1,4 +1,3 @@
-matchPattern
 matchPatterns
 matchPattern -- `force` for `Coctor`
 
