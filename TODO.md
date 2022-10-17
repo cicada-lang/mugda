@@ -4,6 +4,8 @@ matchClause
 
 matchPattern
 
+[maybe] `doApUnfolded` -- handles `arity`
+
 # syntax
 
 concrete syntax for Exp

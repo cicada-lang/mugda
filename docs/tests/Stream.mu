@@ -15,4 +15,4 @@
   [(zeroes) (cons zero zeroes)])
 
 (fn head (-> Stream Nat)
-  [(head (cons x xs)) x])
+  [((cons x xs)) x])

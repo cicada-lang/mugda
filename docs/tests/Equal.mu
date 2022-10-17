@@ -17,10 +17,10 @@
     (Pi ([x Nat] [y Nat])
       (-> (Equal Nat x y)
           (Equal Nat (add1 x) (add1 y))))
-  [(add1-equal (# x) (# x) (refl (# Nat) x)) (refl Nat (add1 x))])
+  [((# x) (# x) (refl (# Nat) x)) (refl Nat (add1 x))])
 
 (fn add-zero-x-is-equal-to-x
     (Pi ([x Nat]) (Equal Nat (add zero x) x))
-  [(add-zero-x-is-equal-to-x zero) (refl Nat zero)]
-  [(add-zero-x-is-equal-to-x (add1 x))
+  [(zero) (refl Nat zero)]
+  [((add1 x))
    (add1-equal (add zero x) x (add-zero-x-is-equal-to-x x))])
