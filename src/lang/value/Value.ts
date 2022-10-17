@@ -1,7 +1,17 @@
 import { Clause } from "../clause"
 import { Closure } from "../closure"
 
-export type Value = Var | Type | Pi | Fn | FnClauses | Ap | Data | Ctor | Codata | Coctor
+export type Value =
+  | Var
+  | Type
+  | Pi
+  | Fn
+  | FnClauses
+  | Ap
+  | Data
+  | Ctor
+  | Codata
+  | Coctor
 
 /**
 
@@ -80,7 +90,11 @@ export type FnClauses = {
   isChecked: boolean
 }
 
-export function FnClauses(type: Value, clauses: Array<Clause>, isChecked: boolean): FnClauses {
+export function FnClauses(
+  type: Value,
+  clauses: Array<Clause>,
+  isChecked: boolean,
+): FnClauses {
   return {
     family: "Value",
     kind: "FnClauses",
@@ -125,13 +139,15 @@ export function Data(type: Value, arity: number): Data {
 export type Ctor = {
   family: "Value"
   kind: "Ctor"
+  name: string
   type: Value
 }
 
-export function Ctor(type: Value): Ctor {
+export function Ctor(name: string, type: Value): Ctor {
   return {
     family: "Value",
     kind: "Ctor",
+    name,
     type,
   }
 }
@@ -155,13 +171,15 @@ export function Codata(type: Value, arity: number): Codata {
 export type Coctor = {
   family: "Value"
   kind: "Coctor"
+  name: string
   type: Value
 }
 
-export function Coctor(type: Value): Coctor {
+export function Coctor(name: string, type: Value): Coctor {
   return {
     family: "Value",
     kind: "Coctor",
+    name,
     type,
   }
 }

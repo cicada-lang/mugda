@@ -5,7 +5,10 @@ import { evaluate, Exp } from "../exp"
 import { matchPattern, Pattern } from "../pattern"
 import { Value } from "../value"
 
-export function matchClauses(clauses: Array<Clause>, args: Array<Value>): Value | undefined {
+export function matchClauses(
+  clauses: Array<Clause>,
+  args: Array<Value>,
+): Value | undefined {
   for (const clause of clauses) {
     const value = matchClause(EnvNull(), clause.patterns, clause.ret, args)
     if (value !== undefined) return value

@@ -1,6 +1,9 @@
 import { Exp } from "../exp"
 
-export type Telescope = TelescopeNull | TelescopeParameter | TelescopeParameterPositive
+export type Telescope =
+  | TelescopeNull
+  | TelescopeParameter
+  | TelescopeParameterPositive
 
 export type TelescopeNull = {
   kind: "TelescopeNull"
@@ -19,7 +22,11 @@ export type TelescopeParameter = {
   rest: Telescope
 }
 
-export function TelescopeParameter(name: string, type: Exp, rest: Telescope): TelescopeParameter {
+export function TelescopeParameter(
+  name: string,
+  type: Exp,
+  rest: Telescope,
+): TelescopeParameter {
   return {
     kind: "TelescopeParameter",
     name,

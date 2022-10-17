@@ -24,7 +24,10 @@ export function evaluate(env: Env, exp: Exp): Value {
     }
 
     case "Pi": {
-      return Values.Pi(evaluate(env, exp.argType), Closure(env, exp.name, exp.retType))
+      return Values.Pi(
+        evaluate(env, exp.argType),
+        Closure(env, exp.name, exp.retType),
+      )
     }
 
     case "Fn": {
