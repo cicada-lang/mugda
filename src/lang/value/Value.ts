@@ -7,12 +7,10 @@ export type Value = Var | Type | Pi | Fn | FnClauses | Ap | Data | Ctor | Codata
 
    NOTE The paper call `Set` we call `Type`.
 
-   NOTE The paper does not use `Neutral`, `Var` and `Ap` are values.
-
    NOTE The paper uses `ApUnfolded` instead of `Ap`.
 
-   NOTE In the paper, `Neutrals.Var` is called generic value,
-   and index is used instead of bound name.
+   NOTE The paper does not use `Neutral`, `Var` and `Ap` are values.
+   `Neutrals.Var` is called generic value, and index is used instead of bound name.
 
    "A generic value k ∈ N represents the computed value of a variable during type-checking."
 
