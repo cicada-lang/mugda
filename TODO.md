@@ -1,16 +1,15 @@
-Values.force
-
-evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
-
-- Add `Values.Lazy`
-
 # syntax
 
 concrete syntax for Exp
 
 concrete syntax for Stmt
 
-# module system
+module system -- Stmts.import
+
+evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
+
+- Values.force
+- Add `Values.Lazy`
 
 # 3 Type-Checking
 
