@@ -1,7 +1,7 @@
 import { Clause } from "../clause"
 import { Closure } from "../closure"
 
-export type Value = Var | Type | Pi | Fn | FnClauses | Ap | Data | Ctor
+export type Value = Var | Type | Pi | Fn | FnClauses | Ap | Data | Ctor | Codata | Coctor
 
 /**
 
@@ -108,6 +108,22 @@ export function Ap(target: Value, arg: Value): Ap {
   }
 }
 
+export type Data = {
+  family: "Value"
+  kind: "Data"
+  type: Value
+  arity: number
+}
+
+export function Data(type: Value, arity: number): Data {
+  return {
+    family: "Value",
+    kind: "Data",
+    type,
+    arity,
+  }
+}
+
 export type Ctor = {
   family: "Value"
   kind: "Ctor"
@@ -122,18 +138,32 @@ export function Ctor(type: Value): Ctor {
   }
 }
 
-export type Data = {
+export type Codata = {
   family: "Value"
-  kind: "Data"
+  kind: "Codata"
   type: Value
   arity: number
 }
 
-export function Data(type: Value, arity: number): Data {
+export function Codata(type: Value, arity: number): Codata {
   return {
     family: "Value",
-    kind: "Data",
+    kind: "Codata",
     type,
     arity,
+  }
+}
+
+export type Coctor = {
+  family: "Value"
+  kind: "Coctor"
+  type: Value
+}
+
+export function Coctor(type: Value): Coctor {
+  return {
+    family: "Value",
+    kind: "Coctor",
+    type,
   }
 }
