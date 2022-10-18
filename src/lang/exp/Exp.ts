@@ -1,4 +1,4 @@
-export type Exp = Var | Pi | Fn | Ap | Let | Type
+export type Exp = Var | Pi | PiUnfolded | Fn | Ap | Let | Type
 
 /**
 
@@ -35,6 +35,61 @@ export function Pi(name: string, argType: Exp, retType: Exp): Pi {
     name,
     argType,
     retType,
+  }
+}
+
+export type PiUnfolded = {
+  family: "Exp"
+  kind: "PiUnfolded"
+  bindings: Array<PiBinding>
+  retType: Exp
+}
+
+export function PiUnfolded(
+  bindings: Array<PiBinding>,
+  retType: Exp,
+): PiUnfolded {
+  return {
+    family: "Exp",
+    kind: "PiUnfolded",
+    bindings,
+    retType,
+  }
+}
+
+export type PiBinding = PiBindingParameter | PiBindingParameterPositive
+
+export type PiBindingParameter = {
+  kind: "PiBindingParameter"
+  name: string
+  type: Exp
+}
+
+export function PiBindingParameter(
+  name: string,
+  type: Exp,
+): PiBindingParameter {
+  return {
+    kind: "PiBindingParameter",
+    name,
+    type,
+  }
+}
+
+export type PiBindingParameterPositive = {
+  kind: "PiBindingParameterPositive"
+  name: string
+  type: Exp
+}
+
+export function PiBindingParameterPositive(
+  name: string,
+  type: Exp,
+): PiBindingParameterPositive {
+  return {
+    kind: "PiBindingParameterPositive",
+    name,
+    type,
   }
 }
 

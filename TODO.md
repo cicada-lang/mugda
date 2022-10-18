@@ -1,4 +1,4 @@
-Exps.Pi -- syntax
+evaluate -- `PiUnfolded`
 Exps.Let -- syntax
 
 formatValue -- for `Stmts.Compute`

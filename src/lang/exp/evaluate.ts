@@ -30,6 +30,10 @@ export function evaluate(env: Env, exp: Exp): Value {
       )
     }
 
+    case "PiUnfolded": {
+      throw new Error("TODO")
+    }
+
     case "Fn": {
       return Values.Fn(Closure(env, exp.name, exp.ret))
     }

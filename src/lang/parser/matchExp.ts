@@ -13,6 +13,11 @@ export function matchExp(sexp: Sexp): Exp {
         ),
     ],
     [
+      ["Pi", v("bindings"), v("retType")],
+      ({ bindings, retType }) =>
+        Exps.PiUnfolded(matchList(bindings, matchPiBinding), matchExp(retType)),
+    ],
+    [
       cons(v("target"), v("args")),
       ({ target, args }) =>
         matchList(args, matchExp).reduce(
@@ -21,5 +26,20 @@ export function matchExp(sexp: Sexp): Exp {
         ),
     ],
     [v("name"), ({ name }) => Exps.Var(matchSymbol(name))],
+  ])
+}
+
+function matchPiBinding(sexp: Sexp): Exps.PiBinding {
+  return match<Exps.PiBinding>(sexp, [
+    [
+      [v("name"), v("type")],
+      ({ name, type }) =>
+        Exps.PiBindingParameter(matchSymbol(name), matchExp(type)),
+    ],
+    [
+      ["+", v("name"), v("type")],
+      ({ name, type }) =>
+        Exps.PiBindingParameterPositive(matchSymbol(name), matchExp(type)),
+    ],
   ])
 }
