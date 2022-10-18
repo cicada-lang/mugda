@@ -5,6 +5,7 @@ formatValue -- for `Stmts.Compute`
 
 Stmts.Fn & Stmts.Cofn -- syntax
 Stmts.Data & Stmts.Codata -- syntax
+
 Stmts.Fn & Stmts.Cofn -- `execute`
 Stmts.Data & Stmts.Codata -- `execute`
 
@@ -13,7 +14,7 @@ evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
 - Values.force
 - Add `Values.Lazy`
 
-use test-runner
+test by test-runner
 
 # 3 Type-Checking
 
