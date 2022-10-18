@@ -56,9 +56,5 @@ export function evaluate(env: Env, exp: Exp): Value {
     case "LetUnfolded": {
       return evaluate(env, Exps.foldLet(exp.bindings, exp.ret))
     }
-
-    case "Type": {
-      return Values.Type()
-    }
   }
 }

@@ -2,22 +2,7 @@ import { Span } from "../span"
 
 type ExpMeta = { span?: Span }
 
-export type Exp =
-  | Var
-  | Pi
-  | PiUnfolded
-  | Arrow
-  | Fn
-  | Ap
-  | Let
-  | LetUnfolded
-  | Type
-
-/**
-
-   NOTE The paper uses `ApUnfolded` instead of `Ap`.
-
-**/
+export type Exp = Var | Pi | PiUnfolded | Arrow | Fn | Ap | Let | LetUnfolded
 
 export type Var = {
   family: "Exp"
@@ -226,18 +211,5 @@ export function LetBindingTyped(
     name,
     exp,
     type,
-  }
-}
-
-export type Type = {
-  family: "Exp"
-  kind: "Type"
-} & ExpMeta
-
-export function Type(span?: Span): Type {
-  return {
-    family: "Exp",
-    kind: "Type",
-    span,
   }
 }

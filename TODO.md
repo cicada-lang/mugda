@@ -1,4 +1,3 @@
-remove Exps.Type
 error report in context
 
 formatPattern
