@@ -12,6 +12,8 @@ Stmts.Data & Stmts.Codata -- syntax
 Stmts.Fn & Stmts.Cofn -- `execute`
 Stmts.Data & Stmts.Codata -- `execute`
 
+improve `formatValue` -- with fold
+
 # lazy evaluation and Codata
 
 evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
