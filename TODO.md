@@ -2,6 +2,8 @@ Exps.Pi -- syntax
 Exps.Let -- syntax
 Exps.Type -- syntax
 
+formatValue -- for `Stmts.Compute`
+
 Stmts.Fn & Stmts.Cofn -- syntax
 Stmts.Data & Stmts.Codata -- syntax
 Stmts.Fn & Stmts.Cofn -- `execute`
