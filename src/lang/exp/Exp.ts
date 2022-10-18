@@ -1,4 +1,13 @@
-export type Exp = Var | Pi | PiUnfolded | Fn | Ap | Let | LetUnfolded | Type
+export type Exp =
+  | Var
+  | Pi
+  | PiUnfolded
+  | Arrow
+  | Fn
+  | Ap
+  | Let
+  | LetUnfolded
+  | Type
 
 /**
 
@@ -90,6 +99,20 @@ export function PiBindingParameterPositive(
     kind: "PiBindingParameterPositive",
     name,
     type,
+  }
+}
+
+export type Arrow = {
+  family: "Exp"
+  kind: "Arrow"
+  types: Array<Exp>
+}
+
+export function Arrow(types: Array<Exp>): Arrow {
+  return {
+    family: "Exp",
+    kind: "Arrow",
+    types,
   }
 }
 

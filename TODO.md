@@ -1,3 +1,5 @@
+foldArrow
+
 test by test-runner
 
 error report in context

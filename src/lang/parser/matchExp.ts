@@ -18,6 +18,10 @@ export function matchExp(sexp: Sexp): Exp {
         Exps.PiUnfolded(matchList(bindings, matchPiBinding), matchExp(retType)),
     ],
     [
+      cons("->", v("types")),
+      ({ types }) => Exps.Arrow(matchList(types, matchExp)),
+    ],
+    [
       ["let", v("bindings"), v("ret")],
       ({ bindings, ret }) =>
         Exps.LetUnfolded(matchList(bindings, matchLetBinding), matchExp(ret)),
