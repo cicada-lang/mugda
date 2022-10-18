@@ -123,14 +123,16 @@ export function Ap(target: Value, arg: Value): Ap {
 export type Data = {
   family: "Value"
   kind: "Data"
+  name: string
   type: Value
   arity: number
 }
 
-export function Data(type: Value, arity: number): Data {
+export function Data(name: string, type: Value, arity: number): Data {
   return {
     family: "Value",
     kind: "Data",
+    name,
     type,
     arity,
   }
@@ -155,14 +157,16 @@ export function Ctor(name: string, type: Value): Ctor {
 export type Codata = {
   family: "Value"
   kind: "Codata"
+  name: string
   type: Value
   arity: number
 }
 
-export function Codata(type: Value, arity: number): Codata {
+export function Codata(name: string, type: Value, arity: number): Codata {
   return {
     family: "Value",
     kind: "Codata",
+    name,
     type,
     arity,
   }

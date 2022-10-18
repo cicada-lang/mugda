@@ -1,7 +1,3 @@
-Data and Codata -- should has `name`
-
-formatValue -- for `Stmts.Compute`
-
 test by test-runner
 
 error report in context

@@ -41,19 +41,23 @@ export function formatValue(value: Value): string {
     }
 
     case "Data": {
-      return `(data )`
+      const type = formatValue(value.type)
+      return `(data ${value.name} ${type})`
     }
 
     case "Ctor": {
-      throw new Error("TODO")
+      const type = formatValue(value.type)
+      return `(ctor ${value.name} ${type})`
     }
 
     case "Codata": {
-      return `(codata )`
+      const type = formatValue(value.type)
+      return `(codata ${value.name} ${type})`
     }
 
     case "Coctor": {
-      throw new Error("TODO")
+      const type = formatValue(value.type)
+      return `(coctor ${value.name} ${type})`
     }
   }
 }
