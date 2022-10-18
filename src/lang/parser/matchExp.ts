@@ -14,36 +14,44 @@ export function matchExp(sexp: Sexp): Exp {
   return match<Exp>(sexp, [
     [
       ["lambda", v("names"), v("exp")],
-      ({ names, exp }) =>
+      ({ names, exp }, { span }) =>
         matchList(names, matchSymbol).reduceRight(
-          (fn, name) => Exps.Fn(name, fn),
+          (fn, name) => Exps.Fn(name, fn, span),
           matchExp(exp),
         ),
     ],
     [
       ["Pi", v("bindings"), v("retType")],
-      ({ bindings, retType }) =>
-        Exps.PiUnfolded(matchList(bindings, matchPiBinding), matchExp(retType)),
+      ({ bindings, retType }, { span }) =>
+        Exps.PiUnfolded(
+          matchList(bindings, matchPiBinding),
+          matchExp(retType),
+          span,
+        ),
     ],
     [
       list(["->", v("type")], v("types")),
-      ({ type, types }) =>
-        Exps.Arrow([matchExp(type), ...matchList(types, matchExp)]),
+      ({ type, types }, { span }) =>
+        Exps.Arrow([matchExp(type), ...matchList(types, matchExp)], span),
     ],
     [
       ["let", v("bindings"), v("ret")],
-      ({ bindings, ret }) =>
-        Exps.LetUnfolded(matchList(bindings, matchLetBinding), matchExp(ret)),
+      ({ bindings, ret }, { span }) =>
+        Exps.LetUnfolded(
+          matchList(bindings, matchLetBinding),
+          matchExp(ret),
+          span,
+        ),
     ],
     [
       cons(v("target"), v("args")),
-      ({ target, args }) =>
+      ({ target, args }, { span }) =>
         matchList(args, matchExp).reduce(
-          (result, arg) => Exps.Ap(result, arg),
+          (result, arg) => Exps.Ap(result, arg, span),
           matchExp(target),
         ),
     ],
-    [v("name"), ({ name }) => Exps.Var(matchSymbol(name))],
+    [v("name"), ({ name }, { span }) => Exps.Var(matchSymbol(name), span)],
   ])
 }
 
