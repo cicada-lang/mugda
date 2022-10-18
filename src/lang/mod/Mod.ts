@@ -1,6 +1,6 @@
 import { Loader } from "../../loader"
 import { Env, EnvNull } from "../env"
-import { Stmt } from "../stmt"
+import { Stmt, StmtOutput } from "../stmt"
 
 /**
 
@@ -19,6 +19,8 @@ export interface ModOptions {
 
 export class Mod {
   env: Env = EnvNull()
+  outputs: Map<number, StmtOutput> = new Map()
+  stmts: Array<Stmt> = []
 
   constructor(public options: ModOptions) {}
 
@@ -27,16 +29,16 @@ export class Mod {
   }
 
   async executeStmts(stmts: Array<Stmt>): Promise<void> {
-    // const offset = this.stmts.length
-    // for (const [index, stmt] of stmts.entries()) {
-    //   const output = await stmt.execute(this)
-    //   this.stmts.push(stmt)
-    //   if (output) {
-    //     this.outputs.set(offset + index, output)
-    //     if (this.options.loader.options.onOutput) {
-    //       this.options.loader.options.onOutput(output)
-    //     }
-    //   }
-    // }
+    const offset = this.stmts.length
+    for (const [index, stmt] of stmts.entries()) {
+      const output = await stmt.execute(this)
+      this.stmts.push(stmt)
+      if (output) {
+        this.outputs.set(offset + index, output)
+        if (this.options.loader.options.onOutput) {
+          this.options.loader.options.onOutput(output)
+        }
+      }
+    }
   }
 }
