@@ -3,7 +3,7 @@ import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 
-export class LetThe extends Stmt {
+export class Define extends Stmt {
   constructor(
     public name: string,
     public type: Exp,

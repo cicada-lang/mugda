@@ -14,9 +14,9 @@ import { matchExp } from "./matchExp"
 export function matchStmt(sexp: Sexp): Stmt {
   return match<Stmt>(sexp, [
     [
-      ["let", v("name"), v("type"), v("exp")],
+      ["define", v("name"), v("type"), v("exp")],
       ({ name, type, exp }, { span }) =>
-        new Stmts.LetThe(
+        new Stmts.Define(
           matchSymbol(name),
           matchExp(type),
           matchExp(exp),

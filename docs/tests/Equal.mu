@@ -3,14 +3,14 @@
 
 (import Nat zero add1 add "./Nat.mu")
 
-(let add-x-zero-is-equal-to-x
-    (Pi ([x Nat]) (Equal Nat (add x zero) x))
+(define add-x-zero-is-equal-to-x
+  (Pi ([x Nat]) (Equal Nat (add x zero) x))
   (lambda (y) (refl Nat y)))
 
 ;; The follow is a wrong proof,
 ;; due to the definition of `add`.
-(let add-zero-x-is-equal-to-x--wrong-proof
-    (Pi ([x Nat]) (Equal Nat (add zero x) x))
+(define add-zero-x-is-equal-to-x--wrong-proof
+  (Pi ([x Nat]) (Equal Nat (add zero x) x))
   (lambda (y) (refl Nat y)))
 
 (fn add1-equal
