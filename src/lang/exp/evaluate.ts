@@ -2,6 +2,7 @@ import * as Actions from "../actions"
 import { Closure } from "../closure"
 import { Env, EnvCons, lookupValueInEnv } from "../env"
 import * as Errors from "../errors"
+import * as Exps from "../exp"
 import { Exp } from "../exp"
 import * as Values from "../value"
 import { Value } from "../value"
@@ -31,7 +32,7 @@ export function evaluate(env: Env, exp: Exp): Value {
     }
 
     case "PiUnfolded": {
-      throw new Error("TODO")
+      return evaluate(env, Exps.foldPi(exp.bindings, exp.retType))
     }
 
     case "Fn": {

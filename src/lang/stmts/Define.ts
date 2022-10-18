@@ -14,7 +14,7 @@ export class Define extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    // const type = evaluate(mod.env, this.type)
+    const type = evaluate(mod.env, this.type)
     // TODO check type
     mod.define(this.name, evaluate(mod.env, this.exp))
   }
