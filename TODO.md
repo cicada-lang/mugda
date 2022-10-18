@@ -1,8 +1,6 @@
-# syntax
-
-concrete syntax for Exp
-
 concrete syntax for Stmt
+
+command line
 
 module system -- Stmts.import
 
