@@ -1,5 +1,3 @@
-Exps.Let -- syntax
-
 formatValue -- for `Stmts.Compute`
 
 Stmts.Fn & Stmts.Cofn -- syntax
