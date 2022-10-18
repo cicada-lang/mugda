@@ -1,5 +1,3 @@
-globals -- for `Type`
-
 Exps.Pi -- syntax
 Exps.Let -- syntax
 

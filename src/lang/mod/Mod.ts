@@ -1,5 +1,6 @@
 import { Loader } from "../../loader"
 import { Env, EnvCons, EnvNull } from "../env"
+import { useGlobals } from "../globals"
 import { Stmt, StmtOutput } from "../stmt"
 import { Value } from "../value"
 
@@ -22,6 +23,7 @@ export class Mod {
   env: Env = EnvNull()
   outputs: Map<number, StmtOutput> = new Map()
   stmts: Array<Stmt> = []
+  initialized = false
 
   constructor(public options: ModOptions) {}
 
@@ -29,7 +31,14 @@ export class Mod {
     return new URL(href, this.options.url)
   }
 
+  async initialize(): Promise<void> {
+    if (this.initialized) return
+    const globals = useGlobals()
+    await globals.mount(this)
+  }
+
   async executeStmts(stmts: Array<Stmt>): Promise<void> {
+    await this.initialize()
     const offset = this.stmts.length
     for (const [index, stmt] of stmts.entries()) {
       const output = await stmt.execute(this)
