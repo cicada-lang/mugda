@@ -65,3 +65,7 @@ Excursion: Extending the order
 List reversion: Vectors to the rescue
 
 # 5 Sized data types
+
+# maybe
+
+[maybe] use `Neutral` instead of `Values.Var` & `Values.Ap`
