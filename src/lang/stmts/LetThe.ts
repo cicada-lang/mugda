@@ -15,7 +15,7 @@ export class LetThe extends Stmt {
 
   async execute(mod: Mod): Promise<void> {
     const type = evaluate(mod.env, this.type)
-    // todo check type
+    // TODO check type
     mod.define(this.name, evaluate(mod.env, this.exp))
   }
 }
