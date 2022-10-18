@@ -1,4 +1,4 @@
-export type Exp = Var | Pi | PiUnfolded | Fn | Ap | Let | Type
+export type Exp = Var | Pi | PiUnfolded | Fn | Ap | Let | LetUnfolded | Type
 
 /**
 
@@ -142,6 +142,47 @@ export function Let(name: string, type: Exp, exp: Exp, ret: Exp): Let {
     type,
     exp,
     ret,
+  }
+}
+
+export type LetUnfolded = {
+  family: "Exp"
+  kind: "LetUnfolded"
+  bindings: Array<LetBinding>
+  ret: Exp
+}
+
+export function LetUnfolded(
+  bindings: Array<LetBinding>,
+  ret: Exp,
+): LetUnfolded {
+  return {
+    family: "Exp",
+    kind: "LetUnfolded",
+    bindings,
+    ret,
+  }
+}
+
+export type LetBinding = LetBindingTyped
+
+export type LetBindingTyped = {
+  kind: "LetBindingTyped"
+  name: string
+  exp: Exp
+  type: Exp
+}
+
+export function LetBindingTyped(
+  name: string,
+  exp: Exp,
+  type: Exp,
+): LetBindingTyped {
+  return {
+    kind: "LetBindingTyped",
+    name,
+    exp,
+    type,
   }
 }
 
