@@ -1,4 +1,6 @@
+import { Loader } from "../../loader"
 import { Env, EnvNull } from "../env"
+import { Stmt } from "../stmt"
 
 /**
 
@@ -10,6 +12,31 @@ import { Env, EnvNull } from "../env"
 
 **/
 
+export interface ModOptions {
+  url: URL
+  loader: Loader
+}
+
 export class Mod {
   env: Env = EnvNull()
+
+  constructor(public options: ModOptions) {}
+
+  resolve(href: string): URL {
+    return new URL(href, this.options.url)
+  }
+
+  async executeStmts(stmts: Array<Stmt>): Promise<void> {
+    // const offset = this.stmts.length
+    // for (const [index, stmt] of stmts.entries()) {
+    //   const output = await stmt.execute(this)
+    //   this.stmts.push(stmt)
+    //   if (output) {
+    //     this.outputs.set(offset + index, output)
+    //     if (this.options.loader.options.onOutput) {
+    //       this.options.loader.options.onOutput(output)
+    //     }
+    //   }
+    // }
+  }
 }
