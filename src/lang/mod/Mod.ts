@@ -1,6 +1,7 @@
 import { Loader } from "../../loader"
-import { Env, EnvNull } from "../env"
+import { Env, EnvCons, EnvNull } from "../env"
 import { Stmt, StmtOutput } from "../stmt"
+import { Value } from "../value"
 
 /**
 
@@ -40,5 +41,9 @@ export class Mod {
         }
       }
     }
+  }
+
+  define(name: string, value: Value): void {
+    this.env = EnvCons(name, value, this.env)
   }
 }

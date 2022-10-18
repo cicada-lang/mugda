@@ -1,8 +1,10 @@
-Stmts.Fn -- syntax
-Stmts.Cofn -- syntax
+Stmts.LetThe -- `execute`
+Stmts.Import -- `execute`
 
-Stmts.Data -- syntax
-Stmts.Codata -- syntax
+Stmts.Fn & Stmts.Cofn -- syntax
+Stmts.Data & Stmts.Codata -- syntax
+Stmts.Fn & Stmts.Cofn -- `execute`
+Stmts.Data & Stmts.Codata -- `execute`
 
 module system -- Stmts.import
 
