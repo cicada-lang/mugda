@@ -1,4 +1,7 @@
-Stmts.LetThe -- `execute`
+Exps.Pi -- syntax
+Exps.Let -- syntax
+Exps.Type -- syntax
+
 Stmts.Import -- `execute`
 
 Stmts.Fn & Stmts.Cofn -- syntax

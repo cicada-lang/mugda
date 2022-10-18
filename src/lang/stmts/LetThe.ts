@@ -1,4 +1,4 @@
-import { Exp } from "../exp"
+import { evaluate, Exp } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -14,6 +14,8 @@ export class LetThe extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    // TODO
+    const type = evaluate(mod.env, this.type)
+    // todo check type
+    mod.define(this.name, evaluate(mod.env, this.exp))
   }
 }
