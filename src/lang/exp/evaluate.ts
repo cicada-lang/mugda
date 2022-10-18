@@ -35,6 +35,11 @@ export function evaluate(env: Env, exp: Exp): Value {
       return evaluate(env, Exps.foldPi(exp.bindings, exp.retType))
     }
 
+    case "Arrow": {
+      const [headType, ...restTypes] = exp.types
+      return evaluate(env, Exps.foldArrow(headType, restTypes))
+    }
+
     case "Fn": {
       return Values.Fn(Closure(env, exp.name, exp.ret))
     }

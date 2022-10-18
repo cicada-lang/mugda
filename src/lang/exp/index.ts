@@ -1,4 +1,5 @@
 export * from "./evaluate"
 export * from "./Exp"
+export * from "./foldArrow"
 export * from "./foldLet"
 export * from "./foldPi"

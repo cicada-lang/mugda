@@ -1,4 +1,12 @@
-import { cons, match, matchList, matchSymbol, Sexp, v } from "@cicada-lang/sexp"
+import {
+  cons,
+  list,
+  match,
+  matchList,
+  matchSymbol,
+  Sexp,
+  v,
+} from "@cicada-lang/sexp"
 import * as Exps from "../exp"
 import { Exp } from "../exp"
 
@@ -18,8 +26,9 @@ export function matchExp(sexp: Sexp): Exp {
         Exps.PiUnfolded(matchList(bindings, matchPiBinding), matchExp(retType)),
     ],
     [
-      cons("->", v("types")),
-      ({ types }) => Exps.Arrow(matchList(types, matchExp)),
+      list(["->", v("type")], v("types")),
+      ({ type, types }) =>
+        Exps.Arrow([matchExp(type), ...matchList(types, matchExp)]),
     ],
     [
       ["let", v("bindings"), v("ret")],
