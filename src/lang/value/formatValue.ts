@@ -18,17 +18,20 @@ export function formatValue(value: Value): string {
       const retType = formatValue(
         applyClosure(value.retTypeClosure, Values.Var(name)),
       )
-      return `(Pi ${argType} (Closure ${name} ${retType}))`
+      return `(Pi ${argType} (closure ${name} ${retType}))`
     }
 
     case "Fn": {
       const name = value.retClosure.name
       const ret = formatValue(applyClosure(value.retClosure, Values.Var(name)))
-      return `(lambda (Closure ${name} ${ret}))`
+      return `(lambda (closure ${name} ${ret}))`
     }
 
     case "FnClauses": {
-      throw new Error("TODO")
+      const type = formatValue(value.type)
+      const clauses = value.clauses.map((clause) => "").join(" ")
+      // TODO formatClause
+      return `(lambda-clauses ${type} ${clauses})`
     }
 
     case "Ap": {
@@ -38,7 +41,7 @@ export function formatValue(value: Value): string {
     }
 
     case "Data": {
-      throw new Error("TODO")
+      return `(data )`
     }
 
     case "Ctor": {
@@ -46,7 +49,7 @@ export function formatValue(value: Value): string {
     }
 
     case "Codata": {
-      throw new Error("TODO")
+      return `(codata )`
     }
 
     case "Coctor": {
