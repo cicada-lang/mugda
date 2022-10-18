@@ -1,6 +1,7 @@
+globals -- for `Type`
+
 Exps.Pi -- syntax
 Exps.Let -- syntax
-Exps.Type -- syntax
 
 formatValue -- for `Stmts.Compute`
 
