@@ -1,5 +1,6 @@
 import { Parser as SexpParser } from "@cicada-lang/sexp"
-// import { matchStmt } from "./matchStmt"
+import { Stmt } from "../stmt"
+import { matchStmt } from "./matchStmt"
 
 export class Parser extends SexpParser {
   constructor() {
@@ -17,7 +18,7 @@ export class Parser extends SexpParser {
     })
   }
 
-  // parseStmts(text: string): Array<Stmt> {
-  //   return this.parseSexps(text).map(matchStmt)
-  // }
+  parseStmts(text: string): Array<Stmt> {
+    return this.parseSexps(text).map(matchStmt)
+  }
 }

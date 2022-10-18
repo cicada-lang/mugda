@@ -3,13 +3,8 @@ import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 
-export class LetThe extends Stmt {
-  constructor(
-    public name: string,
-    public type: Exp,
-    public exp: Exp,
-    public span?: Span,
-  ) {
+export class Compute extends Stmt {
+  constructor(public exp: Exp, public span?: Span) {
     super()
   }
 

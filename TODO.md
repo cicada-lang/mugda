@@ -1,4 +1,8 @@
-concrete syntax for Stmt
+Stmts.Fn -- syntax
+Stmts.Cofn -- syntax
+
+Stmts.Data -- syntax
+Stmts.Codata -- syntax
 
 command line
 

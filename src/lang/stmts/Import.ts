@@ -1,13 +1,16 @@
-import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 
-export class LetThe extends Stmt {
+export type ImportEntry = {
+  name: string
+  rename?: string
+}
+
+export class Import extends Stmt {
   constructor(
-    public name: string,
-    public type: Exp,
-    public exp: Exp,
+    public path: string,
+    public entries: Array<ImportEntry>,
     public span?: Span,
   ) {
     super()
