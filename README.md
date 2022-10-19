@@ -56,6 +56,9 @@ mu run docs/tests/basic/id.test.mu --watch
 
 Run a URL:
 
+- All files in this repo, can be fetched from: [`https://cdn.mu.cic.run/<path>`](https://cdn.mu.cic.run), <br/>
+  and any other http server that serves `.mu` code would also work.
+
 ```sh
 mu run https://cdn.mu.cic.run/docs/tests/basic/id.test.mu
 ```
