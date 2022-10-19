@@ -7,7 +7,10 @@ export function formatPattern(pattern: Pattern): string {
     }
 
     case "Ctor": {
-      throw new Error()
+      const args = pattern.args.map(formatPattern)
+      return args.length === 0
+        ? `(${pattern.name})`
+        : `(${pattern.name} ${args.join(" ")})`
     }
 
     case "Inaccessible": {

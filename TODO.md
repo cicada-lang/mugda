@@ -1,5 +1,3 @@
-formatPattern
-
 formatExp
 
 formatValue -- `Pi` & `Fn` -- should not `applyClosure` -- use `formatExp`
