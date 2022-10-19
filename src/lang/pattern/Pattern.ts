@@ -1,4 +1,4 @@
-export type Pattern = Var | Ctor | Coctor | Inaccessible
+export type Pattern = Var | Ctor | Inaccessible
 
 export type Var = {
   family: "Pattern"
@@ -25,22 +25,6 @@ export function Ctor(name: string, args: Array<Pattern>): Ctor {
   return {
     family: "Pattern",
     kind: "Ctor",
-    name,
-    args,
-  }
-}
-
-export type Coctor = {
-  family: "Pattern"
-  kind: "Coctor"
-  name: string
-  args: Array<Pattern>
-}
-
-export function Coctor(name: string, args: Array<Pattern>): Coctor {
-  return {
-    family: "Pattern",
-    kind: "Coctor",
     name,
     args,
   }

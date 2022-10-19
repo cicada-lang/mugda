@@ -1,5 +1,3 @@
-no need to distinguish between `Patterns.Ctor` & `Patterns.Coctor`
-
 formatPattern
 
 formatExp

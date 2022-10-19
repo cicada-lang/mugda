@@ -15,16 +15,21 @@ export function matchPattern(
 
     case "Ctor": {
       const unfolded = Values.unfoldAp(value)
-      if (unfolded.target.kind !== "Ctor") return undefined
-      if (unfolded.target.kind !== pattern.name) return undefined
-      return matchPatterns(env, pattern.args, unfolded.args)
-    }
+      if (
+        unfolded.target.kind !== "Ctor" &&
+        unfolded.target.kind !== "Coctor"
+      ) {
+        return undefined
+      }
 
-    case "Coctor": {
-      value = Values.force(value)
-      const unfolded = Values.unfoldAp(value)
-      if (unfolded.target.kind !== "Coctor") return undefined
-      if (unfolded.target.kind !== pattern.name) return undefined
+      if (unfolded.target.kind !== pattern.name) {
+        return undefined
+      }
+
+      if (unfolded.target.kind === "Coctor") {
+        value = Values.force(value)
+      }
+
       return matchPatterns(env, pattern.args, unfolded.args)
     }
 

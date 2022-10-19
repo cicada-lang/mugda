@@ -10,10 +10,6 @@ export function formatPattern(pattern: Pattern): string {
       throw new Error()
     }
 
-    case "Coctor": {
-      throw new Error()
-    }
-
     case "Inaccessible": {
       return `(# ${formatPattern(pattern.pattern)})`
     }
