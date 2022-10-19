@@ -1,4 +1,4 @@
-export { ParsingError } from "@cicada-lang/partech"
+export { ParsingError } from "@cicada-lang/sexp"
 export * from "./AssertionError"
 export * from "./ConversionError"
 export * from "./ElaborationError"

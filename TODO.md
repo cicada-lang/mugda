@@ -1,5 +1,3 @@
-error report in context
-
 formatPattern
 formatExp
 formatClause
