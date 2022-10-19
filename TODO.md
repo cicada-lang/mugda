@@ -1,8 +1,8 @@
-formatClause
-
 formatPattern
 
 formatExp
+
+formatValue -- `Pi` & `Fn` -- should not `applyClosure` -- use `formatExp`
 
 Stmts.Fn & Stmts.Cofn -- syntax
 Stmts.Data & Stmts.Codata -- syntax
