@@ -1,5 +1,3 @@
-formatValue -- `FnClauses`
-
 formatClause
 
 formatPattern

@@ -1,3 +1,4 @@
+import { formatClause } from "../clause"
 import { applyClosure } from "../closure"
 import * as Values from "../value"
 import { Value } from "../value"
@@ -29,9 +30,8 @@ export function formatValue(value: Value): string {
 
     case "FnClauses": {
       const type = formatValue(value.type)
-      const clauses = value.clauses.map((clause) => "").join(" ")
-      // TODO formatClause
-      return `(lambda-clauses ${type} ${clauses})`
+      const clauses = value.clauses.map(formatClause)
+      return `(lambda-clauses ${type} ${clauses.join(" ")})`
     }
 
     case "Ap": {
