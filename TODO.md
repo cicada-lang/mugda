@@ -1,14 +1,8 @@
-formatExp
-
-formatValue -- `Pi` & `Fn` -- should not `applyClosure` -- use `formatExp`
-
 Stmts.Fn & Stmts.Cofn -- syntax
 Stmts.Data & Stmts.Codata -- syntax
 
 Stmts.Fn & Stmts.Cofn -- `execute`
 Stmts.Data & Stmts.Codata -- `execute`
-
-improve `formatValue` -- with fold
 
 # lazy evaluation and Codata
 

@@ -19,13 +19,13 @@ export function formatValue(value: Value): string {
       const retType = formatValue(
         applyClosure(value.retTypeClosure, Values.Var(name)),
       )
-      return `(Pi ${argType} (closure ${name} ${retType}))`
+      return `(Pi ([${name} ${argType}]) ${retType})`
     }
 
     case "Fn": {
       const name = value.retClosure.name
       const ret = formatValue(applyClosure(value.retClosure, Values.Var(name)))
-      return `(lambda (closure ${name} ${ret}))`
+      return `(lambda (${name}) ${ret})`
     }
 
     case "FnClauses": {

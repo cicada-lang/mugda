@@ -1,1 +1,1 @@
-(Pi Type (closure A (Pi A (closure _ A))))
+(Pi ([A Type]) (Pi ([_ A]) A))

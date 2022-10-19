@@ -1,10 +1,10 @@
 import { Clause } from "../clause"
-import { formatExp } from "../exp"
+import { evaluate } from "../exp"
 import { formatPattern } from "../pattern"
+import { formatValue } from "../value"
 
 export function formatClause(clause: Clause): string {
   const patterns = clause.patterns.map(formatPattern)
-  const body = formatExp(clause.body)
-  // NOTE `clause.env` is not used.
+  const body = formatValue(evaluate(clause.env, clause.body))
   return `[(${patterns.join(" ")}) ${body}]`
 }
