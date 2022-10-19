@@ -9,7 +9,56 @@ An implementation of the [Mugda paper](docs/papers/termination-checking-for-a-de
 
 ## Usages
 
-TODO
+### Use our server
+
+[**mugda-server:**](https://github.com/cicada-lang/mugda-server) A server that can run whereabouts code.
+
+Run a file:
+
+```bash
+curl https://mu.cic.run --data-binary @docs/tests/basic/let.test.mu
+```
+
+Run multiline text (bash and zsh):
+
+```bash
+curl https://mu.cic.run --data-binary @- << END
+
+(define id (Pi ([A Type]) (-> A A))
+  (lambda (A) (lambda (a) a)))
+
+((id id) (id id))
+
+END
+```
+
+### Command line tool
+
+Install it by the following command:
+
+```
+npm install -g @cicada-lang/mugda.sexp
+```
+
+The command line program is called `mu`.
+
+Run a file:
+
+```sh
+mu run docs/tests/basic/id.test.mu
+```
+
+Run a file and watch file change:
+
+```sh
+mu run docs/tests/basic/id.test.mu --watch
+```
+
+Run a URL:
+
+```sh
+mu run https://cdn.mu.cic.run/tests/basic/id.test.mu
+```
 
 ## Examples
 
