@@ -5,13 +5,13 @@ import { Pattern } from "../pattern"
 export type Clause = {
   env: Env
   patterns: Array<Pattern>
-  ret: Exp
+  body: Exp
 }
 
-export function Clause(env: Env, patterns: Array<Pattern>, ret: Exp): Clause {
+export function Clause(env: Env, patterns: Array<Pattern>, body: Exp): Clause {
   return {
     env,
     patterns,
-    ret,
+    body,
   }
 }

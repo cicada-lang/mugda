@@ -1,8 +1,10 @@
-formatPattern
-formatExp
+formatValue -- `FnClauses`
+
 formatClause
 
-formatValue -- `FnClauses`
+formatPattern
+
+formatExp
 
 Stmts.Fn & Stmts.Cofn -- syntax
 Stmts.Data & Stmts.Codata -- syntax

@@ -10,7 +10,7 @@ export function matchClauses(
   args: Array<Value>,
 ): Value | undefined {
   for (const clause of clauses) {
-    const value = matchClause(clause.env, clause.patterns, clause.ret, args)
+    const value = matchClause(clause.env, clause.patterns, clause.body, args)
     if (value !== undefined) return value
   }
 
