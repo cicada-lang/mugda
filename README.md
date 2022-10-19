@@ -57,7 +57,7 @@ mu run docs/tests/basic/id.test.mu --watch
 Run a URL:
 
 ```sh
-mu run https://cdn.mu.cic.run/tests/basic/id.test.mu
+mu run https://cdn.mu.cic.run/docs/tests/basic/id.test.mu
 ```
 
 ## Examples
