@@ -1,5 +1,3 @@
-[upstream] improve sexp parser error message
-
 formatPattern
 formatExp
 formatClause

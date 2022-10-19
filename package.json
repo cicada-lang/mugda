@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@cicada-lang/partech": "^0.1.22",
-    "@cicada-lang/sexp": "^0.0.35",
+    "@cicada-lang/sexp": "^0.0.36",
     "@xieyuheng/command-line": "^0.0.7",
     "@xieyuheng/ty": "^0.1.17",
     "commonmark": "^0.30.0",
