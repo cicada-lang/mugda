@@ -1,8 +1,8 @@
 # lazy evaluation and Codata
 
-formatExp
+formatExp -- unfoldAp
 
-fix `formatClause` -- by `formatExp`
+formatExp -- unfoldLet
 
 formatValue -- uses `unfoldAp`
 
@@ -10,14 +10,16 @@ fix zero arity constructor `(zero)` v.s. `zero`
 
 fix `doAp` & `doApUnfolded`
 
+`(data <telescope> <retType> ...)` instead of `(data <type> ...)`
+
+- <telescope> as constructor's extra arguments
+
+ctor definition syntax -- use <telescope> instead of `Pi`
+
 evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
 
 - Values.force
 - Add `Values.Lazy`
-
-`(data <telescope> <retType> ...)` instead of `(data <type> ...)`
-
-- for constructor arguments
 
 # 3 Type-Checking
 

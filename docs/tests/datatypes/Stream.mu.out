@@ -1,1 +1,1 @@
-(((fn [(x (zero)) TODO] [(x (add1 y)) TODO]) zero) zero)
+(((fn [(x (zero)) x] [(x (add1 y)) (add1 ((add x) y))]) zero) zero)
