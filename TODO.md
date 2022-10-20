@@ -1,12 +1,24 @@
-`(data <telescope> <retType> ...)` instead of `(data <type> ...)`
+move `Telescope` to `exp/`
 
-- <telescope> as constructor's extra arguments
+quit using `[]` always `()`
 
-fix constructor definition syntax -- use <telescope> instead of `Pi`
+Data has `varied` & `fixed` -- both are `Telescope`
 
-fix zero arity constructor `(zero)` v.s. `zero`
+- `varied` as constructor's extra arguments
+- note about parameters v.s. indexes
+- change the `(data)` syntax to "The Little Typer"
 
-[maybe] use `Neutral` instead of `Values.Var` & `Values.Ap`
+  - change constructor definition syntax -- `Telescope` instead of just a type
+
+note about using constructor in pattern
+
+- NOTE When using zero arity data constructor in pattern,
+  we must write them in `()`, for example not `zero` but `(zero)`,
+  otherwise we can not distinguish pattern variable from it.
+
+use `Neutral` instead of `Values.Var` & `Values.Ap`
+
+- code with partial evaluation is not clear with out introducing `Neutral`
 
 formatExp -- `unfoldPi`
 formatExp -- `unfoldLet`
