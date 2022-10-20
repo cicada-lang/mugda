@@ -1,7 +1,5 @@
-formatExp -- unfoldPi
-formatExp -- unfoldLet
-
-formatValue -- uses `unfoldAp`
+formatExp -- `unfoldPi`
+formatExp -- `unfoldLet`
 
 fix zero arity constructor `(zero)` v.s. `zero`
 
@@ -12,6 +10,8 @@ fix `doAp` & `doApUnfolded`
 - <telescope> as constructor's extra arguments
 
 ctor definition syntax -- use <telescope> instead of `Pi`
+
+[maybe] use `Neutral` instead of `Values.Var` & `Values.Ap`
 
 # lazy evaluation and Codata
 
@@ -68,7 +68,3 @@ Excursion: Extending the order
 List reversion: Vectors to the rescue
 
 # 5 Sized data types
-
-# maybe
-
-[maybe] use `Neutral` instead of `Values.Var` & `Values.Ap`

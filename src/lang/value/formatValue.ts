@@ -34,9 +34,10 @@ export function formatValue(value: Value): string {
     }
 
     case "Ap": {
-      const target = formatValue(value.target)
-      const arg = formatValue(value.arg)
-      return `(${target} ${arg})`
+      const unfolded = Values.unfoldAp(value)
+      const target = formatValue(unfolded.target)
+      const args = unfolded.args.map(formatValue)
+      return args.length === 0 ? `(${target})` : `(${target} ${args.join(" ")})`
     }
 
     case "Data": {
