@@ -34,9 +34,7 @@ export function formatValue(value: Value): string {
     }
 
     case "Ap": {
-      const unfolded = Values.unfoldAp(value)
-      const target = formatValue(unfolded.target)
-      const args = unfolded.args.map(formatValue)
+      const { target, args } = Values.unfoldFormatAp(value)
       return args.length === 0 ? `(${target})` : `(${target} ${args.join(" ")})`
     }
 

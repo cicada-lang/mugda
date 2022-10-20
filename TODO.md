@@ -1,11 +1,14 @@
-formatValue -- uses `unfoldFormatAp` -- instead of using `unfoldAp` directly
-
 formatValue -- uses `unfoldFormatPi`
 
 Data has `varied` & `fixed` -- both are `Telescope`
 
 - `varied` as constructor's extra arguments
-- note about parameters v.s. indexes
+
+- note about the naming of:
+
+  | parameters | varied |
+  | indexes | fixed |
+
 - change the `(data)` syntax to "The Little Typer"
 
   - change constructor definition syntax -- `Telescope` instead of just a type
