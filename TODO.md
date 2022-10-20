@@ -1,5 +1,3 @@
-move `Telescope` to `exp/`
-
 quit using `[]` always `()`
 
 Data has `varied` & `fixed` -- both are `Telescope`
