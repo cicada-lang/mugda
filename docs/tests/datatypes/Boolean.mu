@@ -10,7 +10,6 @@
   (lambda (a b)
     (ife Boolean a b false)))
 
-(and true true)
-(and true false)
-(and false true)
-(and false false)
+(define or (-> Boolean Boolean Boolean)
+  (lambda (a b)
+    (ife Boolean a true b)))
