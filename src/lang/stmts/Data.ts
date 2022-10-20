@@ -1,8 +1,9 @@
 import { Ctor } from "../ctor"
-import { Exp } from "../exp"
+import { evaluate, Exp } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
+import * as Values from "../value"
 
 export class Data extends Stmt {
   constructor(
@@ -15,6 +16,9 @@ export class Data extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
+    const type = evaluate(mod.env, this.type)
+    const value = Values.Data(this.name, type, Values.arity(type))
+    mod.define(this.name, value)
     // TODO
   }
 }

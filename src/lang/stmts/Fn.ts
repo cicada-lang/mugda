@@ -21,6 +21,7 @@ export class Fn extends Stmt {
     const clauses = this.clauses.map((clause) =>
       Clause(mod.env, clause.patterns, clause.body),
     )
-    mod.define(this.name, Values.FnClauses(type, clauses, true))
+    const value = Values.FnClauses(type, clauses, true)
+    mod.define(this.name, value)
   }
 }

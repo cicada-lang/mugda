@@ -1,3 +1,4 @@
+export * from "./arity"
 export * from "./force"
 export * from "./formatValue"
 export * from "./unfoldAp"
