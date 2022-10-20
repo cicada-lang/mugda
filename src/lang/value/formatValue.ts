@@ -19,7 +19,7 @@ export function formatValue(value: Value): string {
       const retType = formatValue(
         applyClosure(value.retTypeClosure, Values.Var(name)),
       )
-      return `(Pi ([${name} ${argType}]) ${retType})`
+      return `(Pi ((${name} ${argType})) ${retType})`
     }
 
     case "Fn": {

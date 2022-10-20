@@ -10,7 +10,7 @@ export function formatExp(exp: Exp): string {
     case "Pi": {
       const argType = formatExp(exp.argType)
       const retType = formatExp(exp.retType)
-      return `(Pi ([${name} ${argType}]) ${retType})`
+      return `(Pi ((${name} ${argType})) ${retType})`
     }
 
     case "PiUnfolded": {
@@ -39,7 +39,7 @@ export function formatExp(exp: Exp): string {
     case "Let": {
       const type = formatExp(exp.type)
       const ret = formatExp(exp.ret)
-      return `(let ([${exp.name} ${type} ${formatExp(exp.exp)}]) ${ret})`
+      return `(let ((${exp.name} ${type} ${formatExp(exp.exp)})) ${ret})`
     }
 
     case "LetUnfolded": {
@@ -54,12 +54,12 @@ function formatPiBinding(binding: Exps.PiBinding): string {
   switch (binding.kind) {
     case "PiBindingParameter": {
       const type = formatExp(binding.type)
-      return `[${binding.name} ${type}]`
+      return `(${binding.name} ${type})`
     }
 
     case "PiBindingParameterPositive": {
       const type = formatExp(binding.type)
-      return `[+ ${binding.name} ${type}]`
+      return `(+ ${binding.name} ${type})`
     }
   }
 }
@@ -68,7 +68,7 @@ function formatLetBinding(binding: Exps.LetBinding): string {
   switch (binding.kind) {
     case "LetBindingTyped": {
       const type = formatExp(binding.type)
-      return `[${binding.name} ${type}]`
+      return `(${binding.name} ${type})`
     }
   }
 }

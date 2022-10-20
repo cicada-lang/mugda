@@ -1,4 +1,4 @@
-quit using `[]` always `()`
+formatValue -- with `unfoldPi`
 
 Data has `varied` & `fixed` -- both are `Telescope`
 

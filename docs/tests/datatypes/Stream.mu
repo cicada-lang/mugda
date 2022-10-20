@@ -9,10 +9,10 @@
 ;; There are no `Stream` objects of finite height.
 
 (codata Stream Type
-  [cons (-> Nat Stream Stream)])
+  (cons (-> Nat Stream Stream)))
 
 ;; (define zeroes Stream
 ;;   (cons zero zeroes))
 
 (fn head (-> Stream Nat)
-  [((cons x xs)) x])
+  (((cons x xs)) x))

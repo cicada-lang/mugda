@@ -1,1 +1,1 @@
-(Pi ([A Type]) (-> A A))
+(Pi ((A Type)) (-> A A))
