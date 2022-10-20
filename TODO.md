@@ -1,5 +1,3 @@
-# lazy evaluation and Codata
-
 formatExp -- unfoldAp
 
 formatExp -- unfoldLet
@@ -15,6 +13,8 @@ fix `doAp` & `doApUnfolded`
 - <telescope> as constructor's extra arguments
 
 ctor definition syntax -- use <telescope> instead of `Pi`
+
+# lazy evaluation and Codata
 
 evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
 
