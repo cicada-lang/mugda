@@ -8,6 +8,7 @@ import {
   Sexp,
   v,
 } from "@cicada-lang/sexp"
+import { Ctor } from "../ctor"
 import * as Exps from "../exp"
 import * as Patterns from "../pattern"
 import { Pattern } from "../pattern"
@@ -24,6 +25,26 @@ export function matchStmt(sexp: Sexp): Stmt {
           matchSymbol(name),
           matchExp(type),
           matchExp(exp),
+          span,
+        ),
+    ],
+    [
+      list(["data", v("name"), v("type")], v("ctors")),
+      ({ name, type, ctors }, { span }) =>
+        new Stmts.Data(
+          matchSymbol(name),
+          matchExp(type),
+          matchList(ctors, matchCtor),
+          span,
+        ),
+    ],
+    [
+      list(["codata", v("name"), v("type")], v("ctors")),
+      ({ name, type, ctors }, { span }) =>
+        new Stmts.Codata(
+          matchSymbol(name),
+          matchExp(type),
+          matchList(ctors, matchCtor),
           span,
         ),
     ],
@@ -69,6 +90,15 @@ function matchImportEntry(sexp: Sexp): Stmts.ImportEntry {
       }),
     ],
     [v("name"), ({ name }) => ({ name: matchSymbol(name) })],
+  ])
+}
+
+function matchCtor(sexp: Sexp): Ctor {
+  return match(sexp, [
+    [
+      [v("name"), v("type")],
+      ({ name, type }) => Ctor(matchSymbol(name), matchExp(type)),
+    ],
   ])
 }
 
