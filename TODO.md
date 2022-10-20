@@ -1,4 +1,4 @@
-fix `matchClauses`
+[refactor] matchClauses should be explicit about how it handles `arity` and currying
 
 `(data <telescope> <retType> ...)` instead of `(data <type> ...)`
 
