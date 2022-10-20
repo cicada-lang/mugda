@@ -1,5 +1,4 @@
 import { formatClause } from "../clause"
-import { applyClosure } from "../closure"
 import * as Values from "../value"
 import { Value } from "../value"
 
@@ -19,9 +18,8 @@ export function formatValue(value: Value): string {
     }
 
     case "Fn": {
-      const name = value.retClosure.name
-      const ret = formatValue(applyClosure(value.retClosure, Values.Var(name)))
-      return `(lambda (${name}) ${ret})`
+      const { bindings, ret } = Values.unfoldFormatFn(value)
+      return `(lambda (${bindings.join(" ")}) ${ret})`
     }
 
     case "FnClauses": {
