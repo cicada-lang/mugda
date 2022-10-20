@@ -11,8 +11,8 @@
 (codata Stream Type
   [cons (-> Nat Stream Stream)])
 
-(fn zeroes Stream
-  [(zeroes) (cons zero zeroes)])
+;; (define zeroes Stream
+;;   (cons zero zeroes))
 
 (fn head (-> Stream Nat)
   [((cons x xs)) x])

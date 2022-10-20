@@ -1,17 +1,17 @@
-formatExp -- `unfoldPi`
-formatExp -- `unfoldLet`
-
-fix zero arity constructor `(zero)` v.s. `zero`
-
-fix `doAp` & `doApUnfolded`
+fix `matchClauses`
 
 `(data <telescope> <retType> ...)` instead of `(data <type> ...)`
 
 - <telescope> as constructor's extra arguments
 
-ctor definition syntax -- use <telescope> instead of `Pi`
+fix constructor definition syntax -- use <telescope> instead of `Pi`
+
+fix zero arity constructor `(zero)` v.s. `zero`
 
 [maybe] use `Neutral` instead of `Values.Var` & `Values.Ap`
+
+formatExp -- `unfoldPi`
+formatExp -- `unfoldLet`
 
 # lazy evaluation and Codata
 
