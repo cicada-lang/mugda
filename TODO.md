@@ -1,4 +1,5 @@
-formatValue -- with `unfoldPi`
+formatValue -- uses `unfoldFormatAp` -- instead of using `unfoldAp` directly
+formatValue -- uses `unfoldFormatPi`
 
 Data has `varied` & `fixed` -- both are `Telescope`
 
