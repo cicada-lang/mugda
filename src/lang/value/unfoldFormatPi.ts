@@ -1,17 +1,21 @@
-// import { Value } from "../value"
-// import { formatValue } from "../value"
+import { applyClosure } from "../closure"
+import * as Values from "../value"
+import { formatValue, Value } from "../value"
 
-// export function unfoldFormatPi(target: Value): {
-//   argTypes: Array<string>
-//   retType: string
-// } {
-//   if (target.kind === "Ap") {
-//     const unfolded = unfoldAp(target.target)
-//     return {
-//       target: unfolded.target,
-//       args: [...unfolded.args, target.arg],
-//     }
-//   }
+export function unfoldFormatPi(value: Value): {
+  bindings: Array<string>
+  retType: string
+} {
+  if (value.kind === "Pi") {
+    const name = value.retTypeClosure.name
+    const binding = `(${name} ${formatValue(value.argType)})`
+    const retType = applyClosure(value.retTypeClosure, Values.Var(name))
+    const unfolded = unfoldFormatPi(retType)
+    return {
+      bindings: [binding, ...unfolded.bindings],
+      retType: unfolded.retType,
+    }
+  }
 
-//   return { target, args: [] }
-// }
+  return { bindings: [], retType: formatValue(value) }
+}

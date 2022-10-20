@@ -1,5 +1,3 @@
-formatValue -- uses `unfoldFormatPi`
-
 Data has `varied` & `fixed` -- both are `Telescope`
 
 - `varied` as constructor's extra arguments

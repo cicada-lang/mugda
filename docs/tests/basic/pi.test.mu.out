@@ -1,2 +1,2 @@
-(Pi ((A Type)) (Pi ((_ A)) A))
-(Pi ((A Type)) (Pi ((B Type)) (Pi ((_ A)) (Pi ((_ B)) Type))))
+(Pi ((A Type) (_ A)) A)
+(Pi ((A Type) (B Type) (_ A) (_ B)) Type)

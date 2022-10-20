@@ -14,12 +14,8 @@ export function formatValue(value: Value): string {
     }
 
     case "Pi": {
-      const argType = formatValue(value.argType)
-      const name = value.retTypeClosure.name
-      const retType = formatValue(
-        applyClosure(value.retTypeClosure, Values.Var(name)),
-      )
-      return `(Pi ((${name} ${argType})) ${retType})`
+      const { bindings, retType } = Values.unfoldFormatPi(value)
+      return `(Pi (${bindings.join(" ")}) ${retType})`
     }
 
     case "Fn": {
