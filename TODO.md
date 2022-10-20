@@ -1,4 +1,8 @@
-Data has `varied` & `fixed` -- both are `Telescope`
+`Data` has `varied` & `fixed` -- both are `Telescope`
+
+- change the `(data)` syntax to "The Little Typer"
+
+  - change constructor definition syntax -- `Telescope` instead of just a type
 
 - `varied` as constructor's extra arguments
 
@@ -7,16 +11,14 @@ Data has `varied` & `fixed` -- both are `Telescope`
   | parameters | varied |
   | indexes | fixed |
 
-- change the `(data)` syntax to "The Little Typer"
-
-  - change constructor definition syntax -- `Telescope` instead of just a type
-
 use `Neutral` instead of `Values.Var` & `Values.Ap`
 
 - code with partial evaluation is not clear with out introducing `Neutral`
 
 formatExp -- `unfoldPi`
 formatExp -- `unfoldLet`
+
+report syntax error in context -- test in the REPL
 
 # lazy evaluation and Codata
 
