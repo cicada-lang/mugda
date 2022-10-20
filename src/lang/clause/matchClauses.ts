@@ -24,17 +24,21 @@ function matchClause(
   args: Array<Value>,
 ): Value | undefined {
   const [pattern, ...restPatterns] = patterns
+  const [arg, ...restArgs] = args
+
   if (pattern === undefined) {
+    // NOTE Clause supports currying.
     return Actions.doApUnfolded(evaluate(env, ret), args)
   }
 
-  const [arg, ...restArgs] = args
   if (arg !== undefined) {
     const nextEnv = matchPattern(env, pattern, arg)
     if (nextEnv === undefined) return undefined
     return matchClause(nextEnv, restPatterns, ret, restArgs)
   }
 
-  // NOTE Not enough arguments.
-  return undefined
+  if (pattern !== undefined && arg === undefined) {
+    // NOTE Not enough arguments.
+    return undefined
+  }
 }
