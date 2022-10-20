@@ -84,9 +84,16 @@ For example, we should not write `zero` but write `(zero)`,
 otherwise the interpreter can not distinguish pattern variable
 from this zero arity data constructor.
 
+### Syntax of inductive datatype definition
+
+The syntax of inductive datatype definition -- `(data)`,
+is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-little-typer).
+
 ## Examples
 
 TODO
+
+Please see [**docs/tests/**](docs/tests/) for more examples.
 
 ## Development
 
