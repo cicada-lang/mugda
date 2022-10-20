@@ -1,4 +1,3 @@
-remove Stmts.Cofn
 Stmts.Data & Stmts.Codata -- `execute`
 
 # lazy evaluation and Codata

@@ -59,16 +59,6 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      list(["cofn", v("name"), v("type")], v("clauses")),
-      ({ name, type, clauses }, { span }) =>
-        new Stmts.Cofn(
-          matchSymbol(name),
-          matchExp(type),
-          matchList(clauses, matchClause),
-          span,
-        ),
-    ],
-    [
       cons("import", cons(v("url"), v("entries"))),
       ({ url, entries }) =>
         new Stmts.Import(
