@@ -1,1 +1,1 @@
-(((lambda-clauses (Pi ([_ Nat]) (Pi ([_ Nat]) Nat)) [(x (zero)) ...] [(x (add1 y)) ...]) zero) zero)
+(((fn [(x (zero)) TODO] [(x (add1 y)) TODO]) zero) zero)

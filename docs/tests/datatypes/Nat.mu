@@ -8,7 +8,7 @@
 
 ;; add
 
-;; (lambda-clauses
+;; (fn
 ;;  (Pi ([_ (data Nat Type)]) (Pi ([_ (data Nat Type)]) (data Nat Type)))
 ;;  [(x (zero)) x]
 ;;  [(x (add1 y)) ((ctor add1 (Pi ([_ (data Nat Type)]) (data Nat Type))) ((add x) y))])

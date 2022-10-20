@@ -29,9 +29,8 @@ export function formatValue(value: Value): string {
     }
 
     case "FnClauses": {
-      const type = formatValue(value.type)
       const clauses = value.clauses.map(formatClause)
-      return `(lambda-clauses ${type} ${clauses.join(" ")})`
+      return `(fn ${clauses.join(" ")})`
     }
 
     case "Ap": {

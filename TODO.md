@@ -1,6 +1,12 @@
 # lazy evaluation and Codata
 
-fix `formatClause` -- add pattern variables to env
+formatExp
+
+fix `formatClause` -- by `formatExp`
+
+formatValue -- uses `unfoldAp`
+
+fix zero arity constructor `(zero)` v.s. `zero`
 
 fix `doAp` & `doApUnfolded`
 
