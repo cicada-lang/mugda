@@ -1,4 +1,4 @@
-import { Clause } from "../clause"
+import * as Exps from "../exp"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
@@ -7,8 +7,8 @@ import { Stmt } from "../stmt"
 export class Fn extends Stmt {
   constructor(
     public name: string,
-    public retType: Exp,
-    public clauses: Array<Clause>,
+    public type: Exp,
+    public clauses: Array<Exps.Clause>,
     public span?: Span,
   ) {
     super()

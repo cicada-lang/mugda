@@ -1,4 +1,3 @@
-Stmts.Fn & Stmts.Cofn -- syntax
 Stmts.Data & Stmts.Codata -- syntax
 
 Stmts.Fn & Stmts.Cofn -- `execute`
