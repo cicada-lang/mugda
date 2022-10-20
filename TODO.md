@@ -1,4 +1,5 @@
 formatValue -- uses `unfoldFormatAp` -- instead of using `unfoldAp` directly
+
 formatValue -- uses `unfoldFormatPi`
 
 Data has `varied` & `fixed` -- both are `Telescope`
@@ -8,12 +9,6 @@ Data has `varied` & `fixed` -- both are `Telescope`
 - change the `(data)` syntax to "The Little Typer"
 
   - change constructor definition syntax -- `Telescope` instead of just a type
-
-note about using constructor in pattern
-
-- NOTE When using zero arity data constructor in pattern,
-  we must write them in `()`, for example not `zero` but `(zero)`,
-  otherwise we can not distinguish pattern variable from it.
 
 use `Neutral` instead of `Values.Var` & `Values.Ap`
 
