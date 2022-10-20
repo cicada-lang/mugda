@@ -1,5 +1,4 @@
-formatExp -- unfoldAp
-
+formatExp -- unfoldPi
 formatExp -- unfoldLet
 
 formatValue -- uses `unfoldAp`

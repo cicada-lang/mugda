@@ -30,9 +30,10 @@ export function formatExp(exp: Exp): string {
     }
 
     case "Ap": {
-      const target = formatExp(exp.target)
-      const arg = formatExp(exp.arg)
-      return `(${target} ${arg})`
+      const unfolded = Exps.unfoldAp(exp)
+      const target = formatExp(unfolded.target)
+      const args = unfolded.args.map(formatExp)
+      return args.length === 0 ? `(${target})` : `(${target} ${args.join(" ")})`
     }
 
     case "Let": {
