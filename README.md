@@ -42,6 +42,15 @@ npm install -g @cicada-lang/mugda.sexp
 
 The command line program is called `mu`.
 
+Repl:
+
+```sh
+mu repl
+
+# or just
+mu
+```
+
 Run a file:
 
 ```sh
