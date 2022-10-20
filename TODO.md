@@ -1,5 +1,3 @@
-Stmts.Data & Stmts.Codata -- `execute` -- for Ctor & Coctor
-
 # lazy evaluation and Codata
 
 evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`

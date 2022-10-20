@@ -19,6 +19,10 @@ export class Data extends Stmt {
     const type = evaluate(mod.env, this.type)
     const value = Values.Data(this.name, type, Values.arity(type))
     mod.define(this.name, value)
-    // TODO
+    for (const ctor of this.ctors) {
+      const type = evaluate(mod.env, ctor.type)
+      const value = Values.Ctor(ctor.name, type)
+      mod.define(ctor.name, value)
+    }
   }
 }
