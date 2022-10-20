@@ -1,4 +1,4 @@
-(import Nat zero "./Nat.mu")
+(import "./Nat.mu" Nat zero)
 
 ;; `Stream` is an example of a coinductive type.
 ;; Coinductive types are not required to be well-founded,
@@ -11,7 +11,7 @@
 (codata Stream Type
   [cons (-> Nat Stream Stream)])
 
-(cofn zeroes Stream
+(fn zeroes Stream
   [(zeroes) (cons zero zeroes)])
 
 (fn head (-> Stream Nat)

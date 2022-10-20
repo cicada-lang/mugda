@@ -19,6 +19,7 @@ export class Codata extends Stmt {
     const type = evaluate(mod.env, this.type)
     const value = Values.Codata(this.name, type, Values.arity(type))
     mod.define(this.name, value)
+
     for (const coctor of this.coctors) {
       const type = evaluate(mod.env, coctor.type)
       const value = Values.Coctor(coctor.name, type)

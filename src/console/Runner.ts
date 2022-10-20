@@ -22,8 +22,7 @@ export class Runner {
       return { error: undefined }
     } catch (error) {
       if (!opts?.silent) {
-        if (error instanceof Error) console.error(error.message)
-        else console.error(error)
+        console.error(error)
       }
 
       return { error }

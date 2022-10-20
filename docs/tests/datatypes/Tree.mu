@@ -1,4 +1,4 @@
-(import List "./List.mu")
+(import "./List.mu" List)
 
 ;; A leaf is a node with an empty list of successors.
 
@@ -6,4 +6,4 @@
 ;; This will be allowed because the parameter of `List` is strictly positive.
 
 (data Tree (Pi ([+ A Type]) Type)
-  [node (-> A (List (Tree A)) (Tree A))])
+  [node (Pi ([A Type]) (-> A (List (Tree A)) (Tree A)))])

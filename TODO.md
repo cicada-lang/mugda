@@ -1,9 +1,17 @@
 # lazy evaluation and Codata
 
+fix `formatClause` -- add pattern variables to env
+
+fix `doAp` & `doApUnfolded`
+
 evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
 
 - Values.force
 - Add `Values.Lazy`
+
+`(data <telescope> <retType> ...)` instead of `(data <type> ...)`
+
+- for constructor arguments
 
 # 3 Type-Checking
 
