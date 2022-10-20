@@ -46,8 +46,11 @@ Repl:
 
 ```sh
 mu repl
+```
 
-# or just
+or just:
+
+```sh
 mu
 ```
 
