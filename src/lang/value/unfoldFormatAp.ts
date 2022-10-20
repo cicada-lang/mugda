@@ -1,16 +1,16 @@
 import { formatValue, Value } from "../value"
 
-export function unfoldFormatAp(target: Value): {
+export function unfoldFormatAp(value: Value): {
   target: string
   args: Array<string>
 } {
-  if (target.kind === "Ap") {
-    const unfolded = unfoldFormatAp(target.target)
+  if (value.kind === "Ap") {
+    const unfolded = unfoldFormatAp(value.target)
     return {
       target: unfolded.target,
-      args: [...unfolded.args, formatValue(target.arg)],
+      args: [...unfolded.args, formatValue(value.arg)],
     }
   }
 
-  return { target: formatValue(target), args: [] }
+  return { target: formatValue(value), args: [] }
 }

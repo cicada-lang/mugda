@@ -1,16 +1,16 @@
 import { Value } from "../value"
 
-export function unfoldAp(target: Value): {
+export function unfoldAp(value: Value): {
   target: Value
   args: Array<Value>
 } {
-  if (target.kind === "Ap") {
-    const unfolded = unfoldAp(target.target)
+  if (value.kind === "Ap") {
+    const unfolded = unfoldAp(value.target)
     return {
       target: unfolded.target,
-      args: [...unfolded.args, target.arg],
+      args: [...unfolded.args, value.arg],
     }
   }
 
-  return { target, args: [] }
+  return { target: value, args: [] }
 }

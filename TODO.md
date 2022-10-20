@@ -1,3 +1,5 @@
+formatValue -- uses `unfoldFormatFn`
+
 Data has `varied` & `fixed` -- both are `Telescope`
 
 - `varied` as constructor's extra arguments
