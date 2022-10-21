@@ -1,6 +1,3 @@
-extract module `ImportBinding`
-extract module `executeBinding`
-
 `(import ... (rename ...))` syntax follows r7rs' library syntax
 
 - tests/module/import-rename.test.mu
