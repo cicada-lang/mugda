@@ -1,8 +1,5 @@
 (data Equal ((A Type)) ((from A) (to A))
-  (refl ((A Type) (a A)) (Equal A a a)))
-
-;; (data Equal ((A Type)) ((from A) (to A))
-;;   (refl ((A Type) (a A)) (Equal A a a)))
+  (refl ((a A)) (Equal A a a)))
 
 (import "./Nat.mu" Nat zero add1 add)
 

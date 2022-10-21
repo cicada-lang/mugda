@@ -1,8 +1,8 @@
 (import "./Nat.mu" Nat zero add1)
 
 (data Vector ((+ A Type)) ((length Nat))
-  (null ((A Type)) (Vector A zero))
-  (cons ((A Type) (n Nat) (head A) (tail (Vector A n))) (Vector A (add1 n))))
+  (null () (Vector A zero))
+  (cons ((n Nat) (head A) (tail (Vector A n))) (Vector A (add1 n))))
 
 ;; We use `(#)` for inaccessible pattern.
 

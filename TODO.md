@@ -1,5 +1,3 @@
-`varied` as constructor's extra arguments
-
 `(import ... (rename ...))` syntax follows r7rs' library syntax
 
 - tests/module/import-rename.test.mu

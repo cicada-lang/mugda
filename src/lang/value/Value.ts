@@ -123,8 +123,8 @@ export function Ap(target: Value, arg: Value): Ap {
 }
 
 /**
-   | parameters | varied |
-   | indexes    | fixed  |
+   | parameters | fixed  |
+   | indexes    | varied |
 **/
 
 export type Data = {
@@ -132,23 +132,23 @@ export type Data = {
   kind: "Data"
   name: string
   env: Env
-  varied: Telescope
   fixed: Telescope
+  varied: Telescope
 }
 
 export function Data(
   name: string,
   env: Env,
-  varied: Telescope,
   fixed: Telescope,
+  varied: Telescope,
 ): Data {
   return {
     family: "Value",
     kind: "Data",
     name,
     env,
-    varied,
     fixed,
+    varied,
   }
 }
 
@@ -157,6 +157,7 @@ export type Ctor = {
   kind: "Ctor"
   name: string
   env: Env
+  fixed: Telescope
   args: Telescope
   retType: Exp
 }
@@ -164,6 +165,7 @@ export type Ctor = {
 export function Ctor(
   name: string,
   env: Env,
+  fixed: Telescope,
   args: Telescope,
   retType: Exp,
 ): Ctor {
@@ -172,6 +174,7 @@ export function Ctor(
     kind: "Ctor",
     name,
     env,
+    fixed,
     args,
     retType,
   }
@@ -182,23 +185,23 @@ export type Codata = {
   kind: "Codata"
   name: string
   env: Env
-  varied: Telescope
   fixed: Telescope
+  varied: Telescope
 }
 
 export function Codata(
   name: string,
   env: Env,
-  varied: Telescope,
   fixed: Telescope,
+  varied: Telescope,
 ): Codata {
   return {
     family: "Value",
     kind: "Codata",
     name,
     env,
-    varied,
     fixed,
+    varied,
   }
 }
 
@@ -207,6 +210,7 @@ export type Coctor = {
   kind: "Coctor"
   name: string
   env: Env
+  fixed: Telescope
   args: Telescope
   retType: Exp
 }
@@ -214,6 +218,7 @@ export type Coctor = {
 export function Coctor(
   name: string,
   env: Env,
+  fixed: Telescope,
   args: Telescope,
   retType: Exp,
 ): Coctor {
@@ -222,6 +227,7 @@ export function Coctor(
     kind: "Coctor",
     name,
     env,
+    fixed,
     args,
     retType,
   }

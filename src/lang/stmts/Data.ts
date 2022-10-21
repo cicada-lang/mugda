@@ -17,11 +17,17 @@ export class Data extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    const value = Values.Data(this.name, mod.env, this.varied, this.fixed)
+    const value = Values.Data(this.name, mod.env, this.fixed, this.varied)
     mod.define(this.name, value)
 
     for (const ctor of this.ctors) {
-      const value = Values.Ctor(ctor.name, mod.env, ctor.args, ctor.retType)
+      const value = Values.Ctor(
+        ctor.name,
+        mod.env,
+        this.fixed,
+        ctor.args,
+        ctor.retType,
+      )
       mod.define(ctor.name, value)
     }
   }
