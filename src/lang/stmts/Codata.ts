@@ -1,4 +1,4 @@
-import { Ctor } from "../ctor"
+import * as Exps from "../exp"
 import { evaluate, Telescope } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
@@ -10,7 +10,7 @@ export class Codata extends Stmt {
     public name: string,
     public varied: Telescope,
     public fixed: Telescope,
-    public coctors: Array<Ctor>,
+    public coctors: Array<Exps.Ctor>,
     public span: Span,
   ) {
     super()

@@ -8,7 +8,6 @@ import {
   Sexp,
   v,
 } from "@cicada-lang/sexp"
-import { Ctor } from "../ctor"
 import * as Exps from "../exp"
 import * as Patterns from "../pattern"
 import { Pattern } from "../pattern"
@@ -86,11 +85,11 @@ function matchImportEntry(sexp: Sexp): Stmts.ImportEntry {
   ])
 }
 
-function matchCtor(sexp: Sexp): Ctor {
-  return match<Ctor>(sexp, [
+function matchCtor(sexp: Sexp): Exps.Ctor {
+  return match<Exps.Ctor>(sexp, [
     [
       [v("name"), v("type")],
-      ({ name, type }) => Ctor(matchSymbol(name), matchExp(type)),
+      ({ name, type }) => Exps.Ctor(matchSymbol(name), matchExp(type)),
     ],
   ])
 }

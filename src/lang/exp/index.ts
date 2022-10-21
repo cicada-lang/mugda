@@ -1,4 +1,5 @@
 export * from "./Clause"
+export * from "./Ctor"
 export * from "./evaluate"
 export * from "./Exp"
 export * from "./foldArrow"

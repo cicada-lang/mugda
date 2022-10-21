@@ -1,5 +1,3 @@
-move ctor/Ctor to exp/
-
 change the `(data)` syntax to "The Little Typer"
 
 change constructor definition syntax -- `Telescope` instead of just a type
