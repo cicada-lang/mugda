@@ -1,4 +1,3 @@
-export * from "./arity"
 export * from "./Clause"
 export * from "./force"
 export * from "./formatClause"

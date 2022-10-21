@@ -125,16 +125,14 @@ export type Data = {
   kind: "Data"
   name: string
   type: Value
-  arity: number
 }
 
-export function Data(name: string, type: Value, arity: number): Data {
+export function Data(name: string, type: Value): Data {
   return {
     family: "Value",
     kind: "Data",
     name,
     type,
-    arity,
   }
 }
 
@@ -159,16 +157,14 @@ export type Codata = {
   kind: "Codata"
   name: string
   type: Value
-  arity: number
 }
 
-export function Codata(name: string, type: Value, arity: number): Codata {
+export function Codata(name: string, type: Value): Codata {
   return {
     family: "Value",
     kind: "Codata",
     name,
     type,
-    arity,
   }
 }
 

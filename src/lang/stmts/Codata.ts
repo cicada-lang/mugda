@@ -17,7 +17,7 @@ export class Codata extends Stmt {
 
   async execute(mod: Mod): Promise<void> {
     const type = evaluate(mod.env, this.type)
-    const value = Values.Codata(this.name, type, Values.arity(type))
+    const value = Values.Codata(this.name, type)
     mod.define(this.name, value)
 
     for (const coctor of this.coctors) {
