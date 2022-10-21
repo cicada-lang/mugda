@@ -22,7 +22,7 @@ export function formatValue(value: Value): string {
       return `(lambda (${bindings.join(" ")}) ${ret})`
     }
 
-    case "FnClauses": {
+    case "FnMatch": {
       const clauses = value.clauses.map(formatClause)
       return `(fn ${clauses.join(" ")})`
     }

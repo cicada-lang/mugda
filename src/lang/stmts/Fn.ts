@@ -19,7 +19,7 @@ export class Fn extends Stmt {
   async execute(mod: Mod): Promise<void> {
     const type = evaluate(mod.env, this.type)
     const clauses: Array<Clause> = []
-    const value = Values.FnClauses(type, clauses, true)
+    const value = Values.FnMatch(type, clauses, true)
     mod.define(this.name, value)
     // TODO Maybe this is the wrong way to handle recursive definitions,
     // maybe we should add a new sum type to `Env`.

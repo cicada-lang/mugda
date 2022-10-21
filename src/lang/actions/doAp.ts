@@ -15,7 +15,7 @@ export function doApUnfolded(target: Value, args: Array<Value>): Value {
     return doApUnfolded(applyClosure(target.retClosure, arg), restArgs)
   }
 
-  if (target.kind === "FnClauses" && target.isChecked) {
+  if (target.kind === "FnMatch" && target.isChecked) {
     const value = matchClauses(target.clauses, args)
     if (value !== undefined) return value
   }

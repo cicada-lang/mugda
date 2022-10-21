@@ -1,15 +1,15 @@
 `Data` has `varied` & `fixed` -- both are `Telescope`
 
-- change the `(data)` syntax to "The Little Typer"
+note about the naming of:
 
-  - change constructor definition syntax -- `Telescope` instead of just a type
+| parameters | varied |
+| indexes | fixed |
 
-- `varied` as constructor's extra arguments
+change the `(data)` syntax to "The Little Typer"
 
-- note about the naming of:
+change constructor definition syntax -- `Telescope` instead of just a type
 
-  | parameters | varied |
-  | indexes | fixed |
+`varied` as constructor's extra arguments
 
 use `Neutral` instead of `Values.Var` & `Values.Ap`
 

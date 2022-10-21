@@ -6,7 +6,7 @@ export type Value =
   | Type
   | Pi
   | Fn
-  | FnClauses
+  | FnMatch
   | Ap
   | Data
   | Ctor
@@ -82,22 +82,22 @@ export function Fn(retClosure: Closure): Fn {
   }
 }
 
-export type FnClauses = {
+export type FnMatch = {
   family: "Value"
-  kind: "FnClauses"
+  kind: "FnMatch"
   type: Value
   clauses: Array<Clause>
   isChecked: boolean
 }
 
-export function FnClauses(
+export function FnMatch(
   type: Value,
   clauses: Array<Clause>,
   isChecked: boolean,
-): FnClauses {
+): FnMatch {
   return {
     family: "Value",
-    kind: "FnClauses",
+    kind: "FnMatch",
     type,
     clauses,
     isChecked,
