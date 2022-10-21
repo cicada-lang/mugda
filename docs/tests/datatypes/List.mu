@@ -1,3 +1,3 @@
 (data List ((+ A Type)) ()
-  (null (Pi ((A Type)) (List A)))
-  (cons (Pi ((A Type)) (-> A (List A) (List A)))))
+  (null ((A Type)) (List A))
+  (cons ((A Type) (head A) (tail (List A))) (List A)))

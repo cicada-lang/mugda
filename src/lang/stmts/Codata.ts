@@ -1,5 +1,5 @@
 import * as Exps from "../exp"
-import { evaluate, Telescope } from "../exp"
+import { Telescope } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -21,8 +21,12 @@ export class Codata extends Stmt {
     mod.define(this.name, value)
 
     for (const coctor of this.coctors) {
-      const type = evaluate(mod.env, coctor.type)
-      const value = Values.Coctor(coctor.name, type)
+      const value = Values.Coctor(
+        coctor.name,
+        mod.env,
+        coctor.args,
+        coctor.retType,
+      )
       mod.define(coctor.name, value)
     }
   }

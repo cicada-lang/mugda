@@ -1,6 +1,6 @@
 import { Closure } from "../closure"
 import { Env } from "../env"
-import { Telescope } from "../exp"
+import { Exp, Telescope } from "../exp"
 import { Clause } from "../value"
 
 export type Value =
@@ -156,15 +156,24 @@ export type Ctor = {
   family: "Value"
   kind: "Ctor"
   name: string
-  type: Value
+  env: Env
+  args: Telescope
+  retType: Exp
 }
 
-export function Ctor(name: string, type: Value): Ctor {
+export function Ctor(
+  name: string,
+  env: Env,
+  args: Telescope,
+  retType: Exp,
+): Ctor {
   return {
     family: "Value",
     kind: "Ctor",
     name,
-    type,
+    env,
+    args,
+    retType,
   }
 }
 
@@ -197,14 +206,23 @@ export type Coctor = {
   family: "Value"
   kind: "Coctor"
   name: string
-  type: Value
+  env: Env
+  args: Telescope
+  retType: Exp
 }
 
-export function Coctor(name: string, type: Value): Coctor {
+export function Coctor(
+  name: string,
+  env: Env,
+  args: Telescope,
+  retType: Exp,
+): Coctor {
   return {
     family: "Value",
     kind: "Coctor",
     name,
-    type,
+    env,
+    args,
+    retType,
   }
 }

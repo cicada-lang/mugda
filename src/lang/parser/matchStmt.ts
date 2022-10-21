@@ -88,8 +88,13 @@ function matchImportEntry(sexp: Sexp): Stmts.ImportEntry {
 function matchCtor(sexp: Sexp): Exps.Ctor {
   return match<Exps.Ctor>(sexp, [
     [
-      [v("name"), v("type")],
-      ({ name, type }) => Exps.Ctor(matchSymbol(name), matchExp(type)),
+      [v("name"), v("args"), v("retType")],
+      ({ name, args, retType }) =>
+        Exps.Ctor(
+          matchSymbol(name),
+          Exps.Telescope(matchList(args, matchTelescopeBinding)),
+          matchExp(retType),
+        ),
     ],
   ])
 }

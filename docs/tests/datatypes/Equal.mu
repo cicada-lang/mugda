@@ -1,5 +1,5 @@
 (data Equal ((A Type)) ((from A) (to A))
-  (refl (Pi ((A Type) (a A)) (Equal A a a))))
+  (refl ((A Type) (a A)) (Equal A a a)))
 
 ;; (data Equal ((A Type)) ((from A) (to A))
 ;;   (refl ((A Type) (a A)) (Equal A a a)))

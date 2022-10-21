@@ -1,5 +1,5 @@
 import * as Exps from "../exp"
-import { evaluate, Telescope } from "../exp"
+import { Telescope } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -21,8 +21,7 @@ export class Data extends Stmt {
     mod.define(this.name, value)
 
     for (const ctor of this.ctors) {
-      const type = evaluate(mod.env, ctor.type)
-      const value = Values.Ctor(ctor.name, type)
+      const value = Values.Ctor(ctor.name, mod.env, ctor.args, ctor.retType)
       mod.define(ctor.name, value)
     }
   }

@@ -1,6 +1,6 @@
 (data Boolean () ()
-  (true Boolean)
-  (false Boolean))
+  (true () Boolean)
+  (false () Boolean))
 
 (fn ife (Pi ((A Type)) (-> Boolean A A A))
   ((A (true) a b) a)

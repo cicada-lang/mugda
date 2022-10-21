@@ -6,4 +6,7 @@
 ;; This will be allowed because the parameter of `List` is strictly positive.
 
 (data Tree ((+ A Type)) ()
-  (node (Pi ((A Type)) (-> A (List (Tree A)) (Tree A)))))
+  (node ((A Type)
+         (value A)
+         (children (List (Tree A))))
+        (Tree A)))
