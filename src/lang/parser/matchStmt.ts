@@ -29,21 +29,23 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      list(["data", v("name"), v("type")], v("ctors")),
-      ({ name, type, ctors }, { span }) =>
+      list(["data", v("name"), v("varied"), v("fixed")], v("ctors")),
+      ({ name, varied, fixed, ctors }, { span }) =>
         new Stmts.Data(
           matchSymbol(name),
-          matchExp(type),
+          Exps.Telescope(matchList(varied, matchTelescopeBinding)),
+          Exps.Telescope(matchList(fixed, matchTelescopeBinding)),
           matchList(ctors, matchCtor),
           span,
         ),
     ],
     [
-      list(["codata", v("name"), v("type")], v("ctors")),
-      ({ name, type, ctors }, { span }) =>
+      list(["codata", v("name"), v("varied"), v("fixed")], v("ctors")),
+      ({ name, varied, fixed, ctors }, { span }) =>
         new Stmts.Codata(
           matchSymbol(name),
-          matchExp(type),
+          Exps.Telescope(matchList(varied, matchTelescopeBinding)),
+          Exps.Telescope(matchList(fixed, matchTelescopeBinding)),
           matchList(ctors, matchCtor),
           span,
         ),
@@ -85,7 +87,7 @@ function matchImportEntry(sexp: Sexp): Stmts.ImportEntry {
 }
 
 function matchCtor(sexp: Sexp): Ctor {
-  return match(sexp, [
+  return match<Ctor>(sexp, [
     [
       [v("name"), v("type")],
       ({ name, type }) => Ctor(matchSymbol(name), matchExp(type)),
@@ -94,7 +96,7 @@ function matchCtor(sexp: Sexp): Ctor {
 }
 
 function matchClause(sexp: Sexp): Exps.Clause {
-  return match(sexp, [
+  return match<Exps.Clause>(sexp, [
     [
       [v("patterns"), v("body")],
       ({ patterns, body }) =>
@@ -115,5 +117,23 @@ function matchPattern(sexp: Sexp): Pattern {
         Patterns.Ctor(matchSymbol(name), matchList(args, matchPattern)),
     ],
     [v("name"), ({ name }) => Patterns.Var(matchSymbol(name))],
+  ])
+}
+
+function matchTelescopeBinding(sexp: Sexp): Exps.TelescopeBinding {
+  return match<Exps.TelescopeBinding>(sexp, [
+    [
+      [v("name"), v("type")],
+      ({ name, type }) =>
+        Exps.TelescopeBindingParameter(matchSymbol(name), matchExp(type)),
+    ],
+    [
+      ["+", v("name"), v("type")],
+      ({ name, type }) =>
+        Exps.TelescopeBindingParameterPositive(
+          matchSymbol(name),
+          matchExp(type),
+        ),
+    ],
   ])
 }

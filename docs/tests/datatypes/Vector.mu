@@ -1,6 +1,6 @@
 (import "./Nat.mu" Nat zero add1)
 
-(data Vector (Pi ((+ A Type)) (-> Nat Type))
+(data Vector ((+ A Type)) ((length Nat))
   (null (Pi ((A Type)) (Vector A zero)))
   (cons (Pi ((A Type) (n Nat)) (-> A (Vector A n) (Vector A (add1 n))))))
 

@@ -1,4 +1,4 @@
-(data Boolean Type
+(data Boolean () ()
   (true Boolean)
   (false Boolean))
 

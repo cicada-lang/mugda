@@ -8,7 +8,7 @@
 
 ;; There are no `Stream` objects of finite height.
 
-(codata Stream Type
+(codata Stream () ()
   (cons (-> Nat Stream Stream)))
 
 ;; (define zeroes Stream

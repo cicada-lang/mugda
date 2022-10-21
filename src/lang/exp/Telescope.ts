@@ -1,9 +1,13 @@
-import { Env } from "../env"
 import { Exp } from "../exp"
 
 export type Telescope = {
-  env: Env
   bindings: Array<TelescopeBinding>
+}
+
+export function Telescope(bindings: Array<TelescopeBinding>): Telescope {
+  return {
+    bindings,
+  }
 }
 
 export type TelescopeBinding =

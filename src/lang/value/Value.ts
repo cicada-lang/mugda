@@ -1,4 +1,6 @@
 import { Closure } from "../closure"
+import { Env } from "../env"
+import { Telescope } from "../exp"
 import { Clause } from "../value"
 
 export type Value =
@@ -120,19 +122,33 @@ export function Ap(target: Value, arg: Value): Ap {
   }
 }
 
+/**
+   | parameters | varied |
+   | indexes    | fixed  |
+**/
+
 export type Data = {
   family: "Value"
   kind: "Data"
   name: string
-  type: Value
+  env: Env
+  varied: Telescope
+  fixed: Telescope
 }
 
-export function Data(name: string, type: Value): Data {
+export function Data(
+  name: string,
+  env: Env,
+  varied: Telescope,
+  fixed: Telescope,
+): Data {
   return {
     family: "Value",
     kind: "Data",
     name,
-    type,
+    env,
+    varied,
+    fixed,
   }
 }
 
@@ -156,15 +172,24 @@ export type Codata = {
   family: "Value"
   kind: "Codata"
   name: string
-  type: Value
+  env: Env
+  varied: Telescope
+  fixed: Telescope
 }
 
-export function Codata(name: string, type: Value): Codata {
+export function Codata(
+  name: string,
+  env: Env,
+  varied: Telescope,
+  fixed: Telescope,
+): Codata {
   return {
     family: "Value",
     kind: "Codata",
     name,
-    type,
+    env,
+    varied,
+    fixed,
   }
 }
 

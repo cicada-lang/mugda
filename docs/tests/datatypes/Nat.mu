@@ -1,4 +1,4 @@
-(data Nat Type
+(data Nat () ()
   (zero Nat)
   (add1 (-> Nat Nat)))
 

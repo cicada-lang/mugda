@@ -1,9 +1,4 @@
-`Data` has `varied` & `fixed` -- both are `Telescope`
-
-note about the naming of:
-
-| parameters | varied |
-| indexes | fixed |
+move ctor/Ctor to exp/
 
 change the `(data)` syntax to "The Little Typer"
 

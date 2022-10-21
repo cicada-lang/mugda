@@ -1,5 +1,5 @@
 import { Ctor } from "../ctor"
-import { evaluate, Exp } from "../exp"
+import { evaluate, Telescope } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
@@ -8,7 +8,8 @@ import * as Values from "../value"
 export class Data extends Stmt {
   constructor(
     public name: string,
-    public type: Exp,
+    public varied: Telescope,
+    public fixed: Telescope,
     public ctors: Array<Ctor>,
     public span: Span,
   ) {
@@ -16,8 +17,7 @@ export class Data extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    const type = evaluate(mod.env, this.type)
-    const value = Values.Data(this.name, type)
+    const value = Values.Data(this.name, mod.env, this.varied, this.fixed)
     mod.define(this.name, value)
 
     for (const ctor of this.ctors) {
