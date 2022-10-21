@@ -1,5 +1,3 @@
-formatExp -- `unfoldPi`
-
 `Data` has `varied` & `fixed` -- both are `Telescope`
 
 - change the `(data)` syntax to "The Little Typer"

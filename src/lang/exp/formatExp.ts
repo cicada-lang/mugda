@@ -8,9 +8,10 @@ export function formatExp(exp: Exp): string {
     }
 
     case "Pi": {
-      const argType = formatExp(exp.argType)
-      const retType = formatExp(exp.retType)
-      return `(Pi ((${name} ${argType})) ${retType})`
+      const unfolded = Exps.unfoldPi(exp)
+      const bindings = unfolded.bindings.map(formatPiBinding)
+      const retType = formatExp(unfolded.retType)
+      return `(Pi (${bindings.join(" ")}) ${retType})`
     }
 
     case "PiUnfolded": {
