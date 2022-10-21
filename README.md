@@ -24,10 +24,15 @@ Run multiline text (bash and zsh):
 ```bash
 curl https://mu.cic.run --data-binary @- << END
 
-(define id (Pi ([A Type]) (-> A A))
-  (lambda (A) (lambda (a) a)))
+(data Nat () ()
+  (zero () Nat)
+  (add1 ([prev Nat]) Nat))
 
-((id id) (id id))
+(fn add (-> Nat Nat Nat)
+  [(x (zero)) x]
+  [(x (add1 y)) (add1 (add x y))])
+
+(add (add1 zero) (add1 zero))
 
 END
 ```
