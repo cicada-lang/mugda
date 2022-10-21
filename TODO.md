@@ -1,5 +1,3 @@
-Values.Telescope
-
 `Data` has `varied` & `fixed` -- both are `Telescope`
 
 note about the naming of:
