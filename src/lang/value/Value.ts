@@ -1,5 +1,5 @@
-import { Clause } from "../clause"
 import { Closure } from "../closure"
+import { Clause } from "../value"
 
 export type Value =
   | Var

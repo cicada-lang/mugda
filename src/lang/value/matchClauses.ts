@@ -1,9 +1,8 @@
 import * as Actions from "../actions"
-import { Clause } from "../clause"
 import { Env } from "../env"
 import { evaluate, Exp } from "../exp"
 import { matchPattern, Pattern } from "../pattern"
-import { Value } from "../value"
+import { Clause, Value } from "../value"
 
 export function matchClauses(
   clauses: Array<Clause>,

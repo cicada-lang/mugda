@@ -1,10 +1,10 @@
-import { Clause } from "../clause"
 import * as Exps from "../exp"
 import { evaluate, Exp } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 import * as Values from "../value"
+import { Clause } from "../value"
 
 export class Fn extends Stmt {
   constructor(

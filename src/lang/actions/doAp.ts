@@ -1,7 +1,6 @@
-import { matchClauses } from "../clause"
 import { applyClosure } from "../closure"
 import * as Values from "../value"
-import { Value } from "../value"
+import { matchClauses, Value } from "../value"
 
 export function doAp(target: Value, arg: Value): Value {
   const unfolded = Values.unfoldAp(target)

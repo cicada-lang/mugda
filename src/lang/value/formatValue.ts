@@ -1,6 +1,5 @@
-import { formatClause } from "../clause"
 import * as Values from "../value"
-import { Value } from "../value"
+import { formatClause, Value } from "../value"
 
 export function formatValue(value: Value): string {
   switch (value.kind) {
