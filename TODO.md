@@ -1,3 +1,5 @@
+formatExp -- `unfoldPi`
+
 `Data` has `varied` & `fixed` -- both are `Telescope`
 
 - change the `(data)` syntax to "The Little Typer"
@@ -14,9 +16,6 @@
 use `Neutral` instead of `Values.Var` & `Values.Ap`
 
 - code with partial evaluation is not clear with out introducing `Neutral`
-
-formatExp -- `unfoldPi`
-formatExp -- `unfoldLet`
 
 report syntax error in context -- test in the REPL
 

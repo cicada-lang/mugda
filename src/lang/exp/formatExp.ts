@@ -37,9 +37,10 @@ export function formatExp(exp: Exp): string {
     }
 
     case "Let": {
-      const type = formatExp(exp.type)
-      const ret = formatExp(exp.ret)
-      return `(let ((${exp.name} ${type} ${formatExp(exp.exp)})) ${ret})`
+      const unfolded = Exps.unfoldLet(exp)
+      const bindings = unfolded.bindings.map(formatLetBinding)
+      const ret = formatExp(unfolded.ret)
+      return `(let (${bindings.join(" ")}) ${ret})`
     }
 
     case "LetUnfolded": {
