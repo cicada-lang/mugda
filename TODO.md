@@ -1,14 +1,3 @@
-use `Neutral` instead of `Values.Var` & `Values.Ap`
-
-- code with partial evaluation is not clear with out introducing `Neutral`
-
-# lazy evaluation and Codata
-
-evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
-
-- Values.force
-- Add `Values.Lazy`
-
 # 3 Type-Checking
 
 Scope-Checking
@@ -57,3 +46,16 @@ Excursion: Extending the order
 List reversion: Vectors to the rescue
 
 # 5 Sized data types
+
+# maybe
+
+use `Neutral` instead of `Values.Var` & `Values.Ap`
+
+- code with partial evaluation is not clear with out introducing `Neutral`
+
+# lazy evaluation and Codata
+
+evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
+
+- Values.force
+- Add `Values.Lazy`
