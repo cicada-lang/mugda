@@ -4,7 +4,7 @@ import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 
-export type ImportEntry = {
+export type ImportBinding = {
   name: string
   rename?: string
 }
@@ -12,7 +12,7 @@ export type ImportEntry = {
 export class Import extends Stmt {
   constructor(
     public path: string,
-    public entries: Array<ImportEntry>,
+    public bindings: Array<ImportBinding>,
     public span: Span,
   ) {
     super()
@@ -28,7 +28,7 @@ export class Import extends Stmt {
     }
 
     const importedMod = await mod.options.loader.load(url)
-    for (const { name, rename } of this.entries) {
+    for (const { name, rename } of this.bindings) {
       const value = lookupValueInEnv(importedMod.env, name)
       if (value === undefined) {
         throw new Error(

@@ -60,11 +60,11 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      cons("import", cons(v("url"), v("entries"))),
-      ({ url, entries }, { span }) =>
+      cons("import", cons(v("url"), v("bindings"))),
+      ({ url, bindings }, { span }) =>
         new Stmts.Import(
           matchString(url),
-          matchList(entries, matchImportEntry),
+          matchList(bindings, matchImportBinding),
           span,
         ),
     ],
@@ -72,8 +72,8 @@ export function matchStmt(sexp: Sexp): Stmt {
   ])
 }
 
-function matchImportEntry(sexp: Sexp): Stmts.ImportEntry {
-  return match<Stmts.ImportEntry>(sexp, [
+function matchImportBinding(sexp: Sexp): Stmts.ImportBinding {
+  return match<Stmts.ImportBinding>(sexp, [
     [
       ["rename", v("name"), v("rename")],
       ({ name, rename }) => ({
