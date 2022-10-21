@@ -1,7 +1,3 @@
-`(import ... (rename ...))` syntax follows r7rs' library syntax
-
-- tests/module/import-rename.test.mu
-
 use `Neutral` instead of `Values.Var` & `Values.Ap`
 
 - code with partial evaluation is not clear with out introducing `Neutral`

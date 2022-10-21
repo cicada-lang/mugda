@@ -12,19 +12,28 @@ export function ImportBindingName(name: string): ImportBindingName {
   }
 }
 
+export type ImportAlias = {
+  name: string
+  alias: string
+}
+
+export function ImportAlias(name: string, alias: string): ImportAlias {
+  return {
+    name,
+    alias,
+  }
+}
+
 export type ImportBindingRename = {
   kind: "ImportBindingRename"
-  name: string
-  rename: string
+  aliases: Array<ImportAlias>
 }
 
 export function ImportBindingRename(
-  name: string,
-  rename: string,
+  aliases: Array<ImportAlias>,
 ): ImportBindingRename {
   return {
     kind: "ImportBindingRename",
-    name,
-    rename,
+    aliases,
   }
 }

@@ -75,11 +75,21 @@ export function matchStmt(sexp: Sexp): Stmt {
 function matchImportBinding(sexp: Sexp): Stmts.ImportBinding {
   return match<Stmts.ImportBinding>(sexp, [
     [
-      ["rename", v("name"), v("rename")],
-      ({ name, rename }) =>
-        Stmts.ImportBindingRename(matchSymbol(name), matchSymbol(rename)),
+      cons("rename", v("aliases")),
+      ({ aliases }) =>
+        Stmts.ImportBindingRename(matchList(aliases, matchImportAlias)),
     ],
     [v("name"), ({ name }) => Stmts.ImportBindingName(matchSymbol(name))],
+  ])
+}
+
+function matchImportAlias(sexp: Sexp): Stmts.ImportAlias {
+  return match<Stmts.ImportAlias>(sexp, [
+    [
+      [v("name"), v("rename")],
+      ({ name, rename }) =>
+        Stmts.ImportAlias(matchSymbol(name), matchSymbol(rename)),
+    ],
   ])
 }
 

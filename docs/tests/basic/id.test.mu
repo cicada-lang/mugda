@@ -1,8 +1,5 @@
-(import "./id.mu" id)
+(import "./id.mu" id idType)
 
 id
-(id (Pi ((A Type)) (-> A A)) id)
-
-((id (Pi ((A Type)) (-> A A)) id)
- (Pi ((A Type)) (-> A A))
- (id (Pi ((A Type)) (-> A A)) id))
+(id idType id)
+((id idType id) idType (id idType id))

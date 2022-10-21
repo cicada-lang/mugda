@@ -16,7 +16,7 @@ export class Import extends Stmt {
   async execute(mod: Mod): Promise<void> {
     const importedMod = await this.import(mod)
     for (const binding of this.bindings) {
-      executeBinding(mod, importedMod, binding)
+      executeBinding(mod, importedMod, binding, this.span)
     }
   }
 
