@@ -56,12 +56,12 @@ function formatPiBinding(binding: Exps.PiBinding): string {
   switch (binding.kind) {
     case "PiBindingParameter": {
       const type = formatExp(binding.type)
-      return `(${binding.name} ${type})`
+      return `[${binding.name} ${type}]`
     }
 
     case "PiBindingParameterPositive": {
       const type = formatExp(binding.type)
-      return `(+ ${binding.name} ${type})`
+      return `[+ ${binding.name} ${type}]`
     }
   }
 }
@@ -70,7 +70,7 @@ function formatLetBinding(binding: Exps.LetBinding): string {
   switch (binding.kind) {
     case "LetBindingTyped": {
       const type = formatExp(binding.type)
-      return `(${binding.name} ${type})`
+      return `[${binding.name} ${type}]`
     }
   }
 }

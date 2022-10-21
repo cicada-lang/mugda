@@ -8,7 +8,7 @@ export function unfoldFormatPi(value: Value): {
 } {
   if (value.kind === "Pi") {
     const name = value.retTypeClosure.name
-    const binding = `(${name} ${formatValue(value.argType)})`
+    const binding = `[${name} ${formatValue(value.argType)}]`
     const retType = applyClosure(value.retTypeClosure, Values.Var(name))
     const unfolded = unfoldFormatPi(retType)
     return {
