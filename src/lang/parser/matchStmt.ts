@@ -76,12 +76,10 @@ function matchImportBinding(sexp: Sexp): Stmts.ImportBinding {
   return match<Stmts.ImportBinding>(sexp, [
     [
       ["rename", v("name"), v("rename")],
-      ({ name, rename }) => ({
-        name: matchSymbol(name),
-        rename: matchSymbol(rename),
-      }),
+      ({ name, rename }) =>
+        Stmts.ImportBindingRename(matchSymbol(name), matchSymbol(rename)),
     ],
-    [v("name"), ({ name }) => ({ name: matchSymbol(name) })],
+    [v("name"), ({ name }) => Stmts.ImportBindingName(matchSymbol(name))],
   ])
 }
 

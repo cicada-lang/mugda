@@ -4,9 +4,35 @@ import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 
-export type ImportBinding = {
+export type ImportBinding = ImportBindingName | ImportBindingRename
+
+export type ImportBindingName = {
+  kind: "ImportBindingName"
   name: string
-  rename?: string
+}
+
+export function ImportBindingName(name: string): ImportBindingName {
+  return {
+    kind: "ImportBindingName",
+    name,
+  }
+}
+
+export type ImportBindingRename = {
+  kind: "ImportBindingRename"
+  name: string
+  rename: string
+}
+
+export function ImportBindingRename(
+  name: string,
+  rename: string,
+): ImportBindingRename {
+  return {
+    kind: "ImportBindingRename",
+    name,
+    rename,
+  }
 }
 
 export class Import extends Stmt {
@@ -28,15 +54,34 @@ export class Import extends Stmt {
     }
 
     const importedMod = await mod.options.loader.load(url)
-    for (const { name, rename } of this.bindings) {
-      const value = lookupValueInEnv(importedMod.env, name)
-      if (value === undefined) {
-        throw new Error(
-          `I can not import undefined name: ${name}, from path: ${this.path}`,
-        )
+    for (const binding of this.bindings) {
+      this.executeBinding(mod, importedMod, binding)
+    }
+  }
+
+  executeBinding(mod: Mod, importedMod: Mod, binding: ImportBinding): void {
+    switch (binding.kind) {
+      case "ImportBindingName": {
+        const value = lookupValueInEnv(importedMod.env, binding.name)
+        if (value === undefined) {
+          throw new Error(
+            `I can not import undefined name: ${name}, from path: ${this.path}`,
+          )
+        }
+        mod.define(binding.name, value)
+        return
       }
 
-      mod.define(rename || name, value)
+      case "ImportBindingRename": {
+        const value = lookupValueInEnv(importedMod.env, binding.name)
+        if (value === undefined) {
+          throw new Error(
+            `I can not import undefined name: ${name}, from path: ${this.path}`,
+          )
+        }
+        mod.define(binding.rename, value)
+        return
+      }
     }
   }
 }
