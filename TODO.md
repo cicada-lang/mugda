@@ -1,5 +1,3 @@
-move `Import` to `import/`
-
 extract module `ImportBinding`
 extract module `executeBinding`
 

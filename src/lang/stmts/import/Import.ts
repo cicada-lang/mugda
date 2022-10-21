@@ -1,8 +1,8 @@
-import { lookupValueInEnv } from "../env"
-import * as Errors from "../errors"
-import { Mod } from "../mod"
-import { Span } from "../span"
-import { Stmt } from "../stmt"
+import { lookupValueInEnv } from "../../env"
+import * as Errors from "../../errors"
+import { Mod } from "../../mod"
+import { Span } from "../../span"
+import { Stmt } from "../../stmt"
 
 export type ImportBinding = ImportBindingName | ImportBindingRename
 
