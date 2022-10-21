@@ -10,7 +10,7 @@ export class Codata extends Stmt {
     public name: string,
     public type: Exp,
     public coctors: Array<Ctor>,
-    public span?: Span,
+    public span: Span,
   ) {
     super()
   }

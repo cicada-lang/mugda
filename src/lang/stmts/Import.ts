@@ -13,7 +13,7 @@ export class Import extends Stmt {
   constructor(
     public path: string,
     public entries: Array<ImportEntry>,
-    public span?: Span,
+    public span: Span,
   ) {
     super()
   }
@@ -23,7 +23,7 @@ export class Import extends Stmt {
     if (url.href === mod.options.url.href) {
       throw new Errors.ElaborationError(
         `I can not circular import: ${this.path}`,
-        { span: this.span },
+        this.span,
       )
     }
 

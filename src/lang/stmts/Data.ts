@@ -10,7 +10,7 @@ export class Data extends Stmt {
     public name: string,
     public type: Exp,
     public ctors: Array<Ctor>,
-    public span?: Span,
+    public span: Span,
   ) {
     super()
   }

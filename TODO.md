@@ -15,8 +15,6 @@ use `Neutral` instead of `Values.Var` & `Values.Ap`
 
 - code with partial evaluation is not clear with out introducing `Neutral`
 
-report syntax error in context -- test in the REPL
-
 # lazy evaluation and Codata
 
 evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`

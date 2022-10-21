@@ -42,8 +42,10 @@ export class AppReplEventHandler extends ReplEventHandler {
     } catch (error) {
       if (!(error instanceof Error)) {
         console.error(error)
+      } else if (error instanceof Errors.ParsingError) {
+        console.error(error.report(text))
       } else if (error instanceof Errors.ElaborationError) {
-        console.error(error.report({ text }))
+        console.error(error.report(text))
       } else {
         console.error(error.message)
       }

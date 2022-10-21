@@ -21,7 +21,14 @@ export function evaluate(env: Env, exp: Exp): Value {
         return value
       }
 
-      throw new Errors.EvaluationError(`Undefined name: ${exp.name}`)
+      if (exp.span) {
+        throw new Errors.ElaborationError(
+          `Undefined name: ${exp.name}`,
+          exp.span,
+        )
+      } else {
+        throw new Errors.EvaluationError(`Undefined name: ${exp.name}`)
+      }
     }
 
     case "Pi": {

@@ -8,7 +8,7 @@ export class Define extends Stmt {
     public name: string,
     public type: Exp,
     public exp: Exp,
-    public span?: Span,
+    public span: Span,
   ) {
     super()
   }

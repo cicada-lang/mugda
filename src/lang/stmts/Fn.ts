@@ -11,7 +11,7 @@ export class Fn extends Stmt {
     public name: string,
     public type: Exp,
     public clauses: Array<Exps.Clause>,
-    public span?: Span,
+    public span: Span,
   ) {
     super()
   }

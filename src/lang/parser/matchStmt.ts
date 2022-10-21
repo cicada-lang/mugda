@@ -60,10 +60,11 @@ export function matchStmt(sexp: Sexp): Stmt {
     ],
     [
       cons("import", cons(v("url"), v("entries"))),
-      ({ url, entries }) =>
+      ({ url, entries }, { span }) =>
         new Stmts.Import(
           matchString(url),
           matchList(entries, matchImportEntry),
+          span,
         ),
     ],
     [v("exp"), ({ exp }, { span }) => new Stmts.Compute(matchExp(exp), span)],
