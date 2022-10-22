@@ -8,24 +8,14 @@ export function force(value: Value): Value {
       return force(evaluate(value.env, value.exp))
     }
 
+    case "FnMatch": {
+      const result = Actions.doApUnfolded(value, [])
+      return result.kind === "FnMatch" ? result : force(result)
+    }
+
     case "Ap": {
       const result = Actions.doAp(force(value.target), value.arg)
       return result.kind === "Ap" ? result : force(result)
-    }
-
-    default: {
-      return value
-    }
-  }
-}
-
-export function deepForce(value: Value): Value {
-  value = force(value)
-
-  switch (value.kind) {
-    case "Ap": {
-      const result = Actions.doAp(deepForce(value.target), deepForce(value.arg))
-      return result.kind === "Ap" ? result : deepForce(result)
     }
 
     default: {
