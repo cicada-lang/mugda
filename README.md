@@ -2,14 +2,16 @@
 
 An implementation of the [Mugda paper](docs/papers/termination-checking-for-a-dependently-typed-language--karl-mehltretter.pdf) by Karl Mehltretter.
 
+The "Mu" of the name "Mugda"
+comes from [μ-operator (mu-operator)](https://en.wikipedia.org/wiki/%CE%9C_operator)
+of [general recursive function](https://en.wikipedia.org/wiki/General_recursive_function).
+
+Notes about our implementation:
+
 - Use [S-expression](https://github.com/cicada-lang/sexp) as overall syntax, to expression ideas clearly.
 - Close to the paper, so that the code is easy to be reviewed with the paper.
 - Add comments about alternative ways to implement the same ideas.
 - Do not follow bad naming conventions of the paper.
-
-The "Mu" of the name "Mugda"
-comes from [μ-operator (mu-operator)](https://en.wikipedia.org/wiki/%CE%9C_operator)
-of [general recursive function](https://en.wikipedia.org/wiki/General_recursive_function).
 
 ## Usages
 
