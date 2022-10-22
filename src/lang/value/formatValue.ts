@@ -1,3 +1,4 @@
+import { formatExp } from "../exp"
 import * as Values from "../value"
 import { formatClause, Value } from "../value"
 
@@ -9,6 +10,10 @@ export function formatValue(value: Value): string {
 
     case "Type": {
       return "Type"
+    }
+
+    case "Lazy": {
+      return formatExp(value.exp)
     }
 
     case "Pi": {

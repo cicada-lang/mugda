@@ -3,7 +3,6 @@
 evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
 
 - Values.force
-- Add `Values.Lazy`
 
 # type checking
 

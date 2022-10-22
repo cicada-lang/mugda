@@ -6,6 +6,7 @@ import { Clause } from "../value"
 export type Value =
   | Var
   | Type
+  | Lazy
   | Pi
   | Fn
   | FnMatch
@@ -14,19 +15,6 @@ export type Value =
   | Ctor
   | Codata
   | Coctor
-
-/**
-
-   NOTE The paper call `Set` we call `Type`.
-
-   NOTE The paper uses `ApUnfolded` instead of `Ap`.
-
-   NOTE The paper does not use `Neutral`, `Var` and `Ap` are values.
-   `Neutrals.Var` is called generic value, and index is used instead of bound name.
-
-   "A generic value k ∈ N represents the computed value of a variable during type-checking."
-
-**/
 
 export type Var = {
   family: "Value"
@@ -51,6 +39,22 @@ export function Type(): Type {
   return {
     family: "Value",
     kind: "Type",
+  }
+}
+
+export type Lazy = {
+  family: "Value"
+  kind: "Lazy"
+  env: Env
+  exp: Exp
+}
+
+export function Lazy(env: Env, exp: Exp): Lazy {
+  return {
+    family: "Value",
+    kind: "Lazy",
+    env,
+    exp,
   }
 }
 
