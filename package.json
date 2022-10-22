@@ -1,6 +1,6 @@
 {
   "name": "@cicada-lang/mugda.sexp",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "repository": "github:cicada-lang/mugda.sexp",
   "main": "./lib/index.js",
   "files": [
