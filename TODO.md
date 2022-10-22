@@ -1,5 +1,3 @@
-remove `Values.Var` & `Values.Ap` -- use `Neutral`
-
 # lazy evaluation and Codata
 
 evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
