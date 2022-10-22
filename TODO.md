@@ -1,8 +1,19 @@
-# 3 Type-Checking
+remove `Values.Var` & `Values.Ap` -- use `Neutral`
 
-Scope-Checking
+# lazy evaluation and Codata
 
-Bidirectional type-checking
+evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
+
+- Values.force
+- Add `Values.Lazy`
+
+# type checking
+
+Ctx
+
+check
+checkType
+infer
 
 Let declarations
 
@@ -23,7 +34,7 @@ Function declarations
 
 Mugda programs
 
-# 4 Termination-Checking
+# termination check
 
 Motivation
 
@@ -45,17 +56,4 @@ Excursion: Extending the order
 
 List reversion: Vectors to the rescue
 
-# 5 Sized data types
-
-# maybe
-
-use `Neutral` instead of `Values.Var` & `Values.Ap`
-
-- code with partial evaluation is not clear with out introducing `Neutral`
-
-# lazy evaluation and Codata
-
-evaluate -- use lazy evaluation -- necessary for function that calls `Coctor`
-
-- Values.force
-- Add `Values.Lazy`
+# sized data types
