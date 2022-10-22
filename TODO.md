@@ -4,6 +4,12 @@ NOTE arity of a `FnMatch` is defined as the length of patterns of each clause
 
 - The length of patterns of each clause must be the same
 
+matrixMul
+
+orderMul
+orderAdd
+orderMin
+
 compareWithPatten
 
 # termination check

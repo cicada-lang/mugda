@@ -1,9 +1,7 @@
-import { Order } from "../termination"
-
-export type Matrix<T> = Array<Array<T>>
+import { OrderMatrix } from "../termination"
 
 export type CallMatrix = {
   left: string
-  matrix: Matrix<Order>
+  matrix: OrderMatrix
   right: string
 }
