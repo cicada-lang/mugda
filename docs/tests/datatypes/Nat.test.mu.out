@@ -1,10 +1,10 @@
 (fn [(x (zero)) x] [(x (add1 y)) (add1 (add x y))])
 ((fn [(x (zero)) x] [(x (add1 y)) (add1 (add x y))]) zero)
-((fn [(x (zero)) x] [(x (add1 y)) (add1 (add x y))]) zero zero)
 zero
 zero
-((fn [(x (zero)) x] [(x (add1 y)) (add1 (add x y))]) zero zero)
+zero
+zero
 (add1 zero)
-((fn [(x (zero)) x] [(x (add1 y)) (add1 (add x y))]) zero (add1 zero))
-((fn [(x (zero)) x] [(x (add1 y)) (add1 (add x y))]) (add1 zero) zero)
-((fn [(x (zero)) x] [(x (add1 y)) (add1 (add x y))]) (add1 zero) (add1 zero))
+(add1 zero)
+(add1 zero)
+(add1 (add1 zero))

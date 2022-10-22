@@ -8,6 +8,8 @@ export function matchPattern(
   pattern: Pattern,
   value: Value,
 ): Env | undefined {
+  value = Values.force(value)
+
   switch (pattern.kind) {
     case "Var": {
       return EnvCons(pattern.name, value, env)
@@ -25,10 +27,6 @@ export function matchPattern(
 
       if (unfolded.target.name !== pattern.name) {
         return undefined
-      }
-
-      if (unfolded.target.kind === "Coctor") {
-        value = Values.force(value)
       }
 
       return matchPatterns(env, pattern.args, unfolded.args)

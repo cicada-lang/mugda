@@ -1,8 +1,8 @@
-((fn [(A (true) a b) a] [(A (false) a b) b]) Boolean a b false)
-((fn [(A (true) a b) a] [(A (false) a b) b]) Boolean a b false)
-((fn [(A (true) a b) a] [(A (false) a b) b]) Boolean a b false)
-((fn [(A (true) a b) a] [(A (false) a b) b]) Boolean a b false)
-((fn [(A (true) a b) a] [(A (false) a b) b]) Boolean a true b)
-((fn [(A (true) a b) a] [(A (false) a b) b]) Boolean a true b)
-((fn [(A (true) a b) a] [(A (false) a b) b]) Boolean a true b)
-((fn [(A (true) a b) a] [(A (false) a b) b]) Boolean a true b)
+true
+false
+false
+false
+true
+true
+true
+false
