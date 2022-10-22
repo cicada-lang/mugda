@@ -7,6 +7,10 @@ An implementation of the [Mugda paper](docs/papers/termination-checking-for-a-de
 - Add comments about alternative ways to implement the same ideas.
 - Do not follow bad naming conventions of the paper.
 
+The "Mu" of the name "Mugda"
+comes from [μ-operator (mu-operator)](https://en.wikipedia.org/wiki/%CE%9C_operator)
+of [general recursive function](https://en.wikipedia.org/wiki/General_recursive_function).
+
 ## Usages
 
 ### Use our server
