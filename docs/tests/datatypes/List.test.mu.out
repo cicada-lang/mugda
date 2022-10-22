@@ -1,4 +1,4 @@
 (null Nat)
 (cons Nat zero (null Nat))
 (cons Nat zero (cons Nat zero (null Nat)))
-(add1 (add1 zero))
+((fn [(A (null A)) zero] [(A (cons A head tail)) (add1 (length A tail))]) Nat (cons Nat zero (cons Nat zero (null Nat))))

@@ -52,7 +52,7 @@ export function evaluate(env: Env, exp: Exp): Value {
     }
 
     case "Ap": {
-      return Actions.doAp(evaluate(env, exp.target), evaluate(env, exp.arg))
+      return Actions.doAp(evaluate(env, exp.target), Values.Lazy(env, exp.arg))
     }
 
     case "Let": {
