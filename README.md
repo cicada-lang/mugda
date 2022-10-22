@@ -90,7 +90,10 @@ mu run https://cdn.mu.cic.run/docs/tests/basic/id.test.mu
 
 ### Zero arity data constructor
 
-When using zero arity data constructor in pattern, we must write them in `()`.
+When using zero arity data constructor, we must write them in `()`.
+For example, `zero` and `(zero)` are the same.
+
+But when using zero arity data constructor in pattern, we must write them in `()`.
 For example, we should not write `zero` but write `(zero)`,
 otherwise the interpreter can not distinguish pattern variable
 from this zero arity data constructor.

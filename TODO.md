@@ -8,11 +8,7 @@ NOTE arity of a `FnMatch` is defined as the length of patterns of each clause
 
 ## Matrix notation
 
-name of `Matrix` class
-
 ## Relating pattern and expressions
-
-fix name of `Order` class
 
 compareWithPatten
 
