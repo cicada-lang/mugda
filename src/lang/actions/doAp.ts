@@ -1,6 +1,6 @@
 import { applyClosure } from "../closure"
 import * as Values from "../value"
-import { matchClauses, Value } from "../value"
+import { matchClause, Value } from "../value"
 
 export function doAp(target: Value, arg: Value): Value {
   const unfolded = Values.unfoldAp(target)
@@ -15,8 +15,10 @@ export function doApUnfolded(target: Value, args: Array<Value>): Value {
   }
 
   if (target.kind === "FnMatch" && target.isChecked) {
-    const value = matchClauses(target.clauses, args)
-    if (value !== undefined) return value
+    for (const clause of target.clauses) {
+      const value = matchClause(clause.env, clause.patterns, clause.body, args)
+      if (value !== undefined) return value
+    }
   }
 
   return args.reduce((value, arg) => Values.Ap(value, arg), target)

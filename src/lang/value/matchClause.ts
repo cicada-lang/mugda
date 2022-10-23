@@ -2,21 +2,9 @@ import * as Actions from "../actions"
 import { Env } from "../env"
 import { evaluate, Exp } from "../exp"
 import { matchPattern, Pattern } from "../pattern"
-import { Clause, Value } from "../value"
+import { Value } from "../value"
 
-export function matchClauses(
-  clauses: Array<Clause>,
-  args: Array<Value>,
-): Value | undefined {
-  for (const clause of clauses) {
-    const value = matchClause(clause.env, clause.patterns, clause.body, args)
-    if (value !== undefined) return value
-  }
-
-  return undefined
-}
-
-function matchClause(
+export function matchClause(
   env: Env,
   patterns: Array<Pattern>,
   ret: Exp,
@@ -26,7 +14,7 @@ function matchClause(
   const [arg, ...restArgs] = args
 
   if (pattern === undefined) {
-    // NOTE Clause supports currying.
+    // NOTE Currying when there are not enough arguments.
     return Actions.doApUnfolded(evaluate(env, ret), args)
   }
 
@@ -37,7 +25,7 @@ function matchClause(
   }
 
   if (pattern !== undefined && arg === undefined) {
-    // NOTE Not enough arguments.
+    // NOTE Mismatching when there are extra arguments.
     return undefined
   }
 }
