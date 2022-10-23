@@ -1,3 +1,3 @@
-import { Order } from "../termination"
+import { Order } from "./Order"
 
 export type OrderMatrix = Array<Array<Order>>
