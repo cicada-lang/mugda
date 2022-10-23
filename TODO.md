@@ -1,7 +1,3 @@
-mulOrder
-addOrder
-minOrder
-
 mulMatrix
 
 compareWithPatten
