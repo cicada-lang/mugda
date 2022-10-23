@@ -93,12 +93,14 @@ export type FnMatch = {
   kind: "FnMatch"
   type: Value
   clauses: Array<Clause>
+  arity: number
   isChecked: boolean
 }
 
 export function FnMatch(
   type: Value,
   clauses: Array<Clause>,
+  arity: number,
   isChecked: boolean,
 ): FnMatch {
   return {
@@ -106,6 +108,7 @@ export function FnMatch(
     kind: "FnMatch",
     type,
     clauses,
+    arity,
     isChecked,
   }
 }

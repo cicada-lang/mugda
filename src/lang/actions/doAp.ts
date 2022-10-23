@@ -16,14 +16,16 @@ export function doApUnfolded(target: Value, args: Array<Value>): Value {
     return doApUnfolded(applyClosure(target.retClosure, arg), restArgs)
   }
 
-  if (target.kind === "FnMatch" && target.isChecked) {
+  if (
+    target.kind === "FnMatch" &&
+    target.arity <= args.length &&
+    target.isChecked
+  ) {
     for (const clause of target.clauses) {
-      if (clause.patterns.length <= args.length) {
-        const env = matchPatterns(clause.env, clause.patterns, args)
-        if (env !== undefined) {
-          const restArgs = args.slice(clause.patterns.length)
-          return doApUnfolded(evaluate(env, clause.body), restArgs)
-        }
+      const env = matchPatterns(clause.env, clause.patterns, args)
+      if (env !== undefined) {
+        const restArgs = args.slice(clause.patterns.length)
+        return doApUnfolded(evaluate(env, clause.body), restArgs)
       }
     }
   }

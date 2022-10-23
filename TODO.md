@@ -1,14 +1,8 @@
-`FnMatch` has arity
-
-NOTE arity of a `FnMatch` is defined as the length of patterns of each clause
-
-- The length of patterns of each clause must be the same
-
-mulMatrix
-
 mulOrder
 addOrder
 minOrder
+
+mulMatrix
 
 compareWithPatten
 
