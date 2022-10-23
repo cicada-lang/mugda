@@ -38,7 +38,7 @@ export function matchPattern(
   }
 }
 
-function matchPatterns(
+export function matchPatterns(
   env: Env,
   patterns: Array<Pattern>,
   values: Array<Value>,
@@ -46,15 +46,11 @@ function matchPatterns(
   const [pattern, ...restPatterns] = patterns
   const [value, ...restValues] = values
 
-  if (pattern === undefined && value === undefined) {
-    return env
-  }
-
   if (pattern !== undefined && value !== undefined) {
     const nextEnv = matchPattern(env, pattern, value)
     if (nextEnv === undefined) return undefined
     return matchPatterns(nextEnv, restPatterns, restValues)
   }
 
-  return undefined
+  return env
 }
