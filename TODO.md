@@ -1,6 +1,6 @@
-mulMatrix
-
 compareExpWithPatten
+
+mulMatrix
 
 # termination check
 

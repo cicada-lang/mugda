@@ -16,7 +16,7 @@ export function compareExpWithPatten(exp: Exp, pattern: Pattern): Order {
     throw new Error("TODO")
   }
 
-  return Orders.NotComparable
+  return Orders.LargerOrNotComparable
 }
 
 export function compareVarWithPatten(name: string, pattern: Pattern): Order {

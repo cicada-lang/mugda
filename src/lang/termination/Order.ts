@@ -1,40 +1,40 @@
-export type Order = Smaller | NotSmaller | NotComparable
+export type Order = Smaller | Neutral | LargerOrNotComparable
 
 export type Smaller = "Smaller"
-export type NotSmaller = "NotSmaller"
-export type NotComparable = "NotComparable"
+export type Neutral = "Neutral"
+export type LargerOrNotComparable = "LargerOrNotComparable"
 
 export const Smaller = "Smaller"
-export const NotSmaller = "NotSmaller"
-export const NotComparable = "NotComparable"
+export const Neutral = "Neutral"
+export const LargerOrNotComparable = "LargerOrNotComparable"
 
 export function mulOrder(x: Order, y: Order): Order {
   if (x === Smaller && y === Smaller) return Smaller
-  if (x === Smaller && y === NotSmaller) return Smaller
-  if (x === NotSmaller && y === Smaller) return Smaller
-  if (x === NotSmaller && y === NotSmaller) return NotSmaller
-  return NotComparable
+  if (x === Smaller && y === Neutral) return Smaller
+  if (x === Neutral && y === Smaller) return Smaller
+  if (x === Neutral && y === Neutral) return Neutral
+  return LargerOrNotComparable
 }
 
 export function addOrder(x: Order, y: Order): Order {
   if (x === Smaller && y === Smaller) return Smaller
-  if (x === Smaller && y === NotSmaller) return Smaller
-  if (x === NotSmaller && y === Smaller) return Smaller
-  if (x === NotSmaller && y === NotSmaller) return NotSmaller
-  if (x === NotComparable) return y
-  if (y === NotComparable) return x
-  return NotComparable
+  if (x === Smaller && y === Neutral) return Smaller
+  if (x === Neutral && y === Smaller) return Smaller
+  if (x === Neutral && y === Neutral) return Neutral
+  if (x === LargerOrNotComparable) return y
+  if (y === LargerOrNotComparable) return x
+  return LargerOrNotComparable
 }
 
 export function minOrder(x: Order, y: Order): Order {
   if (x === Smaller && y === Smaller) return Smaller
-  if (y === NotSmaller) return NotSmaller
-  if (x === NotSmaller) return NotSmaller
-  return NotComparable
+  if (y === Neutral) return Neutral
+  if (x === Neutral) return Neutral
+  return LargerOrNotComparable
 }
 
 export function maxOrders(xs: Array<Order>): Order {
-  return xs.reduce((result, x) => addOrder(result, x), NotComparable)
+  return xs.reduce((result, x) => addOrder(result, x), LargerOrNotComparable)
 }
 
 export function minOrders(xs: Array<Order>): Order {
