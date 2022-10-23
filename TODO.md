@@ -1,6 +1,7 @@
 compareExpWithPatten
-
+compareVarWithPatten
 mulMatrix
+ExtractCallMatrices
 
 # termination check
 
