@@ -1,7 +1,3 @@
-equalCallMatrix
-dedupCallMatrixes
-unionCallMatrixes
-
 extractCallMatrixes
 completeCallMatrixes
 composeCallMatrix
