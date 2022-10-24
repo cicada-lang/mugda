@@ -1,7 +1,8 @@
+unfoldExp
 compareExpWithPatten
 compareVarWithPatten
-mulMatrix
 ExtractCallMatrices
+mulMatrix
 
 # termination check
 

@@ -24,11 +24,7 @@ export function compareExpWithPatten(
   return Orders.LargerOrNotComparable
 }
 
-export function compareVarWithPatten(
-  mod: Mod,
-  name: string,
-  pattern: Pattern,
-): Order {
+function compareVarWithPatten(mod: Mod, name: string, pattern: Pattern): Order {
   switch (pattern.kind) {
     case "Var": {
       throw new Error("TODO")
