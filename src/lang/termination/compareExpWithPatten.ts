@@ -15,21 +15,36 @@ export function compareExpWithPatten(
     return compareExpWithPatten(mod, exp, pattern.pattern)
   }
 
-  if (exp.kind === "Var" && isCtorName(mod, exp.name)) {
-    if (pattern.kind === "Ctor" && pattern.name === exp.name) {
+  if (exp.kind === "Var") {
+    if (!isCtorName(mod, exp.name)) {
+      return compareVarWithPatten(mod, exp.name, pattern)
+    } else if (pattern.kind === "Ctor" && pattern.name === exp.name) {
       return Orders.Neutral
     }
   }
 
-  if (exp.kind === "Var") {
-    return compareVarWithPatten(mod, exp.name, pattern)
+  if (exp.kind === "Ap" || exp.kind === "ApUnfolded") {
+    const unfolded = Exps.unfoldAp(exp)
+    exp = Exps.ApUnfolded(unfolded.target, unfolded.args)
   }
 
-  if (exp.kind === "Ap") {
+  if (exp.kind === "ApUnfolded") {
     const unfolded = Exps.unfoldAp(exp)
-
-    // Exps.ApUnfolded(unfolded.target, unfolded.args)
-    // return compareExpWithPatten(mod, exp.name, pattern)
+    if (exp.target.kind === "Var") {
+      if (!isCtorName(mod, exp.target.name)) {
+        return compareVarWithPatten(mod, exp.target.name, pattern)
+      } else if (
+        pattern.kind === "Ctor" &&
+        exp.target.name === pattern.name &&
+        exp.args.length === pattern.args.length
+      ) {
+        return Orders.minOrders(
+          exp.args.map((arg, i) =>
+            compareExpWithPatten(mod, arg, pattern.args[i]),
+          ),
+        )
+      }
+    }
   }
 
   return Orders.LargerOrNotComparable
@@ -45,7 +60,11 @@ function isCtorName(mod: Mod, name: string): boolean {
 function compareVarWithPatten(mod: Mod, name: string, pattern: Pattern): Order {
   switch (pattern.kind) {
     case "Var": {
-      throw new Error("TODO")
+      if (pattern.name === name) {
+        return Orders.Neutral
+      } else {
+        return Orders.LargerOrNotComparable
+      }
     }
 
     case "Ctor": {
