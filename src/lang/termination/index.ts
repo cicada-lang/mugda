@@ -1,3 +1,5 @@
 export * from "./CallMatrix"
 export * from "./compareExpWithPatten"
+export * from "./createCallMatrix"
+export * from "./extractCallMatrixes"
 export * from "./OrderMatrix"
