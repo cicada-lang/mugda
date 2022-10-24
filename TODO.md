@@ -1,6 +1,7 @@
 extractCallMatrixes
 completeCallMatrixes
-mulMatrix
+composeCallMatrix
+mulOrderMatrix
 
 # later
 
