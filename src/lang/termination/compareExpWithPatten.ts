@@ -1,9 +1,14 @@
 import { Exp } from "../exp"
+import { Mod } from "../mod"
 import { Pattern } from "../pattern"
 import * as Orders from "./Order"
 import { Order } from "./Order"
 
-export function compareExpWithPatten(exp: Exp, pattern: Pattern): Order {
+export function compareExpWithPatten(
+  mod: Mod,
+  exp: Exp,
+  pattern: Pattern,
+): Order {
   if (pattern.kind === "Inaccessible") {
     throw new Error("TODO")
   }
@@ -19,7 +24,11 @@ export function compareExpWithPatten(exp: Exp, pattern: Pattern): Order {
   return Orders.LargerOrNotComparable
 }
 
-export function compareVarWithPatten(name: string, pattern: Pattern): Order {
+export function compareVarWithPatten(
+  mod: Mod,
+  name: string,
+  pattern: Pattern,
+): Order {
   switch (pattern.kind) {
     case "Var": {
       throw new Error("TODO")
