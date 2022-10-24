@@ -30,7 +30,8 @@ export function formatExp(exp: Exp): string {
       return `(lambda (${name}) ${ret})`
     }
 
-    case "Ap": {
+    case "Ap":
+    case "ApUnfolded": {
       const unfolded = Exps.unfoldAp(exp)
       const target = formatExp(unfolded.target)
       const args = unfolded.args.map(formatExp)

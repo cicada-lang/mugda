@@ -1,3 +1,6 @@
+unfoldAp -- handle ApUnfolded
+unfoldLet -- handle LetUnfolded
+
 compareExpWithPatten
 compareVarWithPatten
 ExtractCallMatrices

@@ -46,10 +46,7 @@ export function matchExp(sexp: Sexp): Exp {
     [
       cons(v("target"), v("args")),
       ({ target, args }, { span }) =>
-        matchList(args, matchExp).reduce(
-          (result, arg) => Exps.Ap(result, arg, span),
-          matchExp(target),
-        ),
+        Exps.ApUnfolded(matchExp(target), matchList(args, matchExp), span),
     ],
     [v("name"), ({ name }, { span }) => Exps.Var(matchSymbol(name), span)],
   ])

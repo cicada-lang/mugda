@@ -55,6 +55,10 @@ export function evaluate(env: Env, exp: Exp): Value {
       return Actions.doAp(evaluate(env, exp.target), Values.Lazy(env, exp.arg))
     }
 
+    case "ApUnfolded": {
+      return evaluate(env, Exps.foldAp(exp.target, exp.args))
+    }
+
     case "Let": {
       env = EnvCons(exp.name, evaluate(env, exp.exp), env)
       return evaluate(env, exp.ret)

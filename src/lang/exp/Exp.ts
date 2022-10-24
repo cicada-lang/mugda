@@ -2,7 +2,16 @@ import { Span } from "../span"
 
 type ExpMeta = { span?: Span }
 
-export type Exp = Var | Pi | PiUnfolded | Arrow | Fn | Ap | Let | LetUnfolded
+export type Exp =
+  | Var
+  | Pi
+  | PiUnfolded
+  | Arrow
+  | Fn
+  | Ap
+  | ApUnfolded
+  | Let
+  | LetUnfolded
 
 export type Var = {
   family: "Exp"
@@ -140,6 +149,27 @@ export function Ap(target: Exp, arg: Exp, span?: Span): Ap {
     kind: "Ap",
     target,
     arg,
+    span,
+  }
+}
+
+export type ApUnfolded = {
+  family: "Exp"
+  kind: "ApUnfolded"
+  target: Exp
+  args: Array<Exp>
+} & ExpMeta
+
+export function ApUnfolded(
+  target: Exp,
+  args: Array<Exp>,
+  span?: Span,
+): ApUnfolded {
+  return {
+    family: "Exp",
+    kind: "ApUnfolded",
+    target,
+    args,
     span,
   }
 }
