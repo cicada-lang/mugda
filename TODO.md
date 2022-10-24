@@ -1,4 +1,3 @@
-createCallMatrix
 extractCallMatrixes
 completeCallMatrixes
 mulMatrix

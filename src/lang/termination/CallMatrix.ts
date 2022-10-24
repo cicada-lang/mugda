@@ -1,4 +1,4 @@
-import { OrderMatrix } from "../termination"
+import { OrderMatrix } from "./OrderMatrix"
 
 export type CallMatrix = {
   left: string
