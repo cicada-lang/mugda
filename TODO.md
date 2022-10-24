@@ -1,4 +1,3 @@
-compareVarWithPatten
 ExtractCallMatrices
 mulMatrix
 

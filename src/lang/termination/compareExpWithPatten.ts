@@ -68,11 +68,16 @@ function compareVarWithPatten(mod: Mod, name: string, pattern: Pattern): Order {
     }
 
     case "Ctor": {
-      throw new Error("TODO")
+      return Orders.mulOrder(
+        Orders.Smaller,
+        Orders.maxOrders(
+          pattern.args.map((arg) => compareVarWithPatten(mod, name, arg)),
+        ),
+      )
     }
 
     case "Inaccessible": {
-      throw new Error("TODO")
+      return compareVarWithPatten(mod, name, pattern.pattern)
     }
   }
 }
