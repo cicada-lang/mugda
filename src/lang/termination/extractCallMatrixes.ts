@@ -8,8 +8,38 @@ export function extractCallMatrixes(
   recursiveNames: Set<string>,
   left: string,
   patterns: Array<Pattern>,
-  body: Exp,
+  exp: Exp,
 ): Array<CallMatrix> {
-  // TODO
-  return []
+  switch (exp.kind) {
+    case "Var": {
+    }
+
+    case "Pi": {
+    }
+
+    case "PiUnfolded": {
+    }
+
+    case "Arrow": {
+    }
+
+    case "Fn": {
+    }
+
+    case "Ap": {
+    }
+
+    case "ApUnfolded": {
+    }
+
+    case "Let": {
+    }
+
+    case "LetUnfolded": {
+    }
+
+    default: {
+      return []
+    }
+  }
 }
