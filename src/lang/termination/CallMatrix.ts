@@ -5,3 +5,15 @@ export type CallMatrix = {
   matrix: OrderMatrix
   right: string
 }
+
+export function CallMatrix(
+  left: string,
+  matrix: OrderMatrix,
+  right: string,
+): CallMatrix {
+  return {
+    left,
+    matrix,
+    right,
+  }
+}
