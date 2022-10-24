@@ -1,4 +1,3 @@
-unfoldExp
 compareExpWithPatten
 compareVarWithPatten
 ExtractCallMatrices

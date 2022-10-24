@@ -17,7 +17,7 @@ Notes about our implementation:
 
 ### Use our server
 
-[**mugda-server:**](https://github.com/cicada-lang/mugda-server) A server that can run whereabouts code.
+[**mugda-server:**](https://github.com/cicada-lang/mugda-server) A server that can run mugda code.
 
 Run a file:
 
