@@ -124,17 +124,17 @@ Please see [**tests/**](tests/) and [**std/**](std/) for more examples.
   [true () Boolean]
   [false () Boolean])
 
-(fn ife (Pi ([A Type]) (-> Boolean A A A))
+(fn if (Pi ([A Type]) (-> Boolean A A A))
   [(A (true) a b) a]
   [(A (false) a b) b])
 
 (define and (-> Boolean Boolean Boolean)
   (lambda (a b)
-    (ife Boolean a b false)))
+    (if Boolean a b false)))
 
 (define or (-> Boolean Boolean Boolean)
   (lambda (a b)
-    (ife Boolean a true b)))
+    (if Boolean a true b)))
 
 (and true true)
 (and true false)
