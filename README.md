@@ -2,7 +2,7 @@
 
 > Recursion is not an option.
 >
-> -- "The Little Typer"
+> -- ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-little-typer)
 
 An implementation of the Mugda paper -- ["Termination Checking for a Dependently Typed Language"](<(docs/papers/termination-checking-for-a-dependently-typed-language--karl-mehltretter.pdf)>), 2007, by Karl Mehltretter.
 
