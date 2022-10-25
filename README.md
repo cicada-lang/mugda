@@ -22,7 +22,7 @@ Notes about our implementation:
 Run a file:
 
 ```bash
-curl https://mu.cic.run --data-binary @docs/tests/basic/let.test.mu
+curl https://mu.cic.run --data-binary @tests/basic/let.test.mu
 ```
 
 Run multiline text (bash and zsh):
@@ -68,13 +68,13 @@ mu
 Run a file:
 
 ```sh
-mu run docs/tests/basic/id.test.mu
+mu run tests/basic/id.test.mu
 ```
 
 Run a file and watch file change:
 
 ```sh
-mu run docs/tests/basic/id.test.mu --watch
+mu run tests/basic/id.test.mu --watch
 ```
 
 Run a URL:
@@ -83,7 +83,7 @@ Run a URL:
   and any other http server that serves `.mu` code would also work.
 
 ```sh
-mu run https://cdn.mu.cic.run/docs/tests/basic/id.test.mu
+mu run https://cdn.mu.cic.run/tests/basic/id.test.mu
 ```
 
 ## Notes
@@ -107,7 +107,7 @@ is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-l
 
 TODO
 
-Please see [**docs/tests/**](docs/tests/) for more examples.
+Please see [**tests/**](tests/) and [**std/**](std/) for more examples.
 
 ## Development
 
