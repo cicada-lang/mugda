@@ -1,6 +1,8 @@
 import { Loader } from "../../loader"
 import { Env, EnvCons, EnvNull } from "../env"
+import * as Errors from "../errors"
 import { useGlobals } from "../globals"
+import { Span } from "../span"
 import { Stmt, StmtOutput } from "../stmt"
 import { CallMatrix, completeCallMatrixes } from "../termination"
 import { Value } from "../value"
@@ -58,14 +60,19 @@ export class Mod {
     this.env = EnvCons(name, value, this.env)
   }
 
-  checkCallMatrixes(callMatrixes: Array<CallMatrix>): void {
+  checkCallMatrixes(callMatrixes: Array<CallMatrix>, span: Span): void {
     this.callMatrixes = completeCallMatrixes([
       ...this.callMatrixes,
       ...callMatrixes,
     ])
 
     for (const callMatrix of this.callMatrixes) {
-      callMatrix.terminationCheck()
+      if (callMatrix.isNotTerminating()) {
+        throw new Errors.TerminationError(
+          "Size-decreasing principle fail",
+          span,
+        )
+      }
     }
   }
 }

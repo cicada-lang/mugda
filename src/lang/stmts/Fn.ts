@@ -38,6 +38,7 @@ export class Fn extends Stmt {
           clause.patterns,
           clause.body,
         ),
+        this.span,
       )
 
       clauses.push(Clause(mod.env, clause.patterns, clause.body))

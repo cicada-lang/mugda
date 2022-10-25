@@ -1,4 +1,3 @@
-import * as Errors from "../errors"
 import { OrderMatrix, OrderMatrixTheory } from "./OrderMatrixTheory"
 
 const theory = new OrderMatrixTheory()
@@ -34,9 +33,7 @@ export class CallMatrix {
     )
   }
 
-  terminationCheck() {
-    if (theory.isIdempotent(this.matrix) && !theory.isDecreasing(this.matrix)) {
-      throw new Errors.TerminationError("Size-decreasing principle fail")
-    }
+  isNotTerminating(): boolean {
+    return theory.isIdempotent(this.matrix) && !theory.isDecreasing(this.matrix)
   }
 }

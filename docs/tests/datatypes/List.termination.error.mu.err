@@ -1,0 +1,12 @@
+ErrorReport: Undefined name: TODO
+
+  6 |  [(A (cons A head tail)) (add1 (length A (cons A head tail)))])
+  7 |
+  8 |(length Nat (cons Nat zero (cons Nat zero (null Nat))))
+  9 |
+ 10 |TODO
+ 11 |
+
+    at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda.sexp/lib/scripts/DefaultScript.js:60:27)
+    at Generator.throw (<anonymous>)
+    at rejected (/home/xyh/cicada-lang/mugda.sexp/lib/scripts/DefaultScript.js:29:65)
