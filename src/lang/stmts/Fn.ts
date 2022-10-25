@@ -4,6 +4,7 @@ import { evaluate, Exp } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
+import { extractCallMatrixes } from "../termination"
 import * as Values from "../value"
 import { Clause } from "../value"
 
@@ -28,6 +29,17 @@ export class Fn extends Stmt {
       maybe we should add a new sum type to `Env`.
      **/
     for (const clause of this.clauses) {
+      const names = new Map([[this.name, arity]])
+      mod.checkCallMatrixes(
+        extractCallMatrixes(
+          mod,
+          names,
+          this.name,
+          clause.patterns,
+          clause.body,
+        ),
+      )
+
       clauses.push(Clause(mod.env, clause.patterns, clause.body))
     }
   }

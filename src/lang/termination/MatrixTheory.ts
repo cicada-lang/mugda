@@ -59,6 +59,13 @@ export class MatrixTheory<A> {
     return x.map((row) => y.map((column) => this.dot(row, column)))
   }
 
+  isIdempotent(matrix: Matrix<A>): boolean {
+    return (
+      this.isSquare(matrix) &&
+      this.equalMatrix(this.mul(matrix, matrix), matrix)
+    )
+  }
+
   dot(xs: Array<A>, ys: Array<A>): A {
     return xs
       .map((x, i) => this.ring.mul(x, ys[i]))

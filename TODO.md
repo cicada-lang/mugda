@@ -1,5 +1,3 @@
-Stmts.Fn -- apply the size-change principle
-
 # later
 
 example of higer order data where arguments can be function -- `Ord` in the paper

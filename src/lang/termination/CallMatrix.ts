@@ -1,3 +1,4 @@
+import * as Errors from "../errors"
 import { OrderMatrix, OrderMatrixTheory } from "./OrderMatrixTheory"
 
 const theory = new OrderMatrixTheory()
@@ -31,5 +32,11 @@ export class CallMatrix {
       theory.mul(this.matrix, that.matrix),
       that.right,
     )
+  }
+
+  terminationCheck() {
+    if (theory.isIdempotent(this.matrix) && !theory.isDecreasing(this.matrix)) {
+      throw new Errors.TerminationError("Size-decreasing principle fail")
+    }
   }
 }

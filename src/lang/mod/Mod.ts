@@ -2,7 +2,7 @@ import { Loader } from "../../loader"
 import { Env, EnvCons, EnvNull } from "../env"
 import { useGlobals } from "../globals"
 import { Stmt, StmtOutput } from "../stmt"
-import { CallMatrix } from "../termination"
+import { CallMatrix, completeCallMatrixes } from "../termination"
 import { Value } from "../value"
 
 /**
@@ -56,5 +56,16 @@ export class Mod {
 
   define(name: string, value: Value): void {
     this.env = EnvCons(name, value, this.env)
+  }
+
+  checkCallMatrixes(callMatrixes: Array<CallMatrix>): void {
+    this.callMatrixes = completeCallMatrixes([
+      ...this.callMatrixes,
+      ...callMatrixes,
+    ])
+
+    for (const callMatrix of this.callMatrixes) {
+      callMatrix.terminationCheck()
+    }
   }
 }
