@@ -8,6 +8,10 @@ export const Smaller = "Smaller"
 export const Neutral = "Neutral"
 export const LargerOrNotComparable = "LargerOrNotComparable"
 
+export function equalOrder(x: Order, y: Order): boolean {
+  return x === y
+}
+
 export function mulOrder(x: Order, y: Order): Order {
   if (x === Smaller && y === Smaller) return Smaller
   if (x === Smaller && y === Neutral) return Smaller

@@ -3,6 +3,7 @@ import * as Orders from "./Order"
 import { Order } from "./Order"
 
 const orderRing: Semiring<Order> = {
+  equal: Orders.equalOrder,
   add: Orders.addOrder,
   mul: Orders.mulOrder,
   zero: Orders.LargerOrNotComparable,

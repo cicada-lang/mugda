@@ -1,4 +1,3 @@
-Matrix.isIdempotent
 Matrix.diagonal
 
 CallMatrix.isDecreasing

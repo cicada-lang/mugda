@@ -7,6 +7,7 @@
 **/
 
 export interface Semiring<A> {
+  equal: (x: A, y: A) => boolean
   add: (x: A, y: A) => A
   mul: (x: A, y: A) => A
   zero: A
@@ -15,6 +16,13 @@ export interface Semiring<A> {
 
 export class Matrix<A> {
   constructor(public ring: Semiring<A>, public rows: Array<Vector<A>>) {}
+
+  equal(that: Matrix<A>): boolean {
+    return (
+      this.rows.length === that.rows.length &&
+      this.rows.every((row, i) => row.equal(that.rows[i]))
+    )
+  }
 
   get rowCount(): number {
     return this.rows.length
@@ -31,6 +39,10 @@ export class Matrix<A> {
 
   isSquare(): boolean {
     return this.rowCount === this.columnCount
+  }
+
+  isIdempotent(): boolean {
+    return this.isSquare() && this.mul(this).equal(this)
   }
 
   get columns(): Array<Vector<A>> {
@@ -65,6 +77,15 @@ export class Matrix<A> {
 
 export class Vector<A> {
   constructor(public ring: Semiring<A>, public elements: Array<A>) {}
+
+  equal(that: Vector<A>): boolean {
+    return (
+      this.elements.length === that.elements.length &&
+      this.elements.every((element, i) =>
+        this.ring.equal(element, that.elements[i]),
+      )
+    )
+  }
 
   dot(that: Vector<A>): A {
     return this.elements
