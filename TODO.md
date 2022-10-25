@@ -1,5 +1,7 @@
 improve termination error report -- `span` to `Clause` first
 
+Stmts.Compute -- use `deepForce`
+
 support mutual recursion within `Mod`
 
 # later
