@@ -1,19 +1,36 @@
+import { Exp } from "../exp"
+import { Mod } from "../mod"
+import { Pattern } from "../pattern"
+import { compareExpWithPatten } from "./compareExpWithPatten"
+import * as Orders from "./Order"
 import { OrderMatrix } from "./OrderMatrix"
 
-export type CallMatrix = {
-  left: string
-  matrix: OrderMatrix
-  right: string
-}
+export class CallMatrix {
+  constructor(
+    public left: string,
+    public matrix: OrderMatrix,
+    public right: string,
+  ) {}
 
-export function CallMatrix(
-  left: string,
-  matrix: OrderMatrix,
-  right: string,
-): CallMatrix {
-  return {
-    left,
-    matrix,
-    right,
+  static create(
+    mod: Mod,
+    left: string,
+    patterns: Array<Pattern>,
+    right: string,
+    arity: number,
+    exps: Array<Exp>,
+  ): CallMatrix {
+    const rows = patterns.map((pattern) => {
+      const row = exps.map((exp) => compareExpWithPatten(mod, exp, pattern))
+      let length = row.length
+      while (length < arity) {
+        row.push(Orders.LargerOrNotComparable)
+        length++
+      }
+
+      return row
+    })
+
+    return new CallMatrix(left, OrderMatrix.fromRows(rows), right)
   }
 }
