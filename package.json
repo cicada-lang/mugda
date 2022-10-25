@@ -1,6 +1,6 @@
 {
   "name": "@cicada-lang/mugda",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "repository": "github:cicada-lang/mugda",
   "main": "./lib/index.js",
   "files": [
