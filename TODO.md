@@ -1,5 +1,3 @@
-extractCallMatrixesFromApUnfolded
-
 completeCallMatrixes
 composeCallMatrix
 mulOrderMatrix

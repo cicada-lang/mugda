@@ -2,7 +2,7 @@ import * as Exps from "../exp"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Pattern } from "../pattern"
-import { CallMatrix, createCallMatrix, dedupCallMatrixes } from "../termination"
+import { CallMatrix, createCallMatrix } from "../termination"
 
 export function extractCallMatrixes(
   mod: Mod,
@@ -13,19 +13,20 @@ export function extractCallMatrixes(
 ): Array<CallMatrix> {
   switch (exp.kind) {
     case "Var": {
-      const arity = names.get(exp.name)
+      const name = exp.name
+      const arity = names.get(name)
       if (arity) {
-        return [createCallMatrix(mod, left, patterns, exp.name, arity, [])]
+        return [createCallMatrix(mod, left, patterns, name, arity, [])]
       } else {
         return []
       }
     }
 
     case "Pi": {
-      return dedupCallMatrixes([
+      return [
         ...extractCallMatrixes(mod, names, left, patterns, exp.argType),
         ...extractCallMatrixes(mod, names, left, patterns, exp.retType),
-      ])
+      ]
     }
 
     case "PiUnfolded": {
@@ -39,10 +40,8 @@ export function extractCallMatrixes(
     }
 
     case "Arrow": {
-      return dedupCallMatrixes(
-        exp.types.flatMap((type) =>
-          extractCallMatrixes(mod, names, left, patterns, type),
-        ),
+      return exp.types.flatMap((type) =>
+        extractCallMatrixes(mod, names, left, patterns, type),
       )
     }
 
@@ -76,10 +75,10 @@ export function extractCallMatrixes(
          because it is only evaluated during type-checking of the function.
       **/
 
-      return dedupCallMatrixes([
+      return [
         ...extractCallMatrixes(mod, names, left, patterns, exp.exp),
         ...extractCallMatrixes(mod, names, left, patterns, exp.ret),
-      ])
+      ]
     }
 
     case "LetUnfolded": {
@@ -108,16 +107,25 @@ function extractCallMatrixesFromApUnfolded(
 ): Array<CallMatrix> {
   switch (target.kind) {
     case "Var": {
-      // TODO
+      const name = target.name
+      const arity = names.get(name)
+      if (arity) {
+        return [
+          createCallMatrix(mod, left, patterns, name, arity, args),
+          ...args.flatMap((arg) =>
+            extractCallMatrixes(mod, names, left, patterns, arg),
+          ),
+        ]
+      }
     }
 
     default: {
-      return dedupCallMatrixes([
+      return [
         ...extractCallMatrixes(mod, names, left, patterns, target),
         ...args.flatMap((arg) =>
           extractCallMatrixes(mod, names, left, patterns, arg),
         ),
-      ])
+      ]
     }
   }
 }
