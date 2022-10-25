@@ -29,6 +29,10 @@ export class Matrix<A> {
     return row.elements.length
   }
 
+  isSquare(): boolean {
+    return this.rowCount === this.columnCount
+  }
+
   get columns(): Array<Vector<A>> {
     const columns: Array<Vector<A>> = []
     let i = 0

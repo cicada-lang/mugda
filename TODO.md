@@ -1,4 +1,3 @@
-Matrix.isSquare
 Matrix.isIdempotent
 Matrix.diagonal
 
