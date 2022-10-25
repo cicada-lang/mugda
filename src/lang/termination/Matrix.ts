@@ -1,11 +1,19 @@
 /**
 
-   A generic `Matrix` row-based class that support `mul`.
+   A generic row-based `Matrix`  over Semiring
+   https://en.wikipedia.org/wiki/Semiring
 
 **/
 
+export interface Semiring<A> {
+  add: (x: A, y: A) => A
+  mul: (x: A, y: A) => A
+  zero: A
+  one: A
+}
+
 export class Matrix<A> {
-  constructor(public ring: Ring<A>, public rows: Array<Vector<A>>) {}
+  constructor(public ring: Semiring<A>, public rows: Array<Vector<A>>) {}
 
   get rowCount(): number {
     return this.rows.length
@@ -51,18 +59,11 @@ export class Matrix<A> {
 }
 
 export class Vector<A> {
-  constructor(public ring: Ring<A>, public elements: Array<A>) {}
+  constructor(public ring: Semiring<A>, public elements: Array<A>) {}
 
   dot(that: Vector<A>): A {
     return this.elements
       .map((x, i) => this.ring.mul(x, that.elements[i]))
       .reduce((sum, x) => this.ring.add(x, sum), this.ring.zero)
   }
-}
-
-export interface Ring<A> {
-  add: (x: A, y: A) => A
-  mul: (x: A, y: A) => A
-  zero: A
-  one: A
 }

@@ -1,8 +1,8 @@
-import { Matrix, Ring, Vector } from "./Matrix"
+import { Matrix, Semiring, Vector } from "./Matrix"
 import * as Orders from "./Order"
 import { Order } from "./Order"
 
-const orderRing: Ring<Order> = {
+const orderRing: Semiring<Order> = {
   add: Orders.addOrder,
   mul: Orders.mulOrder,
   zero: Orders.LargerOrNotComparable,
