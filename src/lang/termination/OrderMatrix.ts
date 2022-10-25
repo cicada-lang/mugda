@@ -17,4 +17,8 @@ export class OrderMatrix extends Matrix<Order> {
       rows.map((row) => new Vector(orderRing, row)),
     )
   }
+
+  // isDecreasing(): boolean {
+  //   return this.diagonal.elements.some((element) => element === Orders.Smaller)
+  // }
 }
