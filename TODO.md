@@ -1,11 +1,18 @@
-support mutual recursion within `Mod`
 improve termination error report -- `span` to `Clause` first
+
+support mutual recursion within `Mod`
 
 # later
 
 example of higer order data where arguments can be function -- `Ord` in the paper
 
 - to test `compareExpWithPatten` on `Ap` -- Axiom 2 of `Order` in the paper
+
+# close to cicada
+
+use `Neutral` -- instead of `Values.Var` and `Values.Ap`
+
+distinguish `Datatype` and `Data` from `Values.Ap`
 
 # termination check
 
