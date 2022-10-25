@@ -104,6 +104,13 @@ function extractCallMatrixesFromApUnfolded(
   target: Exp,
   args: Array<Exp>,
 ): Array<CallMatrix> {
-  // TODO
-  return []
+  switch (target.kind) {
+    case "Var": {
+      //
+    }
+
+    default: {
+      return []
+    }
+  }
 }
