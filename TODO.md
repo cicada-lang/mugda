@@ -1,5 +1,3 @@
-completeCallMatrixes
-
 # later
 
 example of higer order data where arguments can be function -- `Ord` in the paper
