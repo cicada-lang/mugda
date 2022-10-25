@@ -15,6 +15,10 @@ Notes about our implementation:
 
 ## Usages
 
+### Online playground
+
+Visit the [Mugda Playground](https://mugda.cicada-lang.org/playground/KGRhdGEgTmF0ICgpICgpCiAgKHplcm8gKCkgTmF0KQogIChhZGQxIChbcHJldiBOYXRdKSBOYXQpKQoKKGZuIGFkZCAoLT4gTmF0IE5hdCBOYXQpCiAgWyh4ICh6ZXJvKSkgeF0KICBbKHggKGFkZDEgeSkpIChhZGQxIChhZGQgeCB5KSldKQoKKGFkZCAoYWRkMSB6ZXJvKSAoYWRkMSB6ZXJvKSk).
+
 ### Use our server
 
 [**mugda-server:**](https://github.com/cicada-lang/mugda-server) A server that can run mugda code.
@@ -105,9 +109,71 @@ is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-l
 
 ## Examples
 
-TODO
-
 Please see [**tests/**](tests/) and [**std/**](std/) for more examples.
+
+### Boolean
+
+```scheme
+(data Boolean () ()
+  [true () Boolean]
+  [false () Boolean])
+
+(fn ife (Pi ([A Type]) (-> Boolean A A A))
+  [(A (true) a b) a]
+  [(A (false) a b) b])
+
+(define and (-> Boolean Boolean Boolean)
+  (lambda (a b)
+    (ife Boolean a b false)))
+
+(define or (-> Boolean Boolean Boolean)
+  (lambda (a b)
+    (ife Boolean a true b)))
+
+(and true true)
+(and true false)
+(and false true)
+(and false false)
+
+(or true true)
+(or true false)
+(or false true)
+(or false false)
+```
+
+### Nat
+
+```scheme
+(data Nat () ()
+  [zero () Nat]
+  [add1 ([prev Nat]) Nat])
+
+(fn add (-> Nat Nat Nat)
+  [(x (zero)) x]
+  [(x (add1 y)) (add1 (add x y))])
+
+add
+(add (add1 zero))
+(add (add1 zero) (add1 zero))
+```
+
+### List
+
+```scheme
+(data List ([+ A Type]) ()
+  [null () (List A)]
+  [cons ([head A] [tail (List A)]) (List A)])
+
+(import "https://cdn.mu.cic.run/std/datatypes/Nat.mu" Nat zero add1)
+
+(fn length (Pi ([A Type]) (-> (List A) Nat))
+  [(A (null A)) zero]
+  [(A (cons A head tail)) (add1 (length A tail))])
+
+(length Nat (null Nat))
+(length Nat (cons Nat zero (null Nat)))
+(length Nat (cons Nat zero (cons Nat zero (null Nat))))
+```
 
 ## Development
 

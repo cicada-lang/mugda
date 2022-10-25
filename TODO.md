@@ -1,5 +1,3 @@
-add example to README
-
 support mutual recursion within `Mod`
 improve termination error report -- `span` to `Clause` first
 
