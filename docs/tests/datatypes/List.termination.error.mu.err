@@ -1,12 +1,13 @@
-ErrorReport: Undefined name: TODO
+ErrorReport: Size-decreasing principle fail
 
-  6 |  [(A (cons A head tail)) (add1 (length A (cons A head tail)))])
-  7 |
-  8 |(length Nat (cons Nat zero (cons Nat zero (null Nat))))
-  9 |
- 10 |TODO
- 11 |
+ 1 |(import "List.mu" List null cons)
+ 2 |(import "Nat.mu" Nat zero add1)
+ 3 |
+ 4 |(fn length (Pi ([A Type]) (-> (List A) Nat))
+ 5 |  [(A (null A)) zero]
+ 6 |  [(A (cons A head tail)) (add1 (length A (cons A head tail)))])
+ 7 |
 
-    at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda.sexp/lib/scripts/DefaultScript.js:60:27)
+    at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda.sexp/lib/scripts/DefaultScript.js:57:27)
     at Generator.throw (<anonymous>)
     at rejected (/home/xyh/cicada-lang/mugda.sexp/lib/scripts/DefaultScript.js:29:65)

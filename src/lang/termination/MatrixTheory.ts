@@ -56,6 +56,7 @@ export class MatrixTheory<A> {
   }
 
   mul(x: Matrix<A>, y: Matrix<A>): Matrix<A> {
+    y = this.transpose(y)
     return x.map((row) => y.map((column) => this.dot(row, column)))
   }
 
