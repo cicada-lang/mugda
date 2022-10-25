@@ -1,5 +1,4 @@
-extractCallMatrixes -- Ap & ApUnfolded
-extractCallMatrixes -- Var
+extractCallMatrixesFromApUnfolded
 
 completeCallMatrixes
 composeCallMatrix

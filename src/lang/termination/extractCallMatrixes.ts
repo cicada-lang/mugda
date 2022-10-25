@@ -2,18 +2,23 @@ import * as Exps from "../exp"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Pattern } from "../pattern"
-import { CallMatrix, unionCallMatrixes } from "../termination"
+import { CallMatrix, createCallMatrix, unionCallMatrixes } from "../termination"
 
 export function extractCallMatrixes(
   mod: Mod,
-  recursiveNames: Set<string>,
+  recursiveNames: Map<string, number>,
   left: string,
   patterns: Array<Pattern>,
   exp: Exp,
 ): Array<CallMatrix> {
   switch (exp.kind) {
     case "Var": {
-      throw new Error("TODO")
+      const arity = recursiveNames.get(exp.name)
+      if (arity) {
+        return [createCallMatrix(mod, left, patterns, exp.name, arity, [])]
+      } else {
+        return []
+      }
     }
 
     case "Pi": {
@@ -46,12 +51,17 @@ export function extractCallMatrixes(
       return extractCallMatrixes(mod, recursiveNames, left, patterns, exp.ret)
     }
 
-    case "Ap": {
-      throw new Error("TODO")
-    }
-
+    case "Ap":
     case "ApUnfolded": {
-      throw new Error("TODO")
+      const unfolded = Exps.unfoldAp(exp)
+      return extractCallMatrixesFromApUnfolded(
+        mod,
+        recursiveNames,
+        left,
+        patterns,
+        unfolded.target,
+        unfolded.args,
+      )
     }
 
     case "Let": {
@@ -84,4 +94,16 @@ export function extractCallMatrixes(
       return []
     }
   }
+}
+
+function extractCallMatrixesFromApUnfolded(
+  mod: Mod,
+  recursiveNames: Map<string, number>,
+  left: string,
+  patterns: Array<Pattern>,
+  target: Exp,
+  args: Array<Exp>,
+): Array<CallMatrix> {
+  // TODO
+  return []
 }
