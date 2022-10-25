@@ -1,3 +1,7 @@
+extract library from tests
+support mutual recursion within `Mod`
+improve termination error report -- `span` to `Clause` first
+
 # later
 
 example of higer order data where arguments can be function -- `Ord` in the paper
