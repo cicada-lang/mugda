@@ -4,7 +4,6 @@ import { Pattern } from "../pattern"
 import { CallMatrix } from "../termination"
 import { compareExpWithPatten } from "./compareExpWithPatten"
 import * as Orders from "./Order"
-import { OrderMatrix } from "./OrderMatrix"
 
 export function createCallMatrix(
   mod: Mod,
@@ -14,7 +13,7 @@ export function createCallMatrix(
   arity: number,
   exps: Array<Exp>,
 ): CallMatrix {
-  const rows = patterns.map((pattern) => {
+  const matrix = patterns.map((pattern) => {
     const row = exps.map((exp) => compareExpWithPatten(mod, exp, pattern))
     let length = row.length
     while (length < arity) {
@@ -25,5 +24,5 @@ export function createCallMatrix(
     return row
   })
 
-  return new CallMatrix(left, OrderMatrix.fromRows(rows), right)
+  return new CallMatrix(left, matrix, right)
 }

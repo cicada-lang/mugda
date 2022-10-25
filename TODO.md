@@ -1,5 +1,3 @@
-OrderMatrix.isDecreasing
-
 Mod -- has `callMatrixes`
 
 Stmts.Fn -- apply the size-change principle

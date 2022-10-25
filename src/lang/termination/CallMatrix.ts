@@ -1,4 +1,6 @@
-import { OrderMatrix } from "./OrderMatrix"
+import { OrderMatrix, OrderMatrixTheory } from "./OrderMatrixTheory"
+
+const theory = new OrderMatrixTheory()
 
 export class CallMatrix {
   constructor(
@@ -24,6 +26,10 @@ export class CallMatrix {
       )
     }
 
-    return new CallMatrix(this.left, this.matrix.mul(that.matrix), that.right)
+    return new CallMatrix(
+      this.left,
+      theory.mul(this.matrix, that.matrix),
+      that.right,
+    )
   }
 }
