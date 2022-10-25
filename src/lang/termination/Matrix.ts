@@ -61,6 +61,17 @@ export class Matrix<A> {
     return columns
   }
 
+  get diagonal(): Vector<A> {
+    if (!this.isSquare()) {
+      throw new Error("Expected Matrix to be square.")
+    }
+
+    return new Vector(
+      this.ring,
+      this.rows.map((row, i) => row.elements[i]),
+    )
+  }
+
   mul(that: Matrix<A>): Matrix<A> {
     return new Matrix(
       this.ring,

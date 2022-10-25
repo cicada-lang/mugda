@@ -1,5 +1,3 @@
-Matrix.diagonal
-
 CallMatrix.isDecreasing
 
 Mod -- has `callMatrixes`
