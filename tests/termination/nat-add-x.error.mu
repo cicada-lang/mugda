@@ -1,6 +1,4 @@
-(data Nat () ()
-  (zero () Nat)
-  (add1 ([prev Nat]) Nat))
+(import "../../std/datatypes/Nat.mu" Nat zero add1)
 
 (fn add (-> Nat Nat Nat)
   [(x (zero)) x]

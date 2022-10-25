@@ -1,12 +1,11 @@
 ErrorReport: Size-decreasing principle fail
 
- 2 |  (zero () Nat)
- 3 |  (add1 ([prev Nat]) Nat))
- 4 |
- 5 |(fn add (-> Nat Nat Nat)
- 6 |  [(x (zero)) x]
- 7 |  [(x (add1 y)) (add1 (add x x))])
- 8 |
+ 1 |(import "../../std/datatypes/Nat.mu" Nat zero add1)
+ 2 |
+ 3 |(fn add (-> Nat Nat Nat)
+ 4 |  [(x (zero)) x]
+ 5 |  [(x (add1 y)) (add1 (add x x))])
+ 6 |
 
     at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda/lib/scripts/DefaultScript.js:57:27)
     at Generator.throw (<anonymous>)

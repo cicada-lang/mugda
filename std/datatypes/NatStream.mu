@@ -7,7 +7,7 @@
 ;; There are no `NatStream` objects of finite height.
 
 (codata NatStream () ()
-  (cons ([n Nat] [rest NatStream]) NatStream))
+  [cons ([n Nat] [rest NatStream]) NatStream])
 
 (fn zeroes NatStream
   [() (cons zero zeroes)])
