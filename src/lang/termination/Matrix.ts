@@ -1,7 +1,8 @@
 /**
 
-   A generic row-based `Matrix`  over Semiring
-   https://en.wikipedia.org/wiki/Semiring
+   A generic row-based `Matrix`  over semiring.
+
+   - Semiring: https://en.wikipedia.org/wiki/Semiring
 
 **/
 
