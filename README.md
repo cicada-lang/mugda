@@ -1,6 +1,6 @@
 # Mugda
 
-> Recursion is not an option. <br>
+> Recursion is not an option.
 >
 > -- "The Little Typer"
 
