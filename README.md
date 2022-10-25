@@ -1,6 +1,6 @@
 # Mugda
 
-An implementation of the [Mugda paper](docs/papers/termination-checking-for-a-dependently-typed-language--karl-mehltretter.pdf) by Karl Mehltretter.
+An implementation of the Mugda paper -- ["Termination Checking for a Dependently Typed Language"](<(docs/papers/termination-checking-for-a-dependently-typed-language--karl-mehltretter.pdf)>), 2007, by Karl Mehltretter.
 
 The "Mu" of the name "Mugda"
 comes from [μ-operator (mu-operator)](https://en.wikipedia.org/wiki/%CE%9C_operator)
