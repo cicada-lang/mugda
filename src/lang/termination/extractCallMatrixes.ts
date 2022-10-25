@@ -2,7 +2,7 @@ import * as Exps from "../exp"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Pattern } from "../pattern"
-import { CallMatrix } from "../termination"
+import { CallMatrix, createCallMatrix } from "../termination"
 
 export function extractCallMatrixes(
   mod: Mod,
@@ -16,7 +16,7 @@ export function extractCallMatrixes(
       const name = exp.name
       const arity = names.get(name)
       if (arity) {
-        return [CallMatrix.create(mod, left, patterns, name, arity, [])]
+        return [createCallMatrix(mod, left, patterns, name, arity, [])]
       } else {
         return []
       }
@@ -111,7 +111,7 @@ function extractCallMatrixesFromApUnfolded(
       const arity = names.get(name)
       if (arity) {
         return [
-          CallMatrix.create(mod, left, patterns, name, arity, args),
+          createCallMatrix(mod, left, patterns, name, arity, args),
           ...args.flatMap((arg) =>
             extractCallMatrixes(mod, names, left, patterns, arg),
           ),

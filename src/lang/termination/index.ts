@@ -1,6 +1,6 @@
 export * from "./CallMatrix"
 export * from "./compareExpWithPatten"
 export * from "./completeCallMatrixes"
-export * from "./composeCallMatrix"
+export * from "./createCallMatrix"
 export * from "./dedupCallMatrixes"
 export * from "./extractCallMatrixes"
