@@ -2,18 +2,18 @@ import * as Exps from "../exp"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Pattern } from "../pattern"
-import { CallMatrix, createCallMatrix, unionCallMatrixes } from "../termination"
+import { CallMatrix, createCallMatrix, dedupCallMatrixes } from "../termination"
 
 export function extractCallMatrixes(
   mod: Mod,
-  recursiveNames: Map<string, number>,
+  names: Map<string, number>,
   left: string,
   patterns: Array<Pattern>,
   exp: Exp,
 ): Array<CallMatrix> {
   switch (exp.kind) {
     case "Var": {
-      const arity = recursiveNames.get(exp.name)
+      const arity = names.get(exp.name)
       if (arity) {
         return [createCallMatrix(mod, left, patterns, exp.name, arity, [])]
       } else {
@@ -22,16 +22,16 @@ export function extractCallMatrixes(
     }
 
     case "Pi": {
-      return unionCallMatrixes(
-        extractCallMatrixes(mod, recursiveNames, left, patterns, exp.argType),
-        extractCallMatrixes(mod, recursiveNames, left, patterns, exp.retType),
-      )
+      return dedupCallMatrixes([
+        ...extractCallMatrixes(mod, names, left, patterns, exp.argType),
+        ...extractCallMatrixes(mod, names, left, patterns, exp.retType),
+      ])
     }
 
     case "PiUnfolded": {
       return extractCallMatrixes(
         mod,
-        recursiveNames,
+        names,
         left,
         patterns,
         Exps.foldPi(exp.bindings, exp.retType),
@@ -39,8 +39,10 @@ export function extractCallMatrixes(
     }
 
     case "Arrow": {
-      return exp.types.flatMap((type) =>
-        extractCallMatrixes(mod, recursiveNames, left, patterns, type),
+      return dedupCallMatrixes(
+        exp.types.flatMap((type) =>
+          extractCallMatrixes(mod, names, left, patterns, type),
+        ),
       )
     }
 
@@ -48,7 +50,7 @@ export function extractCallMatrixes(
       /**
          TODO We should try to write test to show this case introduces scope BUG.
       **/
-      return extractCallMatrixes(mod, recursiveNames, left, patterns, exp.ret)
+      return extractCallMatrixes(mod, names, left, patterns, exp.ret)
     }
 
     case "Ap":
@@ -56,7 +58,7 @@ export function extractCallMatrixes(
       const unfolded = Exps.unfoldAp(exp)
       return extractCallMatrixesFromApUnfolded(
         mod,
-        recursiveNames,
+        names,
         left,
         patterns,
         unfolded.target,
@@ -74,16 +76,16 @@ export function extractCallMatrixes(
          because it is only evaluated during type-checking of the function.
       **/
 
-      return unionCallMatrixes(
-        extractCallMatrixes(mod, recursiveNames, left, patterns, exp.exp),
-        extractCallMatrixes(mod, recursiveNames, left, patterns, exp.ret),
-      )
+      return dedupCallMatrixes([
+        ...extractCallMatrixes(mod, names, left, patterns, exp.exp),
+        ...extractCallMatrixes(mod, names, left, patterns, exp.ret),
+      ])
     }
 
     case "LetUnfolded": {
       return extractCallMatrixes(
         mod,
-        recursiveNames,
+        names,
         left,
         patterns,
         Exps.foldLet(exp.bindings, exp.ret),
@@ -98,7 +100,7 @@ export function extractCallMatrixes(
 
 function extractCallMatrixesFromApUnfolded(
   mod: Mod,
-  recursiveNames: Map<string, number>,
+  names: Map<string, number>,
   left: string,
   patterns: Array<Pattern>,
   target: Exp,
@@ -106,11 +108,16 @@ function extractCallMatrixesFromApUnfolded(
 ): Array<CallMatrix> {
   switch (target.kind) {
     case "Var": {
-      //
+      // TODO
     }
 
     default: {
-      return []
+      return dedupCallMatrixes([
+        ...extractCallMatrixes(mod, names, left, patterns, target),
+        ...args.flatMap((arg) =>
+          extractCallMatrixes(mod, names, left, patterns, arg),
+        ),
+      ])
     }
   }
 }
