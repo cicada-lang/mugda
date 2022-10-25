@@ -1,7 +1,7 @@
 ErrorReport: Size-decreasing principle fail
 
- 1 |(import "List.mu" List null cons)
- 2 |(import "Nat.mu" Nat zero add1)
+ 1 |(import "../../std/datatypes/List.mu" List null cons)
+ 2 |(import "../../std/datatypes/Nat.mu" Nat zero add1)
  3 |
  4 |(fn length (Pi ([A Type]) (-> (List A) Nat))
  5 |  [(A (null A)) zero]

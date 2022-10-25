@@ -1,5 +1,5 @@
-(import "List.mu" List null cons)
-(import "Nat.mu" Nat zero add1)
+(import "../../std/datatypes/List.mu" List null cons)
+(import "../../std/datatypes/Nat.mu" Nat zero add1)
 
 (fn length (Pi ([A Type]) (-> (List A) Nat))
   [(A (null A)) zero]
