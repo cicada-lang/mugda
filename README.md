@@ -1,5 +1,9 @@
 # Mugda
 
+> Recursion is not an option. <br>
+>
+> -- "The Little Typer"
+
 An implementation of the Mugda paper -- ["Termination Checking for a Dependently Typed Language"](<(docs/papers/termination-checking-for-a-dependently-typed-language--karl-mehltretter.pdf)>), 2007, by Karl Mehltretter.
 
 The "Mu" of the name "Mugda"
