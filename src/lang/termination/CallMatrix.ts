@@ -7,15 +7,15 @@ export class CallMatrix {
     public right: string,
   ) {}
 
-  composable(that: CallMatrix): boolean {
+  isComposableWith(that: CallMatrix): boolean {
     return this.right === that.left
   }
 
   compose(that: CallMatrix): CallMatrix {
-    if (!this.composable(that)) {
+    if (!this.isComposableWith(that)) {
       throw new Error(
         [
-          `CallMatrix not composable`,
+          `CallMatrix not isComposableWith`,
           `  this.left: ${this.left}`,
           `  this.right: ${this.right}`,
           `  that.left: ${that.left}`,

@@ -1,3 +1,13 @@
+Matrix.isSquare
+Matrix.isIdempotent
+Matrix.diagonal
+
+CallMatrix.isDecreasing
+
+Mod -- has `callMatrixes`
+
+Stmts.Fn -- apply the size-change principle
+
 # later
 
 example of higer order data where arguments can be function -- `Ord` in the paper
@@ -5,8 +15,6 @@ example of higer order data where arguments can be function -- `Ord` in the pape
 - to test `compareExpWithPatten` on `Ap` -- Axiom 2 of `Order` in the paper
 
 # termination check
-
-## Applying the size-change principle
 
 ## Examples
 
@@ -16,7 +24,7 @@ Brouwer ordinals
 
 ## Excursion: Extending the order
 
-- Examples
+Examples
 
 ## List reversion: Vectors to the rescue
 

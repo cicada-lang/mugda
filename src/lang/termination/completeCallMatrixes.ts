@@ -16,7 +16,7 @@ function step(matrixes: Array<CallMatrix>): Array<CallMatrix> {
   const composed: Array<CallMatrix> = []
   for (const x of matrixes) {
     for (const y of matrixes) {
-      if (x.composable(y)) {
+      if (x.isComposableWith(y)) {
         composed.push(x.compose(y))
       }
     }
