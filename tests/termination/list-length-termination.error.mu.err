@@ -8,6 +8,6 @@ ErrorReport: Size-decreasing principle fail
  6 |  [(A (cons A head tail)) (add1 (length A (cons A head tail)))])
  7 |
 
-    at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda.sexp/lib/scripts/DefaultScript.js:57:27)
+    at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda/lib/scripts/DefaultScript.js:57:27)
     at Generator.throw (<anonymous>)
-    at rejected (/home/xyh/cicada-lang/mugda.sexp/lib/scripts/DefaultScript.js:29:65)
+    at rejected (/home/xyh/cicada-lang/mugda/lib/scripts/DefaultScript.js:29:65)

@@ -8,6 +8,6 @@ ErrorReport: Size-decreasing principle fail
  7 |  [(x (add1 y)) (add1 (add x (add1 y)))])
  8 |
 
-    at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda.sexp/lib/scripts/DefaultScript.js:57:27)
+    at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda/lib/scripts/DefaultScript.js:57:27)
     at Generator.throw (<anonymous>)
-    at rejected (/home/xyh/cicada-lang/mugda.sexp/lib/scripts/DefaultScript.js:29:65)
+    at rejected (/home/xyh/cicada-lang/mugda/lib/scripts/DefaultScript.js:29:65)

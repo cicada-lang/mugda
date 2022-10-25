@@ -48,7 +48,7 @@ END
 Install it by the following command:
 
 ```
-npm install -g @cicada-lang/mugda.sexp
+npm install -g @cicada-lang/mugda
 ```
 
 The command line program is called `mu`.

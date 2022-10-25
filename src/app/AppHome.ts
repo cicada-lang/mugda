@@ -8,7 +8,7 @@ export class AppHome extends LocalFileStore {
     super({
       dir:
         process.env["CICADA_HOME"] ||
-        Path.resolve(os.homedir(), ".cicada/mugda.sexp"),
+        Path.resolve(os.homedir(), ".cicada/mugda"),
     })
   }
 }
