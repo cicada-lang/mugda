@@ -1,5 +1,3 @@
-Mod -- has `callMatrixes`
-
 Stmts.Fn -- apply the size-change principle
 
 # later

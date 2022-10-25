@@ -2,6 +2,7 @@ import { Loader } from "../../loader"
 import { Env, EnvCons, EnvNull } from "../env"
 import { useGlobals } from "../globals"
 import { Stmt, StmtOutput } from "../stmt"
+import { CallMatrix } from "../termination"
 import { Value } from "../value"
 
 /**
@@ -24,6 +25,7 @@ export class Mod {
   outputs: Map<number, StmtOutput> = new Map()
   stmts: Array<Stmt> = []
   initialized = false
+  callMatrixes: Array<CallMatrix> = []
 
   constructor(public options: ModOptions) {}
 
