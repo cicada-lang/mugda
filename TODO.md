@@ -1,4 +1,4 @@
-fix termination check for `sum (-> (List Nat) Nat)`
+be sure about the meaning of the semiring of `Order`
 
 improve termination error report -- `span` to `Clause` first
 
