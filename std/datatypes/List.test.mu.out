@@ -1,4 +1,4 @@
 (null Nat)
 (cons Nat zero (null Nat))
 (cons Nat zero (cons Nat zero (null Nat)))
-(add1 (length A tail))
+(add1 (add1 zero))

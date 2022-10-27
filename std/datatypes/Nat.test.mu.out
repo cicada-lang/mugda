@@ -5,6 +5,6 @@ zero
 zero
 zero
 (add1 zero)
-(add1 (add x y))
 (add1 zero)
-(add1 (add x y))
+(add1 zero)
+(add1 (add1 zero))

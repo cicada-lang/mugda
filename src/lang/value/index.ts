@@ -1,4 +1,5 @@
 export * from "./Clause"
+export * from "./deepForce"
 export * from "./force"
 export * from "./formatClause"
 export * from "./formatValue"
