@@ -1,12 +1,13 @@
 ErrorReport: Size-decreasing principle fail
 
- 1 |(import "../../std/datatypes/List.mu" List null cons)
- 2 |(import "../../std/datatypes/Nat.mu" Nat zero add1)
- 3 |
- 4 |(fn length (Pi ([A Type]) (-> (List A) Nat))
- 5 |  [(A (null A)) zero]
- 6 |  [(A (cons A head tail)) (add1 (length A (cons A head tail)))])
- 7 |
+  8 |  [(A (null A)) zero]
+  9 |  [(A (cons A head tail)) (add1 (length A tail))])
+ 10 |
+ 11 |(fn sum (-> (List Nat) Nat)
+ 12 |  [((null Nat)) zero]
+ 13 |  [((cons Nat (add1 prev) tail)) (add1 (sum (cons Nat prev tail)))]
+ 14 |  [((cons Nat zero tail)) (sum tail)])
+ 15 |
 
     at DefaultScript.<anonymous> (/home/xyh/cicada-lang/mugda/lib/scripts/DefaultScript.js:57:27)
     at Generator.throw (<anonymous>)

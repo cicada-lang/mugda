@@ -1,3 +1,5 @@
+fix termination check for `sum (-> (List Nat) Nat)`
+
 improve termination error report -- `span` to `Clause` first
 
 support mutual recursion within `Mod`
