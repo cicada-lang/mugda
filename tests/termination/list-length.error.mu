@@ -3,4 +3,5 @@
 
 (fn length (Pi ([A Type]) (-> (List A) Nat))
   [(A (null A)) zero]
-  [(A (cons A head tail)) (add1 (length A (cons A head tail)))])
+  [(A (cons A head tail))
+   (add1 (length A (cons A head tail)))])
