@@ -1,12 +1,13 @@
-`Mod` has `arities` -- maybe also for define
+improve termination error report -- `span` to `Clause` first
 
 support mutual recursion within `Mod`
 
 be sure about the meaning of the semiring of `Order`
 
 - compare with AA's paper
+- learn about three-valued logic -- for the intuition of logic with neutrality
 
-improve termination error report -- `span` to `Clause` first
+`Mod` has `arities` -- maybe also for define
 
 # later
 
