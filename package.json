@@ -42,7 +42,7 @@
     "@vitest/coverage-c8": "^0.24.3",
     "@vitest/coverage-istanbul": "^0.24.3",
     "@vitest/ui": "^0.24.3",
-    "@xieyuheng/test-runner": "^0.2.6",
+    "@xieyuheng/test-runner": "^0.2.7",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
     "prettier-plugin-organize-imports": "^3.1.1",
