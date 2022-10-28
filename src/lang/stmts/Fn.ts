@@ -29,11 +29,11 @@ export class Fn extends Stmt {
       maybe we should add a new sum type to `Env`.
      **/
     for (const clause of this.clauses) {
-      const names = new Map([[this.name, arity]])
+      const arities = new Map([[this.name, arity]])
       mod.checkCallMatrixes(
         extractCallMatrixes(
           mod,
-          names,
+          arities,
           this.name,
           clause.patterns,
           clause.body,

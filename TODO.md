@@ -1,10 +1,12 @@
+`Mod` has `arities`
+
+support mutual recursion within `Mod`
+
 be sure about the meaning of the semiring of `Order`
 
 - compare with AA's paper
 
 improve termination error report -- `span` to `Clause` first
-
-support mutual recursion within `Mod`
 
 # later
 
