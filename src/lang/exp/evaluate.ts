@@ -25,7 +25,7 @@ export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
       const modValue = lookupValueInEnv(mod.env, exp.name)
       if (modValue !== undefined) {
         return modValue
-      }      
+      }
 
       if (exp.span) {
         throw new Errors.ElaborationError(

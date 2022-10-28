@@ -1,7 +1,7 @@
 import { Closure } from "../closure"
 import { Env } from "../env"
-import { Mod } from "../mod"
 import { Exp, Telescope } from "../exp"
+import { Mod } from "../mod"
 import { Clause } from "../value"
 
 export type Value =
@@ -149,7 +149,7 @@ export type Data = {
 
 export function Data(
   name: string,
-  mod: Mod  ,
+  mod: Mod,
   env: Env,
   fixed: Telescope,
   varied: Telescope,
@@ -169,7 +169,7 @@ export type Ctor = {
   family: "Value"
   kind: "Ctor"
   name: string
-mod: Mod
+  mod: Mod
   env: Env
   fixed: Telescope
   args: Telescope
@@ -178,7 +178,7 @@ mod: Mod
 
 export function Ctor(
   name: string,
-  mod: Mod  ,
+  mod: Mod,
   env: Env,
   fixed: Telescope,
   args: Telescope,
@@ -200,7 +200,7 @@ export type Codata = {
   family: "Value"
   kind: "Codata"
   name: string
-mod  : Mod
+  mod: Mod
   env: Env
   fixed: Telescope
   varied: Telescope
@@ -208,7 +208,7 @@ mod  : Mod
 
 export function Codata(
   name: string,
-  mod  : Mod,
+  mod: Mod,
   env: Env,
   fixed: Telescope,
   varied: Telescope,
@@ -228,7 +228,7 @@ export type Coctor = {
   family: "Value"
   kind: "Coctor"
   name: string
-  mod  : Mod
+  mod: Mod
   env: Env
   fixed: Telescope
   args: Telescope
@@ -237,7 +237,7 @@ export type Coctor = {
 
 export function Coctor(
   name: string,
-  mod  : Mod,
+  mod: Mod,
   env: Env,
   fixed: Telescope,
   args: Telescope,
