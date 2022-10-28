@@ -1,3 +1,5 @@
+tests/scripts
+
 example of higer order data where arguments can be function -- `Ord` in the paper
 
 - to test `compareExpWithPatten` on `Ap` -- Axiom 2 of `Order` in the paper

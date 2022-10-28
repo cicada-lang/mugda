@@ -18,7 +18,7 @@ export class MarkdownScript extends Script {
   }
 
   buildText(block: Block): string | undefined {
-    if (block.info === "mugda") {
+    if (block.info === "mugda" || block.info === "mu") {
       return block.code
     }
   }
