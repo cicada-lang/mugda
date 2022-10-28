@@ -1,6 +1,6 @@
 support mutual recursion within `Mod`
 
-- `Stmt.prepare`
+- Stmts.Fn -- `prepare`
 
 # later
 

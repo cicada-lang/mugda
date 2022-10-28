@@ -44,6 +44,11 @@ export class Mod {
 
   async executeStmts(stmts: Array<Stmt>): Promise<void> {
     await this.initialize()
+
+    for (const stmt of stmts.values()) {
+      stmt.prepare(this)
+    }
+
     const offset = this.stmts.length
     for (const [index, stmt] of stmts.entries()) {
       const output = await stmt.execute(this)
