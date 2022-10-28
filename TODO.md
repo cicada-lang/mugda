@@ -1,5 +1,3 @@
-improve termination error report -- using `clause.span`
-
 support mutual recursion within `Mod`
 
 be sure about the meaning of the semiring of `Order`

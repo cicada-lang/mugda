@@ -1,6 +1,5 @@
 ErrorReport: Size-decreasing principle fail
 
- 1 |(import "../../std/datatypes/Nat.mu" Nat zero add1)
  2 |
  3 |(fn add (-> Nat Nat Nat)
  4 |  [(x (zero)) x]

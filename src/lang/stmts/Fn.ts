@@ -32,7 +32,7 @@ export class Fn extends Stmt {
     for (const clause of this.clauses) {
       mod.checkCallMatrixes(
         extractCallMatrixes(mod, this.name, clause.patterns, clause.body),
-        this.span,
+        clause.span,
       )
       clauses.push(Clause(mod.env, clause.patterns, clause.body))
     }
@@ -47,7 +47,7 @@ function checkArity(clauses: Array<Exps.Clause>, span: Span): number {
     } else if (arity !== clause.patterns.length) {
       throw new Errors.ElaborationError(
         `Clauses arity mismatch, found ${arity} and ${clause.patterns.length}`,
-        span,
+        clause.span,
       )
     }
   }

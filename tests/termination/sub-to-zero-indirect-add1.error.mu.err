@@ -1,8 +1,5 @@
 ErrorReport: Size-decreasing principle fail
 
-  5 |(fn my-add1 (-> Nat Nat)
-  6 |  [(x) (add1 x)])
-  7 |
   8 |(fn sub-to-zero (-> Nat Nat)
   9 |  [((zero)) zero]
  10 |  [((add1 (zero))) zero]
