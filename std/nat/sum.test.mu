@@ -1,5 +1,5 @@
-(import "List.mu" List null cons)
 (import "Nat.mu" Nat add1 zero)
+(import "../list/index.mu" List null cons)
 
 (fn sum (-> (List Nat) Nat)
   [((null Nat)) zero]

@@ -1,5 +1,5 @@
 (import "List.mu" List null cons length)
-(import "Nat.mu" Nat zero)
+(import "../nat/index.mu" Nat zero)
 
 (null Nat)
 (cons Nat zero (null Nat))

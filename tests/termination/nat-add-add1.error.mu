@@ -1,4 +1,4 @@
-(import "../../std/datatypes/Nat.mu" Nat zero add1)
+(import "../../std/nat/index.mu" Nat zero add1)
 
 (fn add (-> Nat Nat Nat)
   [(x (zero)) x]

@@ -1,4 +1,4 @@
-(import "./Boolean.mu" true false and or)
+(import "Boolean.mu" true false and or)
 
 (and true true)
 (and true false)

@@ -1,13 +1,15 @@
 support mutual recursion within `Mod`
 
+- `Stmt.prepare`
+
+# later
+
 be sure about the meaning of the semiring of `Order`
 
 - compare with AA's paper
 - learn about three-valued logic -- for the intuition of logic with neutrality
 
 `Mod` has `arities` -- maybe also for define
-
-# later
 
 example of higer order data where arguments can be function -- `Ord` in the paper
 

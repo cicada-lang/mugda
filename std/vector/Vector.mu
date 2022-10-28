@@ -1,4 +1,4 @@
-(import "./Nat.mu" Nat zero add1)
+(import "../nat/index.mu" Nat zero add1)
 
 (data Vector ([+ A Type]) ([length Nat])
   (null () (Vector A zero))

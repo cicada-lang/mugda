@@ -1,4 +1,4 @@
-(import "./List.mu" List)
+(import "../list/index.mu" List)
 
 ;; A leaf is a node with an empty list of successors.
 

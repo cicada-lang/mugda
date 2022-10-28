@@ -1,7 +1,7 @@
 (data Equal ([A Type]) ([from A] [to A])
   [refl ([a A]) (Equal A a a)])
 
-(import "./Nat.mu" Nat zero add1 add)
+(import "../nat/index.mu" Nat zero add1 add)
 
 (define add-x-zero-is-equal-to-x
   (Pi ([x Nat]) (Equal Nat (add x zero) x))
