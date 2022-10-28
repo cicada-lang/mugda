@@ -1,0 +1,13 @@
+(data Nat () ()
+  [zero () Nat]
+  [add1 ([prev Nat]) Nat])
+
+(fn sub-to-zero (-> Nat Nat)
+  [((zero)) zero]
+  [((add1 (zero))) zero]
+  [((add1 (add1 x))) (sub-to-zero (add1 x))])
+
+(sub-to-zero zero)
+(sub-to-zero (add1 zero))
+(sub-to-zero (add1 (add1 zero)))
+(sub-to-zero (add1 (add1 (add1 zero))))
