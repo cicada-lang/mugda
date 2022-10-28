@@ -1,4 +1,4 @@
-improve termination error report -- `span` to `Clause` first
+improve termination error report -- using `clause.span`
 
 support mutual recursion within `Mod`
 

@@ -112,7 +112,11 @@ function matchClause(sexp: Sexp): Exps.Clause {
     [
       [v("patterns"), v("body")],
       ({ patterns, body }) =>
-        Exps.Clause(matchList(patterns, matchPattern), matchExp(body)),
+        Exps.Clause(
+          matchList(patterns, matchPattern),
+          matchExp(body),
+          sexp.span,
+        ),
     ],
   ])
 }
