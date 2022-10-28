@@ -1,4 +1,5 @@
-(import "./Nat.mu" Nat zero add1 add)
+(import "Nat.mu" Nat zero add1)
+(import "add.mu" add)
 
 add
 (add zero)

@@ -8,11 +8,3 @@
 (fn odd? (-> Nat Boolean)
   [((zero)) false]
   [((add1 prev)) (even? prev)])
-
-(even? zero)
-;; (even? (add1 zero))
-;; (even? (add1 (add1 zero)))
-
-(odd? zero)
-(odd? (add1 zero))
-;; (odd? (add1 (add1 zero)))
