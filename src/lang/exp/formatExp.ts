@@ -27,7 +27,7 @@ export function formatExp(exp: Exp): string {
 
     case "Fn": {
       const ret = formatExp(exp.ret)
-      return `(lambda (${name}) ${ret})`
+      return `(lambda (${exp.name}) ${ret})`
     }
 
     case "Ap":

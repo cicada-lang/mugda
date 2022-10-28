@@ -1,9 +1,3 @@
-write some test in `.md`
-
-example of higer order data where arguments can be function -- `Ord` in the paper
-
-- to test `compareExpWithPatten` on `Ap` -- Axiom 2 of `Order` in the paper
-
 be sure about the meaning of the semiring of `Order`
 
 - compare with AA's paper
