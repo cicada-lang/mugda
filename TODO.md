@@ -1,5 +1,3 @@
-`evaluate` take `mod` -- for module-level recursive definitions
-
 # later
 
 be sure about the meaning of the semiring of `Order`

@@ -5,7 +5,7 @@ import { Value } from "../value"
 export function force(value: Value): Value {
   switch (value.kind) {
     case "Lazy": {
-      return force(evaluate(value.env, value.exp))
+      return force(evaluate(value.mod, value.env, value.exp))
     }
 
     case "FnMatch": {

@@ -1,5 +1,6 @@
 import { Closure } from "../closure"
 import { Env } from "../env"
+import { Mod } from "../mod"
 import { Exp, Telescope } from "../exp"
 import { Clause } from "../value"
 
@@ -45,14 +46,16 @@ export function Type(): Type {
 export type Lazy = {
   family: "Value"
   kind: "Lazy"
+  mod: Mod
   env: Env
   exp: Exp
 }
 
-export function Lazy(env: Env, exp: Exp): Lazy {
+export function Lazy(mod: Mod, env: Env, exp: Exp): Lazy {
   return {
     family: "Value",
     kind: "Lazy",
+    mod,
     env,
     exp,
   }
@@ -138,6 +141,7 @@ export type Data = {
   family: "Value"
   kind: "Data"
   name: string
+  mod: Mod
   env: Env
   fixed: Telescope
   varied: Telescope
@@ -145,6 +149,7 @@ export type Data = {
 
 export function Data(
   name: string,
+  mod: Mod  ,
   env: Env,
   fixed: Telescope,
   varied: Telescope,
@@ -153,6 +158,7 @@ export function Data(
     family: "Value",
     kind: "Data",
     name,
+    mod,
     env,
     fixed,
     varied,
@@ -163,6 +169,7 @@ export type Ctor = {
   family: "Value"
   kind: "Ctor"
   name: string
+mod: Mod
   env: Env
   fixed: Telescope
   args: Telescope
@@ -171,6 +178,7 @@ export type Ctor = {
 
 export function Ctor(
   name: string,
+  mod: Mod  ,
   env: Env,
   fixed: Telescope,
   args: Telescope,
@@ -180,6 +188,7 @@ export function Ctor(
     family: "Value",
     kind: "Ctor",
     name,
+    mod,
     env,
     fixed,
     args,
@@ -191,6 +200,7 @@ export type Codata = {
   family: "Value"
   kind: "Codata"
   name: string
+mod  : Mod
   env: Env
   fixed: Telescope
   varied: Telescope
@@ -198,6 +208,7 @@ export type Codata = {
 
 export function Codata(
   name: string,
+  mod  : Mod,
   env: Env,
   fixed: Telescope,
   varied: Telescope,
@@ -206,6 +217,7 @@ export function Codata(
     family: "Value",
     kind: "Codata",
     name,
+    mod,
     env,
     fixed,
     varied,
@@ -216,6 +228,7 @@ export type Coctor = {
   family: "Value"
   kind: "Coctor"
   name: string
+  mod  : Mod
   env: Env
   fixed: Telescope
   args: Telescope
@@ -224,6 +237,7 @@ export type Coctor = {
 
 export function Coctor(
   name: string,
+  mod  : Mod,
   env: Env,
   fixed: Telescope,
   args: Telescope,
@@ -233,6 +247,7 @@ export function Coctor(
     family: "Value",
     kind: "Coctor",
     name,
+    mod,
     env,
     fixed,
     args,

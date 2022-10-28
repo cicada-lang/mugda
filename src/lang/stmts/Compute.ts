@@ -11,7 +11,7 @@ export class Compute extends Stmt {
   }
 
   async execute(mod: Mod): Promise<StmtOutput> {
-    const value = evaluate(mod.env, this.exp)
+    const value = evaluate(mod, mod.env, this.exp)
     return formatValue(Values.deepForce(value))
   }
 }

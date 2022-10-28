@@ -17,12 +17,19 @@ export class Codata extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    const value = Values.Codata(this.name, mod.env, this.fixed, this.varied)
+    const value = Values.Codata(
+      this.name,
+      mod,
+      mod.env,
+      this.fixed,
+      this.varied,
+    )
     mod.define(this.name, value)
 
     for (const coctor of this.coctors) {
       const value = Values.Coctor(
         coctor.name,
+        mod,
         mod.env,
         this.fixed,
         coctor.args,

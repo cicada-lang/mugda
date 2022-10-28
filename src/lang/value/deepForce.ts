@@ -8,7 +8,7 @@ export function deepForce(value: Value): Value {
 
   switch (value.kind) {
     case "Lazy": {
-      return deepForce(evaluate(value.env, value.exp))
+      return deepForce(evaluate(value.mod, value.env, value.exp))
     }
 
     case "FnMatch": {

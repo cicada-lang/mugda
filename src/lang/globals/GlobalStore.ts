@@ -19,7 +19,7 @@ export class GlobalStore {
   define(name: string, value: Value | string): void {
     if (typeof value === "string") {
       const exp = this.parser.parseExp(value)
-      value = evaluate(this.mod.env, exp)
+      value = evaluate(this.mod, this.mod.env, exp)
       this.mod.define(name, value)
       this.values.set(name, value)
     } else {

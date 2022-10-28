@@ -4,5 +4,9 @@ import { evaluate } from "../exp"
 import { Value } from "../value"
 
 export function applyClosure(closure: Closure, arg: Value): Value {
-  return evaluate(EnvCons(closure.name, arg, closure.env), closure.body)
+  return evaluate(
+    closure.mod,
+    EnvCons(closure.name, arg, closure.env),
+    closure.body,
+  )
 }

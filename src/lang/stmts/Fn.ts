@@ -43,7 +43,7 @@ export class Fn extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    const type = evaluate(mod.env, this.type)
+    const type = evaluate(mod, mod.env, this.type)
     const clauses: Array<Clause> = []
     const value = Values.FnMatch(type, clauses, this.arity, true)
     mod.define(this.name, value)
@@ -56,7 +56,7 @@ export class Fn extends Stmt {
         extractCallMatrixes(mod, this.name, clause.patterns, clause.body),
         clause.span,
       )
-      clauses.push(Clause(mod.env, clause.patterns, clause.body))
+      clauses.push(Clause(mod, mod.env, clause.patterns, clause.body))
     }
   }
 }

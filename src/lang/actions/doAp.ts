@@ -25,7 +25,7 @@ export function doApUnfolded(target: Value, args: Array<Value>): Value {
       const env = matchPatterns(clause.env, clause.patterns, args)
       if (env !== undefined) {
         const restArgs = args.slice(clause.patterns.length)
-        return doApUnfolded(evaluate(env, clause.body), restArgs)
+        return doApUnfolded(evaluate(clause.mod, env, clause.body), restArgs)
       }
     }
   }

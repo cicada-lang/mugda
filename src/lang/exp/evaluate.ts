@@ -4,6 +4,7 @@ import { Env, EnvCons, lookupValueInEnv } from "../env"
 import * as Errors from "../errors"
 import * as Exps from "../exp"
 import { Exp } from "../exp"
+import { Mod } from "../mod"
 import * as Values from "../value"
 import { Value } from "../value"
 
@@ -13,13 +14,18 @@ import { Value } from "../value"
 
 **/
 
-export function evaluate(env: Env, exp: Exp): Value {
+export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
   switch (exp.kind) {
     case "Var": {
       const value = lookupValueInEnv(env, exp.name)
       if (value !== undefined) {
         return value
       }
+
+      const modValue = lookupValueInEnv(mod.env, exp.name)
+      if (modValue !== undefined) {
+        return modValue
+      }      
 
       if (exp.span) {
         throw new Errors.ElaborationError(
@@ -33,39 +39,42 @@ export function evaluate(env: Env, exp: Exp): Value {
 
     case "Pi": {
       return Values.Pi(
-        evaluate(env, exp.argType),
-        Closure(env, exp.name, exp.retType),
+        evaluate(mod, env, exp.argType),
+        Closure(mod, env, exp.name, exp.retType),
       )
     }
 
     case "PiUnfolded": {
-      return evaluate(env, Exps.foldPi(exp.bindings, exp.retType))
+      return evaluate(mod, env, Exps.foldPi(exp.bindings, exp.retType))
     }
 
     case "Arrow": {
       const [headType, ...restTypes] = exp.types
-      return evaluate(env, Exps.foldArrow(headType, restTypes))
+      return evaluate(mod, env, Exps.foldArrow(headType, restTypes))
     }
 
     case "Fn": {
-      return Values.Fn(Closure(env, exp.name, exp.ret))
+      return Values.Fn(Closure(mod, env, exp.name, exp.ret))
     }
 
     case "Ap": {
-      return Actions.doAp(evaluate(env, exp.target), Values.Lazy(env, exp.arg))
+      return Actions.doAp(
+        evaluate(mod, env, exp.target),
+        Values.Lazy(mod, env, exp.arg),
+      )
     }
 
     case "ApUnfolded": {
-      return evaluate(env, Exps.foldAp(exp.target, exp.args))
+      return evaluate(mod, env, Exps.foldAp(exp.target, exp.args))
     }
 
     case "Let": {
-      env = EnvCons(exp.name, evaluate(env, exp.exp), env)
-      return evaluate(env, exp.ret)
+      env = EnvCons(exp.name, evaluate(mod, env, exp.exp), env)
+      return evaluate(mod, env, exp.ret)
     }
 
     case "LetUnfolded": {
-      return evaluate(env, Exps.foldLet(exp.bindings, exp.ret))
+      return evaluate(mod, env, Exps.foldLet(exp.bindings, exp.ret))
     }
   }
 }
