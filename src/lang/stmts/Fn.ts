@@ -18,13 +18,35 @@ export class Fn extends Stmt {
     super()
   }
 
+  get arity(): number {
+    let arity = undefined
+    for (const clause of this.clauses) {
+      if (arity === undefined) {
+        arity = clause.patterns.length
+      } else if (arity !== clause.patterns.length) {
+        throw new Errors.ElaborationError(
+          `Clauses arity mismatch, found ${arity} and ${clause.patterns.length}`,
+          clause.span,
+        )
+      }
+    }
+
+    if (arity === undefined) {
+      throw new Errors.ElaborationError("Empty clauses", this.span)
+    }
+
+    return arity
+  }
+
+  prepare(mod: Mod): void {
+    mod.arities.set(this.name, this.arity)
+  }
+
   async execute(mod: Mod): Promise<void> {
     const type = evaluate(mod.env, this.type)
     const clauses: Array<Clause> = []
-    const arity = checkArity(this.clauses, this.span)
-    const value = Values.FnMatch(type, clauses, arity, true)
+    const value = Values.FnMatch(type, clauses, this.arity, true)
     mod.define(this.name, value)
-    mod.arities.set(this.name, arity)
     /**
       TODO Maybe this is a wrong way to handle recursive definitions,
       maybe we should add a new sum type to `Env`.
@@ -37,24 +59,4 @@ export class Fn extends Stmt {
       clauses.push(Clause(mod.env, clause.patterns, clause.body))
     }
   }
-}
-
-function checkArity(clauses: Array<Exps.Clause>, span: Span): number {
-  let arity = undefined
-  for (const clause of clauses) {
-    if (arity === undefined) {
-      arity = clause.patterns.length
-    } else if (arity !== clause.patterns.length) {
-      throw new Errors.ElaborationError(
-        `Clauses arity mismatch, found ${arity} and ${clause.patterns.length}`,
-        clause.span,
-      )
-    }
-  }
-
-  if (arity === undefined) {
-    throw new Errors.ElaborationError("Empty clauses", span)
-  }
-
-  return arity
 }

@@ -1,6 +1,4 @@
-support mutual recursion within `Mod`
-
-- Stmts.Fn -- `prepare`
+`evaluate` take `mod` -- for module-level recursive definitions
 
 # later
 
