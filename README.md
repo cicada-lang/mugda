@@ -13,9 +13,7 @@ of [general recursive function](https://en.wikipedia.org/wiki/General_recursive_
 Notes about our implementation:
 
 - Use [S-expression](https://github.com/cicada-lang/sexp) as overall syntax, to expression ideas clearly.
-- Close to the paper, so that the code is easy to be reviewed with the paper.
-- Add comments about alternative ways to implement the same ideas.
-- Do not follow bad naming conventions of the paper.
+- We do not follow the bad naming conventions of the paper.
 
 ## Usages
 
