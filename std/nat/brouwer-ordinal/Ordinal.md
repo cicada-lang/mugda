@@ -2,7 +2,7 @@
 title: Brouwer Ordinal
 ---
 
-```mugda
+```mu
 (data Ordinal () ()
   )
 ```
