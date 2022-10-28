@@ -24,6 +24,7 @@ export interface ModOptions {
 
 export class Mod {
   env: Env = EnvNull()
+  arities: Map<string, number> = new Map()
   outputs: Map<number, StmtOutput> = new Map()
   stmts: Array<Stmt> = []
   initialized = false

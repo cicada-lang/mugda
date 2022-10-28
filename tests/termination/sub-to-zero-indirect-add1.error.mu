@@ -2,11 +2,8 @@
   [zero () Nat]
   [add1 ([prev Nat]) Nat])
 
-(define my-add1 (-> Nat Nat) add1)
-
-;; (define my-add1 (-> Nat Nat) (lambda (x) (add1 x)))
-
-;; (fn my-add1 (-> Nat Nat) [(x) (add1 x)])
+(fn my-add1 (-> Nat Nat)
+  [(x) (add1 x)])
 
 (fn sub-to-zero (-> Nat Nat)
   [((zero)) zero]

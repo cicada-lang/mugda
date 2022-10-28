@@ -1,4 +1,4 @@
-`Mod` has `arities`
+`Mod` has `arities` -- maybe also for define
 
 support mutual recursion within `Mod`
 

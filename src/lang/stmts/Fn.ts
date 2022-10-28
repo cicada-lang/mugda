@@ -24,23 +24,16 @@ export class Fn extends Stmt {
     const arity = checkArity(this.clauses, this.span)
     const value = Values.FnMatch(type, clauses, arity, true)
     mod.define(this.name, value)
+    mod.arities.set(this.name, arity)
     /**
       TODO Maybe this is a wrong way to handle recursive definitions,
       maybe we should add a new sum type to `Env`.
      **/
     for (const clause of this.clauses) {
-      const arities = new Map([[this.name, arity]])
       mod.checkCallMatrixes(
-        extractCallMatrixes(
-          mod,
-          arities,
-          this.name,
-          clause.patterns,
-          clause.body,
-        ),
+        extractCallMatrixes(mod, this.name, clause.patterns, clause.body),
         this.span,
       )
-
       clauses.push(Clause(mod.env, clause.patterns, clause.body))
     }
   }
