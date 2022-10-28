@@ -1,7 +1,3 @@
-[upstream] do not `.out` if the output is empty
-
-- delete the `.out` file the output is empty
-
 support mutual recursion within `Mod`
 
 - `Stmt.prepare`
