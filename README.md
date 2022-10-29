@@ -72,7 +72,7 @@ END
 
 Install it by the following command:
 
-```
+```sh
 npm install -g @cicada-lang/mugda
 ```
 
