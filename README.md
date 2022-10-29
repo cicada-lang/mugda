@@ -15,6 +15,23 @@ Notes about our implementation:
 - Use [S-expression](https://github.com/cicada-lang/sexp) as overall syntax, to expression ideas clearly.
 - We do not follow the bad naming conventions of the paper.
 
+## Notes
+
+### Zero arity data constructor
+
+When using zero arity data constructor, we must write them in `()`.
+For example, `zero` and `(zero)` are the same.
+
+But when using zero arity data constructor in pattern, we must write them in `()`.
+For example, we should not write `zero` but write `(zero)`,
+otherwise the interpreter can not distinguish pattern variable
+from this zero arity data constructor.
+
+### Syntax of inductive datatype definition
+
+The syntax of inductive datatype definition -- `(data)`,
+is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-little-typer).
+
 ## Usages
 
 ### Online playground
@@ -93,23 +110,6 @@ Run a URL:
 ```sh
 mu run https://cdn.mu.cic.run/tests/basic/id.test.mu
 ```
-
-## Notes
-
-### Zero arity data constructor
-
-When using zero arity data constructor, we must write them in `()`.
-For example, `zero` and `(zero)` are the same.
-
-But when using zero arity data constructor in pattern, we must write them in `()`.
-For example, we should not write `zero` but write `(zero)`,
-otherwise the interpreter can not distinguish pattern variable
-from this zero arity data constructor.
-
-### Syntax of inductive datatype definition
-
-The syntax of inductive datatype definition -- `(data)`,
-is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-little-typer).
 
 ## Examples
 
