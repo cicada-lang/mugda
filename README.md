@@ -73,7 +73,7 @@ END
 Install it by the following command:
 
 ```sh
-npm install -g @cicada-lang/mugda
+sudo npm install -g @cicada-lang/mugda
 ```
 
 The command line program is called `mu`.
@@ -104,8 +104,7 @@ mu run tests/basic/id.test.mu --watch
 
 Run a URL:
 
-- All files in this repo, can be fetched from: [`https://cdn.mu.cic.run/<path>`](https://cdn.mu.cic.run), <br/>
-  and any other http server that serves `.mu` code would also work.
+- All files in this repo, can be fetched from: [`https://cdn.mu.cic.run/<path>`](https://cdn.mu.cic.run)
 
 ```sh
 mu run https://cdn.mu.cic.run/tests/basic/id.test.mu
