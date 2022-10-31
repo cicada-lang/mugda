@@ -1,6 +1,6 @@
 `Trilean` -- why `mul` is not `min`?
 
-rename to `isExpSmallerThanPatten`
+learn about `Trilean`
 
 - read AA's paper
 - read lukasiewicz one or two chapters

@@ -6,13 +6,9 @@ import { Pattern } from "../pattern"
 import * as Trileans from "./Trilean"
 import { Trilean } from "./Trilean"
 
-export function compareExpWithPatten(
-  mod: Mod,
-  exp: Exp,
-  pattern: Pattern,
-): Trilean {
+export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
   if (pattern.kind === "Inaccessible") {
-    return compareExpWithPatten(mod, exp, pattern.pattern)
+    return decreasingExp(mod, exp, pattern.pattern)
   }
 
   if (exp.kind === "Var") {
@@ -39,9 +35,7 @@ export function compareExpWithPatten(
         exp.args.length === pattern.args.length
       ) {
         return Trileans.mulTrileans(
-          exp.args.map((arg, i) =>
-            compareExpWithPatten(mod, arg, pattern.args[i]),
-          ),
+          exp.args.map((arg, i) => decreasingExp(mod, arg, pattern.args[i])),
         )
       }
     }

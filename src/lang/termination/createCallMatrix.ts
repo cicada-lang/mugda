@@ -2,7 +2,7 @@ import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Pattern } from "../pattern"
 import { CallMatrix } from "../termination"
-import { compareExpWithPatten } from "./compareExpWithPatten"
+import { decreasingExp } from "./decreasingExp"
 import * as Trileans from "./Trilean"
 
 export function createCallMatrix(
@@ -14,7 +14,7 @@ export function createCallMatrix(
   exps: Array<Exp>,
 ): CallMatrix {
   const matrix = patterns.map((pattern) => {
-    const row = exps.map((exp) => compareExpWithPatten(mod, exp, pattern))
+    const row = exps.map((exp) => decreasingExp(mod, exp, pattern))
     let length = row.length
     while (length < arity) {
       row.push(Trileans.False)
