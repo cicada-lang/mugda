@@ -1,5 +1,3 @@
-remove `StmtOutput` just use string
-
 be sure about the meaning of the semiring of `Order`
 
 - compare with AA's paper

@@ -3,7 +3,7 @@ import { Env, EnvCons, EnvNull } from "../env"
 import * as Errors from "../errors"
 import { useGlobals } from "../globals"
 import { Span } from "../span"
-import { Stmt, StmtOutput } from "../stmt"
+import { Stmt } from "../stmt"
 import { CallMatrix, completeCallMatrixes } from "../termination"
 import { Value } from "../value"
 
@@ -25,7 +25,7 @@ export interface ModOptions {
 export class Mod {
   env: Env = EnvNull()
   arities: Map<string, number> = new Map()
-  outputs: Map<number, StmtOutput> = new Map()
+  outputs: Map<number, string> = new Map()
   stmts: Array<Stmt> = []
   initialized = false
   callMatrixes: Array<CallMatrix> = []

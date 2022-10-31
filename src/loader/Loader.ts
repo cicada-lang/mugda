@@ -1,11 +1,10 @@
 import { Fetcher } from "../framework/fetcher"
 import { Mod } from "../lang/mod"
-import { StmtOutput } from "../lang/stmt"
 import { Script } from "../script"
 import * as Scripts from "../scripts"
 
 export interface LoaderOptions {
-  onOutput?: (output: StmtOutput) => void
+  onOutput?: (output: string) => void
 }
 
 export class Loader {
