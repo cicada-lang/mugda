@@ -6,6 +6,10 @@
 
 - Peirce even has this connective as primitive!
 
+  https://plato.stanford.edu/entries/peirce-logic
+  http://www.commens.org/encyclopedia/article/lane-robert-triadic-logic
+  http://www.digitalpeirce.fee.unicamp.br/lane/p-trilan.htm
+
 # close to cicada
 
 use `Neutral` -- instead of `Values.Var` and `Values.Ap`
