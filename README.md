@@ -32,6 +32,10 @@ from this zero arity data constructor.
 The syntax of inductive datatype definition -- `(data)`,
 is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-little-typer).
 
+## References
+
+- [A good introduction to Three-valued Logic](https://www.youtube.com/watch?v=mK_VhRdh_o4).
+
 ## Usages
 
 ### Online playground

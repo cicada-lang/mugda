@@ -1,19 +1,14 @@
 `Trilean` -- why `mul` is not `min`?
 
-learn about `Trilean`
-
-- read AA's paper
-- read lukasiewicz one or two chapters
-- read through the mugda paper
-- learn about three-valued logic -- for the intuition of logic with neutrality
-
-  - a good introduction: https://www.youtube.com/watch?v=mK_VhRdh_o4
-
 # close to cicada
 
 use `Neutral` -- instead of `Values.Var` and `Values.Ap`
 
 distinguish `Datatype` and `Data` from `Values.Ap`
+
+# later
+
+`CallMatrix` -- error report on specific position
 
 # termination check
 
@@ -57,3 +52,5 @@ Function declarations
 Mugda programs
 
 # sized data types
+
+# read AA's paper
