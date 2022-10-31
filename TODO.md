@@ -1,5 +1,11 @@
 `Trilean` -- how to understand `Trileans.mul`?
 
+- Can this connective be defined by composition of other connectives (not, min, max)?
+
+  - How to search high-order things like connective in logic programming?
+
+- Peirce even has this connective as primitive!
+
 # close to cicada
 
 use `Neutral` -- instead of `Values.Var` and `Values.Ap`

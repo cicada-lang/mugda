@@ -20,6 +20,13 @@ export function equalTrilean(x: Trilean, y: Trilean): boolean {
   return x === y
 }
 
+/**
+
+   The connective `mulTwo` can also be viewed as just like `min`,
+   but `True` and `Middle` are switched.
+
+**/
+
 function mulTwo(x: Trilean, y: Trilean): Trilean {
   if (x === False || y === False) return False
   return Math.max(x, y) as Trilean
@@ -34,8 +41,10 @@ export function max(...xs: Array<Trilean>): Trilean {
 }
 
 /**
-   NOTE The paper is wrong about using `minTrileans`
-   instead of `mulTrileans` in `decreasingExp`.
+
+   The paper is wrong about using `min` instead of `mul` in `decreasingExp`.
+   We do not use `min` at all.
+
 **/
 
 function min(...xs: Array<Trilean>): Trilean {
