@@ -26,7 +26,7 @@ export function maxTrilean(x: Trilean, y: Trilean): Trilean {
 }
 
 export function maxTrileans(xs: Array<Trilean>): Trilean {
-  return xs.reduce((result, x) => maxTrilean(result, x), False)
+  return Math.max(False, ...xs) as Trilean
 }
 
 /**
@@ -39,5 +39,5 @@ function minTrilean(x: Trilean, y: Trilean): Trilean {
 }
 
 function minTrileans(xs: Array<Trilean>): Trilean {
-  return xs.reduce((result, x) => minTrilean(result, x), True)
+  return Math.min(True, ...xs) as Trilean
 }
