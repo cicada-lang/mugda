@@ -1,5 +1,13 @@
 export type Trilean = True | Middle | False
 
+/**
+
+   The name `Middle` comes from the **law of excluded middle**,
+   when `Middle` is added to the set of values,
+   the law not hold anymore.
+
+**/
+
 export type True = 1
 export type Middle = 0.5
 export type False = 0
