@@ -3,14 +3,14 @@ import * as Exps from "../exp"
 import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Pattern } from "../pattern"
-import * as Orders from "./Order"
-import { Order } from "./Order"
+import * as Trileans from "./Trilean"
+import { Trilean } from "./Trilean"
 
 export function compareExpWithPatten(
   mod: Mod,
   exp: Exp,
   pattern: Pattern,
-): Order {
+): Trilean {
   if (pattern.kind === "Inaccessible") {
     return compareExpWithPatten(mod, exp, pattern.pattern)
   }
@@ -19,7 +19,7 @@ export function compareExpWithPatten(
     if (!isCtorName(mod, exp.name)) {
       return compareVarWithPatten(mod, exp.name, pattern)
     } else if (pattern.kind === "Ctor" && pattern.name === exp.name) {
-      return Orders.Neutral
+      return Trileans.Middle
     }
   }
 
@@ -38,7 +38,7 @@ export function compareExpWithPatten(
         exp.target.name === pattern.name &&
         exp.args.length === pattern.args.length
       ) {
-        return Orders.minOrders(
+        return Trileans.mulTrileans(
           exp.args.map((arg, i) =>
             compareExpWithPatten(mod, arg, pattern.args[i]),
           ),
@@ -47,7 +47,7 @@ export function compareExpWithPatten(
     }
   }
 
-  return Orders.LargerOrNotComparable
+  return Trileans.False
 }
 
 function isCtorName(mod: Mod, name: string): boolean {
@@ -57,20 +57,24 @@ function isCtorName(mod: Mod, name: string): boolean {
   return value.kind === "Ctor" || value.kind === "Coctor"
 }
 
-function compareVarWithPatten(mod: Mod, name: string, pattern: Pattern): Order {
+function compareVarWithPatten(
+  mod: Mod,
+  name: string,
+  pattern: Pattern,
+): Trilean {
   switch (pattern.kind) {
     case "Var": {
       if (pattern.name === name) {
-        return Orders.Neutral
+        return Trileans.Middle
       } else {
-        return Orders.LargerOrNotComparable
+        return Trileans.False
       }
     }
 
     case "Ctor": {
-      return Orders.mulOrder(
-        Orders.Smaller,
-        Orders.maxOrders(
+      return Trileans.mulTrilean(
+        Trileans.True,
+        Trileans.maxTrileans(
           pattern.args.map((arg) => compareVarWithPatten(mod, name, arg)),
         ),
       )

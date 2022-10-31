@@ -1,11 +1,11 @@
-import { OrderMatrix, OrderMatrixTheory } from "./OrderMatrixTheory"
+import { TrileanMatrix, TrileanMatrixTheory } from "./TrileanMatrixTheory"
 
-const theory = new OrderMatrixTheory()
+const theory = new TrileanMatrixTheory()
 
 export class CallMatrix {
   constructor(
     public left: string,
-    public matrix: OrderMatrix,
+    public matrix: TrileanMatrix,
     public right: string,
   ) {}
 

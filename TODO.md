@@ -1,9 +1,13 @@
-be sure about the meaning of the semiring of `Order`
+`Trilean` -- why `mul` is not `min`?
+
+rename to `isExpSmallerThanPatten`
 
 - read AA's paper
 - read lukasiewicz one or two chapters
 - read through the mugda paper
 - learn about three-valued logic -- for the intuition of logic with neutrality
+
+  - a good introduction: https://www.youtube.com/watch?v=mK_VhRdh_o4
 
 # close to cicada
 
