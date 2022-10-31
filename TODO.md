@@ -1,4 +1,4 @@
-`Trilean` -- why `mul` is not `min`?
+`Trilean` -- how to understand `mulTrilean`
 
 # close to cicada
 

@@ -13,7 +13,7 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
 
   if (exp.kind === "Var") {
     if (!isCtorName(mod, exp.name)) {
-      return compareVarWithPatten(mod, exp.name, pattern)
+      return decreasingVar(mod, exp.name, pattern)
     } else if (pattern.kind === "Ctor" && pattern.name === exp.name) {
       return Trileans.Middle
     }
@@ -28,7 +28,7 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
     const unfolded = Exps.unfoldAp(exp)
     if (exp.target.kind === "Var") {
       if (!isCtorName(mod, exp.target.name)) {
-        return compareVarWithPatten(mod, exp.target.name, pattern)
+        return decreasingVar(mod, exp.target.name, pattern)
       } else if (
         pattern.kind === "Ctor" &&
         exp.target.name === pattern.name &&
@@ -51,11 +51,7 @@ function isCtorName(mod: Mod, name: string): boolean {
   return value.kind === "Ctor" || value.kind === "Coctor"
 }
 
-function compareVarWithPatten(
-  mod: Mod,
-  name: string,
-  pattern: Pattern,
-): Trilean {
+function decreasingVar(mod: Mod, name: string, pattern: Pattern): Trilean {
   switch (pattern.kind) {
     case "Var": {
       if (pattern.name === name) {
@@ -69,13 +65,13 @@ function compareVarWithPatten(
       return Trileans.mulTrilean(
         Trileans.True,
         Trileans.maxTrileans(
-          pattern.args.map((arg) => compareVarWithPatten(mod, name, arg)),
+          pattern.args.map((arg) => decreasingVar(mod, name, arg)),
         ),
       )
     }
 
     case "Inaccessible": {
-      return compareVarWithPatten(mod, name, pattern.pattern)
+      return decreasingVar(mod, name, pattern.pattern)
     }
   }
 }
