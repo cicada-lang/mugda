@@ -1,4 +1,4 @@
-`Trilean` -- how to understand `mulTrilean`
+`Trilean` -- how to understand `Trileans.mul`?
 
 # close to cicada
 

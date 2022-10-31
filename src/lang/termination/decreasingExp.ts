@@ -34,8 +34,8 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
         exp.target.name === pattern.name &&
         exp.args.length === pattern.args.length
       ) {
-        return Trileans.mulTrileans(
-          exp.args.map((arg, i) => decreasingExp(mod, arg, pattern.args[i])),
+        return Trileans.mul(
+          ...exp.args.map((arg, i) => decreasingExp(mod, arg, pattern.args[i])),
         )
       }
     }
@@ -62,10 +62,10 @@ function decreasingVar(mod: Mod, name: string, pattern: Pattern): Trilean {
     }
 
     case "Ctor": {
-      return Trileans.mulTrilean(
+      return Trileans.mul(
         Trileans.True,
-        Trileans.maxTrileans(
-          pattern.args.map((arg) => decreasingVar(mod, name, arg)),
+        Trileans.max(
+          ...pattern.args.map((arg) => decreasingVar(mod, name, arg)),
         ),
       )
     }

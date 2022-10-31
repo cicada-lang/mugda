@@ -8,8 +8,8 @@ export class TrileanMatrixTheory extends MatrixTheory<Trilean> {
   constructor() {
     super({
       equal: Trileans.equalTrilean,
-      add: Trileans.maxTrilean,
-      mul: Trileans.mulTrilean,
+      add: Trileans.max,
+      mul: Trileans.mul,
       zero: Trileans.False,
       one: Trileans.Middle,
     })

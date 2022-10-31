@@ -12,20 +12,16 @@ export function equalTrilean(x: Trilean, y: Trilean): boolean {
   return x === y
 }
 
-export function mulTrilean(x: Trilean, y: Trilean): Trilean {
+function mulTwo(x: Trilean, y: Trilean): Trilean {
   if (x === False || y === False) return False
   return Math.max(x, y) as Trilean
 }
 
-export function mulTrileans(xs: Array<Trilean>): Trilean {
-  return xs.reduce((result, x) => mulTrilean(result, x), Middle)
+export function mul(...xs: Array<Trilean>): Trilean {
+  return xs.reduce((result, x) => mulTwo(result, x), Middle)
 }
 
-export function maxTrilean(x: Trilean, y: Trilean): Trilean {
-  return Math.max(x, y) as Trilean
-}
-
-export function maxTrileans(xs: Array<Trilean>): Trilean {
+export function max(...xs: Array<Trilean>): Trilean {
   return Math.max(False, ...xs) as Trilean
 }
 
@@ -34,10 +30,6 @@ export function maxTrileans(xs: Array<Trilean>): Trilean {
    instead of `mulTrileans` in `decreasingExp`.
 **/
 
-function minTrilean(x: Trilean, y: Trilean): Trilean {
-  return Math.min(x, y) as Trilean
-}
-
-function minTrileans(xs: Array<Trilean>): Trilean {
+function min(...xs: Array<Trilean>): Trilean {
   return Math.min(True, ...xs) as Trilean
 }
