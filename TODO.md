@@ -1,6 +1,8 @@
 be sure about the meaning of the semiring of `Order`
 
-- compare with AA's paper
+- read AA's paper
+- read lukasiewicz one or two chapters
+- read through the mugda paper
 - learn about three-valued logic -- for the intuition of logic with neutrality
 
 # close to cicada
