@@ -17,9 +17,6 @@ export function deepForce(value: Value): Value {
     }
 
     case "Ap": {
-      const unfolded = Values.unfoldAp(value)
-      const target = deepForce(unfolded.target)
-      if (target.kind === "Coctor") return value
       const result = Actions.doAp(deepForce(value.target), deepForce(value.arg))
       return result.kind === "Ap" ? result : deepForce(result)
     }

@@ -1,24 +1,15 @@
+remove inaccessible pattern
+
+`DatatypeCtor` & `Datatype` instead of `Data`
+
+`DataCtor` & `Data` instead of `Ctor`
+
 use `Neutral` -- instead of `Values.Var` and `Values.Ap`
-
-distinguish `Datatype` and `Data` from `Values.Ap`
-
-DatatypeCtor
-Datatype
-
-DataCtor
-Data
-
-# later
 
 `CallMatrix` -- error report on specific position
 
-# termination check
-
-## Excursion: Extending the order
-
-Examples
-
-## List reversion: Vectors to the rescue
+[std] list-reverse.error.mu
+[std] Vector-reverse.mu
 
 # type checking
 

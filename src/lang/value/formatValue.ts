@@ -43,13 +43,5 @@ export function formatValue(value: Value): string {
     case "Ctor": {
       return value.name
     }
-
-    case "Codata": {
-      return value.name
-    }
-
-    case "Coctor": {
-      return value.name
-    }
   }
 }

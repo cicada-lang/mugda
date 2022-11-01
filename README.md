@@ -10,11 +10,6 @@ The "Mu" of the name "Mugda"
 comes from [μ-operator (mu-operator)](https://en.wikipedia.org/wiki/%CE%9C_operator)
 of [general recursive function](https://en.wikipedia.org/wiki/General_recursive_function).
 
-Notes about our implementation:
-
-- Use [S-expression](https://github.com/cicada-lang/sexp) as overall syntax, to expression ideas clearly.
-- We do not follow the bad naming conventions of the paper.
-
 ## Notes
 
 ### Zero arity data constructor

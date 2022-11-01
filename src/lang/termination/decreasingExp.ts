@@ -64,7 +64,7 @@ function isCtorName(mod: Mod, name: string): boolean {
   const value = lookupValueInEnv(mod.env, name)
   if (value === undefined) return false
 
-  return value.kind === "Ctor" || value.kind === "Coctor"
+  return value.kind === "Ctor"
 }
 
 function isDataName(mod: Mod, name: string): boolean {

@@ -1,4 +1,6 @@
-(import "./Nat.mu" Nat zero)
+(data Nat () ()
+  [zero () Nat]
+  [add1 ([prev Nat]) Nat])
 
 ;; `NatStream` is an example of a coinductive type.
 ;; Coinductive types are not required to be well-founded,

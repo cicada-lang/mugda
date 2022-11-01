@@ -39,17 +39,6 @@ export function matchStmt(sexp: Sexp): Stmt {
         ),
     ],
     [
-      list(["codata", v("name"), v("varied"), v("fixed")], v("ctors")),
-      ({ name, varied, fixed, ctors }, { span }) =>
-        new Stmts.Codata(
-          matchSymbol(name),
-          Exps.Telescope(matchList(varied, matchTelescopeBinding)),
-          Exps.Telescope(matchList(fixed, matchTelescopeBinding)),
-          matchList(ctors, matchCtor),
-          span,
-        ),
-    ],
-    [
       list(["fn", v("name"), v("type")], v("clauses")),
       ({ name, type, clauses }, { span }) =>
         new Stmts.Fn(

@@ -18,10 +18,7 @@ export function matchPattern(
     case "Ctor": {
       const unfolded = Values.unfoldAp(value)
 
-      if (
-        unfolded.target.kind !== "Ctor" &&
-        unfolded.target.kind !== "Coctor"
-      ) {
+      if (unfolded.target.kind !== "Ctor") {
         return undefined
       }
 

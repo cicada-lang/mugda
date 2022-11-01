@@ -4,18 +4,7 @@ import { Exp, Telescope } from "../exp"
 import { Mod } from "../mod"
 import { Clause } from "../value"
 
-export type Value =
-  | Var
-  | Type
-  | Lazy
-  | Pi
-  | Fn
-  | FnMatch
-  | Ap
-  | Data
-  | Ctor
-  | Codata
-  | Coctor
+export type Value = Var | Type | Lazy | Pi | Fn | FnMatch | Ap | Data | Ctor
 
 export type Var = {
   family: "Value"
@@ -221,36 +210,5 @@ export function Codata(
     env,
     fixed,
     varied,
-  }
-}
-
-export type Coctor = {
-  family: "Value"
-  kind: "Coctor"
-  name: string
-  mod: Mod
-  env: Env
-  fixed: Telescope
-  args: Telescope
-  retType: Exp
-}
-
-export function Coctor(
-  name: string,
-  mod: Mod,
-  env: Env,
-  fixed: Telescope,
-  args: Telescope,
-  retType: Exp,
-): Coctor {
-  return {
-    family: "Value",
-    kind: "Coctor",
-    name,
-    mod,
-    env,
-    fixed,
-    args,
-    retType,
   }
 }

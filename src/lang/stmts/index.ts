@@ -1,4 +1,3 @@
-export * from "./Codata"
 export * from "./Compute"
 export * from "./Data"
 export * from "./Define"
