@@ -4,7 +4,7 @@ import { Exp, Telescope } from "../exp"
 import { Mod } from "../mod"
 import { Clause } from "../value"
 
-export type Value = Var | Type | Lazy | Pi | Fn | FnMatch | Ap | Data | Ctor
+export type Value = Var | Type | Pi | Fn | FnMatch | Ap | Data | Ctor
 
 export type Var = {
   family: "Value"
@@ -29,24 +29,6 @@ export function Type(): Type {
   return {
     family: "Value",
     kind: "Type",
-  }
-}
-
-export type Lazy = {
-  family: "Value"
-  kind: "Lazy"
-  mod: Mod
-  env: Env
-  exp: Exp
-}
-
-export function Lazy(mod: Mod, env: Env, exp: Exp): Lazy {
-  return {
-    family: "Value",
-    kind: "Lazy",
-    mod,
-    env,
-    exp,
   }
 }
 

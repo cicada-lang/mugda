@@ -8,8 +8,6 @@ export function matchPattern(
   pattern: Pattern,
   value: Value,
 ): Env | undefined {
-  value = Values.force(value)
-
   switch (pattern.kind) {
     case "Var": {
       return EnvCons(pattern.name, value, env)

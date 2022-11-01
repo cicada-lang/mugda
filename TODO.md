@@ -1,5 +1,7 @@
 remove inaccessible pattern
 
+- support match over `Data`
+
 `DatatypeCtor` & `Datatype` instead of `Data`
 
 `DataCtor` & `Data` instead of `Ctor`

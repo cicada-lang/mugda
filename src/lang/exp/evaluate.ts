@@ -60,7 +60,7 @@ export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
     case "Ap": {
       return Actions.doAp(
         evaluate(mod, env, exp.target),
-        Values.Lazy(mod, env, exp.arg),
+        evaluate(mod, env, exp.arg),
       )
     }
 

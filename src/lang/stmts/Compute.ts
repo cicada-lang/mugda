@@ -2,7 +2,6 @@ import { evaluate, Exp } from "../exp"
 import { Mod } from "../mod"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
-import * as Values from "../value"
 import { formatValue } from "../value"
 
 export class Compute extends Stmt {
@@ -12,6 +11,6 @@ export class Compute extends Stmt {
 
   async execute(mod: Mod): Promise<string> {
     const value = evaluate(mod, mod.env, this.exp)
-    return formatValue(Values.deepForce(value))
+    return formatValue(value)
   }
 }
