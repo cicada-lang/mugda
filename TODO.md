@@ -1,3 +1,5 @@
+use `Neutral` -- instead of `Values.Var` and `Values.Ap`
+
 distinguish `Datatype` and `Data` from `Values.Ap`
 
 DatatypeCtor
@@ -5,8 +7,6 @@ Datatype
 
 DataCtor
 Data
-
-use `Neutral` -- instead of `Values.Var` and `Values.Ap`
 
 # later
 

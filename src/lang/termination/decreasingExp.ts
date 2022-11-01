@@ -12,11 +12,15 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
   }
 
   if (exp.kind === "Var") {
-    if (!isCtorName(mod, exp.name)) {
-      return decreasingVar(mod, exp.name, pattern)
-    } else if (pattern.kind === "Ctor" && pattern.name === exp.name) {
+    if (
+      isCtorName(mod, exp.name) &&
+      pattern.kind === "Ctor" &&
+      pattern.name === exp.name
+    ) {
       return Trileans.Middle
     }
+
+    return decreasingVar(mod, exp.name, pattern)
   }
 
   if (exp.kind === "Ap" || exp.kind === "ApUnfolded") {
@@ -27,9 +31,8 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
   if (exp.kind === "ApUnfolded") {
     const unfolded = Exps.unfoldAp(exp)
     if (exp.target.kind === "Var") {
-      if (!isCtorName(mod, exp.target.name)) {
-        return decreasingVar(mod, exp.target.name, pattern)
-      } else if (
+      if (
+        isCtorName(mod, exp.target.name) &&
         pattern.kind === "Ctor" &&
         exp.target.name === pattern.name &&
         exp.args.length === pattern.args.length
@@ -38,6 +41,19 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
           ...exp.args.map((arg, i) => decreasingExp(mod, arg, pattern.args[i])),
         )
       }
+
+      if (
+        isDataName(mod, exp.target.name) &&
+        pattern.kind === "Ctor" &&
+        exp.target.name === pattern.name &&
+        exp.args.length === pattern.args.length
+      ) {
+        return Trileans.mul(
+          ...exp.args.map((arg, i) => decreasingExp(mod, arg, pattern.args[i])),
+        )
+      }
+
+      return decreasingVar(mod, exp.target.name, pattern)
     }
   }
 
@@ -49,6 +65,13 @@ function isCtorName(mod: Mod, name: string): boolean {
   if (value === undefined) return false
 
   return value.kind === "Ctor" || value.kind === "Coctor"
+}
+
+function isDataName(mod: Mod, name: string): boolean {
+  const value = lookupValueInEnv(mod.env, name)
+  if (value === undefined) return false
+
+  return value.kind === "Data"
 }
 
 function decreasingVar(mod: Mod, name: string, pattern: Pattern): Trilean {

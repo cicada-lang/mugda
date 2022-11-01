@@ -1,4 +1,4 @@
-(import "List.mu" List null cons length)
+(import "../list/index.mu" List null cons length)
 (import "../nat/index.mu" Nat zero)
 
 (null Nat)

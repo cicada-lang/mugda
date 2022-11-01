@@ -1,0 +1,4 @@
+(null Nat)
+(cons Nat zero (cons Nat zero (null Nat)))
+(cons Nat zero (cons Nat zero (cons Nat zero (cons Nat zero (null Nat)))))
+(cons Nat zero (cons Nat zero (cons Nat zero (cons Nat zero (cons Nat zero (cons Nat zero (null Nat)))))))

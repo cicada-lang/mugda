@@ -1,3 +1,3 @@
-(import "List.mu"
-  List null cons
-  length)
+(import "List.mu" List null cons)
+(import "length.mu" length)
+(import "flatten.mu" flatten)
