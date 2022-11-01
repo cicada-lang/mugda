@@ -2,14 +2,14 @@ import { Exp, Telescope } from "../exp"
 
 export type Ctor = {
   name: string
-  args: Telescope
+  slots: Telescope
   retType: Exp
 }
 
-export function Ctor(name: string, args: Telescope, retType: Exp): Ctor {
+export function Ctor(name: string, slots: Telescope, retType: Exp): Ctor {
   return {
     name,
-    args,
+    slots,
     retType,
   }
 }

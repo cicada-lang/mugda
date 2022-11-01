@@ -1,5 +1,3 @@
-rename Ctor.args to Ctor.slots
-
 Data take args
 Ctor take args
 

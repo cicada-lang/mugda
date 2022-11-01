@@ -26,7 +26,7 @@ export class Data extends Stmt {
         mod,
         mod.env,
         this.fixed,
-        ctor.args,
+        ctor.slots,
         ctor.retType,
       )
       mod.define(ctor.name, value)

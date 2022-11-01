@@ -143,7 +143,7 @@ export type Ctor = {
   mod: Mod
   env: Env
   fixed: Telescope
-  args: Telescope
+  slots: Telescope
   retType: Exp
 }
 
@@ -152,7 +152,7 @@ export function Ctor(
   mod: Mod,
   env: Env,
   fixed: Telescope,
-  args: Telescope,
+  slots: Telescope,
   retType: Exp,
 ): Ctor {
   return {
@@ -162,7 +162,7 @@ export function Ctor(
     mod,
     env,
     fixed,
-    args,
+    slots,
     retType,
   }
 }
