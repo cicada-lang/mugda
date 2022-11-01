@@ -1,11 +1,9 @@
-rename Ctor to Data
+rename Ctor.args to Ctor.slots
 
-rename Data.args to Ctor.slots
-
-Datatype take args
 Data take args
+Ctor take args
 
-support match over `Datatype`
+support match over `Data`
 
 remove inaccessible pattern
 

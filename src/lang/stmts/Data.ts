@@ -17,13 +17,7 @@ export class Data extends Stmt {
   }
 
   async execute(mod: Mod): Promise<void> {
-    const value = Values.Datatype(
-      this.name,
-      mod,
-      mod.env,
-      this.fixed,
-      this.varied,
-    )
+    const value = Values.Data(this.name, mod, mod.env, this.fixed, this.varied)
     mod.define(this.name, value)
 
     for (const ctor of this.ctors) {

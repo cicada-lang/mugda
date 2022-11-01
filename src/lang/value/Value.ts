@@ -4,7 +4,7 @@ import { Exp, Telescope } from "../exp"
 import { Mod } from "../mod"
 import { Clause } from "../value"
 
-export type Value = Var | Type | Pi | Fn | FnMatch | Ap | Datatype | Ctor
+export type Value = Var | Type | Pi | Fn | FnMatch | Ap | Data | Ctor
 
 export type Var = {
   family: "Value"
@@ -108,9 +108,9 @@ export function Ap(target: Value, arg: Value): Ap {
    | indexes    | varied |
 **/
 
-export type Datatype = {
+export type Data = {
   family: "Value"
-  kind: "Datatype"
+  kind: "Data"
   name: string
   mod: Mod
   env: Env
@@ -118,16 +118,16 @@ export type Datatype = {
   varied: Telescope
 }
 
-export function Datatype(
+export function Data(
   name: string,
   mod: Mod,
   env: Env,
   fixed: Telescope,
   varied: Telescope,
-): Datatype {
+): Data {
   return {
     family: "Value",
-    kind: "Datatype",
+    kind: "Data",
     name,
     mod,
     env,

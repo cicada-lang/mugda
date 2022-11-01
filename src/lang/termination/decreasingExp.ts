@@ -43,7 +43,7 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
       }
 
       if (
-        isDatatypeName(mod, exp.target.name) &&
+        isDataName(mod, exp.target.name) &&
         pattern.kind === "Ctor" &&
         exp.target.name === pattern.name &&
         exp.args.length === pattern.args.length
@@ -67,11 +67,11 @@ function isCtorName(mod: Mod, name: string): boolean {
   return value.kind === "Ctor"
 }
 
-function isDatatypeName(mod: Mod, name: string): boolean {
+function isDataName(mod: Mod, name: string): boolean {
   const value = lookupValueInEnv(mod.env, name)
   if (value === undefined) return false
 
-  return value.kind === "Datatype"
+  return value.kind === "Data"
 }
 
 function decreasingVar(mod: Mod, name: string, pattern: Pattern): Trilean {
