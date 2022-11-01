@@ -74,6 +74,7 @@ export class Mod {
 
     for (const callMatrix of this.callMatrixes) {
       if (callMatrix.isNotTerminating()) {
+        // console.log(callMatrix)
         throw new Errors.TerminationError(
           "Size-decreasing principle fail",
           span,
