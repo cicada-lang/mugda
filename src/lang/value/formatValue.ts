@@ -31,7 +31,7 @@ export function formatValue(value: Value): string {
       return args.length === 0 ? `(${target})` : `(${target} ${args.join(" ")})`
     }
 
-    case "Data": {
+    case "Datatype": {
       return value.name
     }
 

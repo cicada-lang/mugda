@@ -1,10 +1,13 @@
+rename Ctor to Data
+
+rename Data.args to Ctor.slots
+
+Datatype take args
+Data take args
+
+support match over `Datatype`
+
 remove inaccessible pattern
-
-- support match over `Data`
-
-`DatatypeCtor` & `Datatype` instead of `Data`
-
-`DataCtor` & `Data` instead of `Ctor`
 
 use `Neutral` -- instead of `Values.Var` and `Values.Ap`
 
