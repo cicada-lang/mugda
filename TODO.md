@@ -1,11 +1,11 @@
 [maybe] `Data` take `args`
 [maybe] `Ctor` take `args`
 
+use `Neutral` -- instead of `Values.Var` and `Values.Ap`
+
 support match over `Data` -- less use of `Patterns.Compute`
 
 `Patterns.Compute` take `exp` instead of `pattern`
-
-use `Neutral` -- instead of `Values.Var` and `Values.Ap`
 
 `CallMatrix` -- error report on specific position
 
