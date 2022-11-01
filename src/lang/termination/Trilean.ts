@@ -22,8 +22,8 @@ export function equalTrilean(x: Trilean, y: Trilean): boolean {
 
 /**
 
-   The connective `mulTwo` can also be viewed as just like `min`,
-   but `True` and `Middle` are switched.
+   `mulTwo` is connective where `Middle` is week,
+   thus `True` and `False` can infect `Middle`.
 
 **/
 
