@@ -45,7 +45,7 @@ Visit the [Mugda Playground](https://mugda.cicada-lang.org/playground/KGRhdGEgTm
 Run a file:
 
 ```bash
-curl https://mu.cic.run --data-binary @tests/basic/let.test.mu
+curl https://mu.cic.run --data-binary @<file>
 ```
 
 Run multiline text (bash and zsh):
