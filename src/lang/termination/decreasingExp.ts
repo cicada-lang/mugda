@@ -7,7 +7,7 @@ import * as Trileans from "./Trilean"
 import { Trilean } from "./Trilean"
 
 export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
-  if (pattern.kind === "Inaccessible") {
+  if (pattern.kind === "Compute") {
     return decreasingExp(mod, exp, pattern.pattern)
   }
 
@@ -32,18 +32,8 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
     const unfolded = Exps.unfoldAp(exp)
     if (exp.target.kind === "Var") {
       if (
-        isCtorName(mod, exp.target.name) &&
-        pattern.kind === "Ctor" &&
-        exp.target.name === pattern.name &&
-        exp.args.length === pattern.args.length
-      ) {
-        return Trileans.mul(
-          ...exp.args.map((arg, i) => decreasingExp(mod, arg, pattern.args[i])),
-        )
-      }
-
-      if (
-        isDataName(mod, exp.target.name) &&
+        (isCtorName(mod, exp.target.name) ||
+          isDataName(mod, exp.target.name)) &&
         pattern.kind === "Ctor" &&
         exp.target.name === pattern.name &&
         exp.args.length === pattern.args.length
@@ -93,7 +83,7 @@ function decreasingVar(mod: Mod, name: string, pattern: Pattern): Trilean {
       )
     }
 
-    case "Inaccessible": {
+    case "Compute": {
       return decreasingVar(mod, name, pattern.pattern)
     }
   }

@@ -114,7 +114,7 @@ function matchPattern(sexp: Sexp): Pattern {
   return match<Pattern>(sexp, [
     [
       ["#", v("pattern")],
-      ({ pattern }) => Patterns.Inaccessible(matchPattern(pattern)),
+      ({ pattern }) => Patterns.Compute(matchPattern(pattern)),
     ],
     [
       cons(v("name"), v("args")),

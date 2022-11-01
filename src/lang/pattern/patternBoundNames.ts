@@ -12,7 +12,7 @@ export function patternBoundNames(pattern: Pattern): Set<string> {
       )
     }
 
-    case "Inaccessible": {
+    case "Compute": {
       return new Set()
     }
   }

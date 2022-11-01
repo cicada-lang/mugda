@@ -15,19 +15,12 @@ export function matchPattern(
 
     case "Ctor": {
       const unfolded = Values.unfoldAp(value)
-
-      if (unfolded.target.kind !== "Ctor") {
-        return undefined
-      }
-
-      if (unfolded.target.name !== pattern.name) {
-        return undefined
-      }
-
+      if (unfolded.target.kind !== "Ctor") return undefined
+      if (unfolded.target.name !== pattern.name) return undefined
       return matchPatterns(env, pattern.args, unfolded.args)
     }
 
-    case "Inaccessible": {
+    case "Compute": {
       return env
     }
   }

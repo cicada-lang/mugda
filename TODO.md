@@ -1,9 +1,9 @@
-Data take args
-Ctor take args
+[maybe] `Data` take `args`
+[maybe] `Ctor` take `args`
 
-support match over `Data`
+support match over `Data` -- less use of `Patterns.Compute`
 
-remove inaccessible pattern
+`Patterns.Compute` take `exp` instead of `pattern`
 
 use `Neutral` -- instead of `Values.Var` and `Values.Ap`
 

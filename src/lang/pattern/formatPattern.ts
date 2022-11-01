@@ -13,7 +13,7 @@ export function formatPattern(pattern: Pattern): string {
         : `(${pattern.name} ${args.join(" ")})`
     }
 
-    case "Inaccessible": {
+    case "Compute": {
       return `(# ${formatPattern(pattern.pattern)})`
     }
   }

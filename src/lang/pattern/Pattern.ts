@@ -1,4 +1,4 @@
-export type Pattern = Var | Ctor | Inaccessible
+export type Pattern = Var | Ctor | Compute
 
 export type Var = {
   family: "Pattern"
@@ -30,16 +30,16 @@ export function Ctor(name: string, args: Array<Pattern>): Ctor {
   }
 }
 
-export type Inaccessible = {
+export type Compute = {
   family: "Pattern"
-  kind: "Inaccessible"
+  kind: "Compute"
   pattern: Pattern
 }
 
-export function Inaccessible(pattern: Pattern): Inaccessible {
+export function Compute(pattern: Pattern): Compute {
   return {
     family: "Pattern",
-    kind: "Inaccessible",
+    kind: "Compute",
     pattern,
   }
 }
