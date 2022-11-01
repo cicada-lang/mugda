@@ -9,7 +9,7 @@ export function doAp(target: Value, arg: Value): Value {
   return doApUnfolded(unfolded.target, [...unfolded.args, arg])
 }
 
-export function doApUnfolded(target: Value, args: Array<Value>): Value {
+function doApUnfolded(target: Value, args: Array<Value>): Value {
   if (target.kind === "Fn") {
     if (args.length === 0) return target
     const [arg, ...restArgs] = args
