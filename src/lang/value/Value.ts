@@ -166,31 +166,3 @@ export function Ctor(
     retType,
   }
 }
-
-export type Codata = {
-  family: "Value"
-  kind: "Codata"
-  name: string
-  mod: Mod
-  env: Env
-  fixed: Telescope
-  varied: Telescope
-}
-
-export function Codata(
-  name: string,
-  mod: Mod,
-  env: Env,
-  fixed: Telescope,
-  varied: Telescope,
-): Codata {
-  return {
-    family: "Value",
-    kind: "Codata",
-    name,
-    mod,
-    env,
-    fixed,
-    varied,
-  }
-}
