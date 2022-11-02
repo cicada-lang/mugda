@@ -1,16 +1,18 @@
-import { formatValue, Value } from "../value"
+import { Neutral } from "../neutral"
+import * as Values from "../value"
+import { formatValue } from "../value"
 
-export function unfoldFormatAp(value: Value): {
+export function unfoldFormatAp(neutral: Neutral): {
   target: string
   args: Array<string>
 } {
-  if (value.kind === "Ap") {
-    const unfolded = unfoldFormatAp(value.target)
+  if (neutral.kind === "Ap") {
+    const unfolded = unfoldFormatAp(neutral.target)
     return {
       target: unfolded.target,
-      args: [...unfolded.args, formatValue(value.arg)],
+      args: [...unfolded.args, formatValue(neutral.arg)],
     }
   }
 
-  return { target: formatValue(value), args: [] }
+  return { target: formatValue(Values.UntypedNeutral(neutral)), args: [] }
 }

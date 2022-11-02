@@ -1,13 +1,14 @@
-[maybe] `Data` take `args`
-[maybe] `Ctor` take `args`
-
-use `Neutral` -- instead of `Values.Var` and `Values.Ap`
-
 support match over `Data` -- less use of `Patterns.Compute`
+
+`decreasingValue` instead of `decreasingExp`
 
 `Patterns.Compute` take `exp` instead of `pattern`
 
+[maybe] use `where` instead `Patterns.Compute`
+
 `CallMatrix` -- error report on specific position
+
+`doAp` -- arity check for `Data` & `Ctor`
 
 [std] list-reverse.error.mu
 [std] Vector-reverse.mu

@@ -45,7 +45,7 @@ export class Fn extends Stmt {
   async execute(mod: Mod): Promise<void> {
     const type = evaluate(mod, mod.env, this.type)
     const clauses: Array<Clause> = []
-    const value = Values.FnMatch(type, clauses, this.arity, true)
+    const value = Values.FnMatch(type, clauses, this.arity, true, [])
     mod.define(this.name, value)
     for (const clause of this.clauses) {
       mod.checkCallMatrixes(

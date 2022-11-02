@@ -2,21 +2,22 @@ import { Closure } from "../closure"
 import { Env } from "../env"
 import { Exp, Telescope } from "../exp"
 import { Mod } from "../mod"
+import { Neutral } from "../neutral"
 import { Clause } from "../value"
 
-export type Value = Var | Type | Pi | Fn | FnMatch | Ap | Data | Ctor
+export type Value = UntypedNeutral | Type | Pi | Fn | FnMatch | Data | Ctor
 
-export type Var = {
+export type UntypedNeutral = {
   family: "Value"
-  kind: "Var"
-  name: string
+  kind: "UntypedNeutral"
+  neutral: Neutral
 }
 
-export function Var(name: string): Var {
+export function UntypedNeutral(neutral: Neutral): UntypedNeutral {
   return {
     family: "Value",
-    kind: "Var",
-    name,
+    kind: "UntypedNeutral",
+    neutral,
   }
 }
 
@@ -69,6 +70,7 @@ export type FnMatch = {
   clauses: Array<Clause>
   arity: number
   isChecked: boolean
+  args: Array<Value>
 }
 
 export function FnMatch(
@@ -76,6 +78,7 @@ export function FnMatch(
   clauses: Array<Clause>,
   arity: number,
   isChecked: boolean,
+  args: Array<Value>,
 ): FnMatch {
   return {
     family: "Value",
@@ -84,22 +87,7 @@ export function FnMatch(
     clauses,
     arity,
     isChecked,
-  }
-}
-
-export type Ap = {
-  family: "Value"
-  kind: "Ap"
-  target: Value
-  arg: Value
-}
-
-export function Ap(target: Value, arg: Value): Ap {
-  return {
-    family: "Value",
-    kind: "Ap",
-    target,
-    arg,
+    args,
   }
 }
 
@@ -116,6 +104,8 @@ export type Data = {
   env: Env
   fixed: Telescope
   varied: Telescope
+  args: Array<Value>
+  arity: number
 }
 
 export function Data(
@@ -124,6 +114,7 @@ export function Data(
   env: Env,
   fixed: Telescope,
   varied: Telescope,
+  args: Array<Value>,
 ): Data {
   return {
     family: "Value",
@@ -133,6 +124,8 @@ export function Data(
     env,
     fixed,
     varied,
+    args,
+    arity: fixed.bindings.length + varied.bindings.length,
   }
 }
 
@@ -145,6 +138,8 @@ export type Ctor = {
   fixed: Telescope
   slots: Telescope
   retType: Exp
+  args: Array<Value>
+  arity: number
 }
 
 export function Ctor(
@@ -154,6 +149,7 @@ export function Ctor(
   fixed: Telescope,
   slots: Telescope,
   retType: Exp,
+  args: Array<Value>,
 ): Ctor {
   return {
     family: "Value",
@@ -164,5 +160,7 @@ export function Ctor(
     fixed,
     slots,
     retType,
+    args,
+    arity: fixed.bindings.length + slots.bindings.length,
   }
 }

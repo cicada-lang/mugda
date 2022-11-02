@@ -1,34 +1,47 @@
 import { applyClosure } from "../closure"
+import * as Errors from "../errors"
 import { evaluate } from "../exp"
+import * as Neutrals from "../neutral"
 import { matchPatterns } from "../pattern"
 import * as Values from "../value"
 import { Value } from "../value"
 
 export function doAp(target: Value, arg: Value): Value {
-  const unfolded = Values.unfoldAp(target)
-  return doApUnfolded(unfolded.target, [...unfolded.args, arg])
-}
+  switch (target.kind) {
+    case "UntypedNeutral": {
+      return Values.UntypedNeutral(Neutrals.Ap(target.neutral, arg))
+    }
 
-function doApUnfolded(target: Value, args: Array<Value>): Value {
-  if (target.kind === "Fn") {
-    if (args.length === 0) return target
-    const [arg, ...restArgs] = args
-    return doApUnfolded(applyClosure(target.retClosure, arg), restArgs)
-  }
+    case "Fn": {
+      return applyClosure(target.retClosure, arg)
+    }
 
-  if (
-    target.kind === "FnMatch" &&
-    target.arity <= args.length &&
-    target.isChecked
-  ) {
-    for (const clause of target.clauses) {
-      const env = matchPatterns(clause.env, clause.patterns, args)
-      if (env !== undefined) {
-        const restArgs = args.slice(clause.patterns.length)
-        return doApUnfolded(evaluate(clause.mod, env, clause.body), restArgs)
+    case "FnMatch": {
+      const args = [...target.args, arg]
+      if (target.arity === args.length) {
+        for (const clause of target.clauses) {
+          const env = matchPatterns(clause.env, clause.patterns, args)
+          if (env !== undefined) {
+            return evaluate(clause.mod, env, clause.body)
+          }
+        }
+
+        throw new Errors.EvaluationError(`Mattern mismatch`)
       }
+
+      return { ...target, args: [...target.args, arg] }
+    }
+
+    case "Data": {
+      return { ...target, args: [...target.args, arg] }
+    }
+
+    case "Ctor": {
+      return { ...target, args: [...target.args, arg] }
+    }
+
+    default: {
+      throw new Errors.EvaluationError(`Can not apply ${target.kind}`)
     }
   }
-
-  return args.reduce((value, arg) => Values.Ap(value, arg), target)
 }

@@ -1,10 +1,11 @@
+import * as Neutrals from "../neutral"
 import * as Values from "../value"
 import { formatClause, Value } from "../value"
 
 export function formatValue(value: Value): string {
   switch (value.kind) {
-    case "Var": {
-      return value.name
+    case "UntypedNeutral": {
+      return Neutrals.formatNeutral(value.neutral)
     }
 
     case "Type": {
@@ -23,20 +24,22 @@ export function formatValue(value: Value): string {
 
     case "FnMatch": {
       const clauses = value.clauses.map(formatClause)
-      return `(fn ${clauses.join(" ")})`
-    }
-
-    case "Ap": {
-      const { target, args } = Values.unfoldFormatAp(value)
-      return args.length === 0 ? `(${target})` : `(${target} ${args.join(" ")})`
+      const fn = `(fn ${clauses.join(" ")})`
+      if (value.args.length === 0) return fn
+      const args = value.args.map(formatValue)
+      return `(${fn} ${args.join(" ")})`
     }
 
     case "Data": {
-      return value.name
+      if (value.args.length === 0) return value.name
+      const args = value.args.map(formatValue)
+      return `(${value.name} ${args.join(" ")})`
     }
 
     case "Ctor": {
-      return value.name
+      if (value.args.length === 0) return value.name
+      const args = value.args.map(formatValue)
+      return `(${value.name} ${args.join(" ")})`
     }
   }
 }
