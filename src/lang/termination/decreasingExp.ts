@@ -29,7 +29,6 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
   }
 
   if (exp.kind === "ApUnfolded") {
-    const unfolded = Exps.unfoldAp(exp)
     if (exp.target.kind === "Var") {
       if (
         (isCtorName(mod, exp.target.name) ||
@@ -53,14 +52,12 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
 function isCtorName(mod: Mod, name: string): boolean {
   const value = lookupValueInEnv(mod.env, name)
   if (value === undefined) return false
-
   return value.kind === "Ctor"
 }
 
 function isDataName(mod: Mod, name: string): boolean {
   const value = lookupValueInEnv(mod.env, name)
   if (value === undefined) return false
-
   return value.kind === "Data"
 }
 

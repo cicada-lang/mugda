@@ -15,12 +15,7 @@ export function createCallMatrix(
 ): CallMatrix {
   const matrix = patterns.map((pattern) => {
     const row = exps.map((exp) => decreasingExp(mod, exp, pattern))
-    let length = row.length
-    while (length < arity) {
-      row.push(Trileans.False)
-      length++
-    }
-
+    while (row.length < arity) row.push(Trileans.False)
     return row
   })
 

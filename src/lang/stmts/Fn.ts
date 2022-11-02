@@ -48,10 +48,8 @@ export class Fn extends Stmt {
     const value = Values.FnMatch(type, clauses, this.arity, true, [])
     mod.define(this.name, value)
     for (const clause of this.clauses) {
-      mod.checkCallMatrixes(
-        extractCallMatrixes(mod, this.name, clause.patterns, clause.body),
-        clause.span,
-      )
+      const matrixes = extractCallMatrixes(mod, this.name, clause)
+      mod.checkCallMatrixes(matrixes, clause.span)
       clauses.push(Clause(mod, mod.env, clause.patterns, clause.body))
     }
   }

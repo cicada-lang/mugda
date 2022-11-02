@@ -1,5 +1,8 @@
 `decreasingValue` instead of `decreasingExp`
 
+- `preparePatternInEnv`
+- fix `extractCallMatrixes` scope bug
+
 `Patterns.Compute` take `exp` instead of `pattern`
 
 [maybe] use `where` instead `Patterns.Compute`

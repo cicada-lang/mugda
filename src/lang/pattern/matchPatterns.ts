@@ -1,3 +1,4 @@
+import zip from "lodash/zip"
 import { Env, EnvCons } from "../env"
 import * as Errors from "../errors"
 import { Pattern } from "../pattern"
@@ -34,13 +35,10 @@ export function matchPatterns(
     throw new Errors.EvaluationError("Pattern arity mismatch")
   }
 
-  const [pattern, ...restPatterns] = patterns
-  const [value, ...restValues] = values
-
-  if (pattern !== undefined && value !== undefined) {
-    const nextEnv = matchPattern(env, pattern, value)
+  for (const [pattern, value] of zip(patterns, values)) {
+    const nextEnv = matchPattern(env, pattern as Pattern, value as Value)
     if (nextEnv === undefined) return undefined
-    return matchPatterns(nextEnv, restPatterns, restValues)
+    env = nextEnv
   }
 
   return env

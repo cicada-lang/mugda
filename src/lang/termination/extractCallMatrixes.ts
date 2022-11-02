@@ -7,6 +7,14 @@ import { CallMatrix, createCallMatrix } from "../termination"
 export function extractCallMatrixes(
   mod: Mod,
   left: string,
+  clause: Exps.Clause,
+): Array<CallMatrix> {
+  return extractCallMatrixesAux(mod, left, clause.patterns, clause.body)
+}
+
+function extractCallMatrixesAux(
+  mod: Mod,
+  left: string,
   patterns: Array<Pattern>,
   exp: Exp,
 ): Array<CallMatrix> {
@@ -22,14 +30,18 @@ export function extractCallMatrixes(
     }
 
     case "Pi": {
+      /**
+         TODO Scope BUG.
+      **/
+
       return [
-        ...extractCallMatrixes(mod, left, patterns, exp.argType),
-        ...extractCallMatrixes(mod, left, patterns, exp.retType),
+        ...extractCallMatrixesAux(mod, left, patterns, exp.argType),
+        ...extractCallMatrixesAux(mod, left, patterns, exp.retType),
       ]
     }
 
     case "PiUnfolded": {
-      return extractCallMatrixes(
+      return extractCallMatrixesAux(
         mod,
         left,
         patterns,
@@ -39,22 +51,22 @@ export function extractCallMatrixes(
 
     case "Arrow": {
       return exp.types.flatMap((type) =>
-        extractCallMatrixes(mod, left, patterns, type),
+        extractCallMatrixesAux(mod, left, patterns, type),
       )
     }
 
     case "Fn": {
       /**
-         TODO We should try to write test to show this case introduces scope BUG.
+         TODO Scope BUG.
       **/
 
-      return extractCallMatrixes(mod, left, patterns, exp.ret)
+      return extractCallMatrixesAux(mod, left, patterns, exp.ret)
     }
 
     case "Ap":
     case "ApUnfolded": {
       const unfolded = Exps.unfoldAp(exp)
-      return extractCallMatrixesFromApUnfolded(
+      return extractCallMatrixesAuxFromApUnfolded(
         mod,
         left,
         patterns,
@@ -65,7 +77,7 @@ export function extractCallMatrixes(
 
     case "Let": {
       /**
-         TODO We should try to write test to show this case introduces scope BUG.
+         TODO Scope BUG.
       **/
 
       /**
@@ -74,13 +86,13 @@ export function extractCallMatrixes(
       **/
 
       return [
-        ...extractCallMatrixes(mod, left, patterns, exp.exp),
-        ...extractCallMatrixes(mod, left, patterns, exp.ret),
+        ...extractCallMatrixesAux(mod, left, patterns, exp.exp),
+        ...extractCallMatrixesAux(mod, left, patterns, exp.ret),
       ]
     }
 
     case "LetUnfolded": {
-      return extractCallMatrixes(
+      return extractCallMatrixesAux(
         mod,
         left,
         patterns,
@@ -94,7 +106,7 @@ export function extractCallMatrixes(
   }
 }
 
-function extractCallMatrixesFromApUnfolded(
+function extractCallMatrixesAuxFromApUnfolded(
   mod: Mod,
   left: string,
   patterns: Array<Pattern>,
@@ -109,7 +121,7 @@ function extractCallMatrixesFromApUnfolded(
         return [
           createCallMatrix(mod, left, patterns, name, arity, args),
           ...args.flatMap((arg) =>
-            extractCallMatrixes(mod, left, patterns, arg),
+            extractCallMatrixesAux(mod, left, patterns, arg),
           ),
         ]
       }
@@ -117,8 +129,10 @@ function extractCallMatrixesFromApUnfolded(
 
     default: {
       return [
-        ...extractCallMatrixes(mod, left, patterns, target),
-        ...args.flatMap((arg) => extractCallMatrixes(mod, left, patterns, arg)),
+        ...extractCallMatrixesAux(mod, left, patterns, target),
+        ...args.flatMap((arg) =>
+          extractCallMatrixesAux(mod, left, patterns, arg),
+        ),
       ]
     }
   }
