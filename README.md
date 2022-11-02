@@ -31,7 +31,7 @@ is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-l
 
 ### Online playground
 
-Visit the [Mugda Playground](https://mugda.cicada-lang.org/playground/KGRhdGEgTmF0ICgpICgpCiAgW3plcm8gKCkgTmF0XQogIFthZGQxIChbcHJldiBOYXRdKSBOYXRdKQoKKGZuIGFkZCAoLT4gTmF0IE5hdCBOYXQpCiAgWyh4ICh6ZXJvKSkgeF0KICBbKHggKGFkZDEgeSkpIChhZGQxIChhZGQgeCB5KSldKQoKKGRlZmluZSBvbmUgTmF0IChhZGQxIHplcm8pKQoKKGFkZCBvbmUgb25lKQo).
+Visit the [Mugda Playground](https://mugda.cicada-lang.org/playground/KGRhdGEgTmF0ICgpICgpCiAgW3plcm8gKCkgTmF0XQogIFthZGQxIChbcHJldiBOYXRdKSBOYXRdKQoKKGZuIGFkZCAoLT4gTmF0IE5hdCBOYXQpCiAgWyh4ICh6ZXJvKSkgeF0KICBbKHggKGFkZDEgeSkpIChhZGQxIChhZGQgeCB5KSldKQoKKGRlZmluZSBvbmUgTmF0IChhZGQxIHplcm8pKQooZGVmaW5lIHR3byBOYXQgKGFkZDEgb25lKSkKCihhZGQgdHdvIHR3bykK).
 
 ### Use our server
 
@@ -57,8 +57,9 @@ curl https://mu.cic.run --data-binary @-<< END
   [(x (add1 y)) (add1 (add x y))])
 
 (define one Nat (add1 zero))
+(define two Nat (add1 one))
 
-(add one one)
+(add two two)
 
 END
 ```
