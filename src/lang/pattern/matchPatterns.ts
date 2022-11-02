@@ -1,8 +1,9 @@
 import { Env, EnvCons } from "../env"
+import * as Errors from "../errors"
 import { Pattern } from "../pattern"
 import { Value } from "../value"
 
-export function matchPattern(
+function matchPattern(
   env: Env,
   pattern: Pattern,
   value: Value,
@@ -13,7 +14,7 @@ export function matchPattern(
     }
 
     case "Ctor": {
-      if (value.kind !== "Ctor") return undefined
+      if (value.kind !== "Ctor" && value.kind !== "Data") return undefined
       if (value.name !== pattern.name) return undefined
       return matchPatterns(env, pattern.args, value.args)
     }
@@ -29,6 +30,10 @@ export function matchPatterns(
   patterns: Array<Pattern>,
   values: Array<Value>,
 ): Env | undefined {
+  if (patterns.length !== values.length) {
+    throw new Errors.EvaluationError("Pattern arity mismatch")
+  }
+
   const [pattern, ...restPatterns] = patterns
   const [value, ...restValues] = values
 

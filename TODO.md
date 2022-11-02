@@ -1,5 +1,3 @@
-support match over `Data` -- less use of `Patterns.Compute`
-
 `decreasingValue` instead of `decreasingExp`
 
 `Patterns.Compute` take `exp` instead of `pattern`

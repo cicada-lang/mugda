@@ -24,10 +24,10 @@ export function formatValue(value: Value): string {
 
     case "FnMatch": {
       const clauses = value.clauses.map(formatClause)
-      const fn = `(fn ${clauses.join(" ")})`
-      if (value.args.length === 0) return fn
+      const head = `(fn ${clauses.join(" ")})`
+      if (value.args.length === 0) return head
       const args = value.args.map(formatValue)
-      return `(${fn} ${args.join(" ")})`
+      return `(${head} ${args.join(" ")})`
     }
 
     case "Data": {
