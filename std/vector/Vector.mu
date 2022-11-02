@@ -7,7 +7,5 @@
          [tail (Vector A n)])
         (Vector A (add1 n))))
 
-;; We use `(#)` for inaccessible pattern.
-
 (fn head (Pi ([A Type] [n Nat]) (-> (Vector A (add1 n)) A))
-  [((# B) (# m) (cons B m x xl)) x])
+  [(B m (cons B m x xl)) x])
