@@ -16,11 +16,13 @@
 
 # type checking
 
-Ctx
+> We can drop some features, but the implementation should be complete.
 
-check
-checkType
-infer
+`Ctx`
+
+`check`
+`checkType`
+`infer`
 
 Let declarations
 
@@ -41,22 +43,6 @@ Function declarations
 
 Mugda programs
 
-# 5 Sized data types
+# learn
 
-## 5.1 Adding a Size type
-
-## 5.2 Sized data type declarations
-
-## 5.3 Subtyping for size
-
-## 5.4 Examples: sized inductive types
-
-## 5.5 Examples: Sized coinductive types
-
-## 5.6 Admissible recursive function declarations
-
-## 5.7 Admissible corecursive declarations
-
-## 5.8 On the necessity of subtyping
-
-# read AA's paper
+read AA's paper
