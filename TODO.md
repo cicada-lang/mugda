@@ -1,3 +1,8 @@
+top level `evaluate/`
+top level `check/`
+top level `infer/`
+top level `readback/`
+
 # type checking
 
 > We can drop some features, but the implementation should be complete.
