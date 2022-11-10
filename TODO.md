@@ -1,3 +1,5 @@
+fix command line watch
+
 top level `evaluate/`
 top level `check/`
 top level `infer/`
