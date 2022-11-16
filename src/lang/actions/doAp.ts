@@ -3,8 +3,8 @@ import * as Errors from "../errors"
 import { evaluate } from "../exp"
 import * as Neutrals from "../neutral"
 import { matchPatterns } from "../pattern"
+import type { Value } from "../value"
 import * as Values from "../value"
-import { Value } from "../value"
 
 export function doAp(target: Value, arg: Value): Value {
   switch (target.kind) {

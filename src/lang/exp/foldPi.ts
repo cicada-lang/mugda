@@ -1,5 +1,5 @@
+import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Exp } from "../exp"
 
 export function foldPi(bindings: Array<Exps.PiBinding>, retType: Exp): Exp {
   if (bindings.length === 0) return retType

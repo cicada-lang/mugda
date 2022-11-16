@@ -1,5 +1,5 @@
+import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Exp } from "../exp"
 
 export function foldLet(bindings: Array<Exps.LetBinding>, ret: Exp): Exp {
   if (bindings.length === 0) return ret

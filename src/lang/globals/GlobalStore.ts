@@ -3,7 +3,7 @@ import { EnvCons } from "../env"
 import { evaluate } from "../exp"
 import { Mod } from "../mod"
 import { Parser } from "../parser"
-import { Value } from "../value"
+import type { Value } from "../value"
 
 export class GlobalStore {
   parser = new Parser()

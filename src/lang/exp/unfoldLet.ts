@@ -1,5 +1,5 @@
+import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Exp } from "../exp"
 
 export function unfoldLet(exp: Exp): {
   bindings: Array<Exps.LetBinding>

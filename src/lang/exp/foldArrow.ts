@@ -1,5 +1,5 @@
+import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Exp } from "../exp"
 
 export function foldArrow(type: Exp, types: Array<Exp>): Exp {
   if (types.length === 0) return type

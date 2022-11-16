@@ -2,7 +2,7 @@ import zip from "lodash/zip"
 import { Env, EnvCons } from "../env"
 import * as Errors from "../errors"
 import { Pattern } from "../pattern"
-import { Value } from "../value"
+import type { Value } from "../value"
 
 function matchPattern(
   env: Env,

@@ -1,5 +1,5 @@
-import { Env } from "../env"
-import { Exp } from "../exp"
+import type { Env } from "../env"
+import type { Exp } from "../exp"
 import { Mod } from "../mod"
 
 export type Closure = {

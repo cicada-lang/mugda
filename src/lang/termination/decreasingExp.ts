@@ -1,6 +1,6 @@
 import { lookupValueInEnv } from "../env"
+import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Pattern } from "../pattern"
 import * as Trileans from "./Trilean"

@@ -1,7 +1,7 @@
 import { Closure } from "../closure"
 import { EnvCons } from "../env"
 import { evaluate } from "../exp"
-import { Value } from "../value"
+import type { Value } from "../value"
 
 export function applyClosure(closure: Closure, arg: Value): Value {
   return evaluate(

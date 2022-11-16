@@ -1,5 +1,5 @@
+import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Exp } from "../exp"
 
 export function foldAp(target: Exp, args: Array<Exp>): Exp {
   if (args.length === 0) return target

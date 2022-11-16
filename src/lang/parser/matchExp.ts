@@ -7,8 +7,8 @@ import {
   Sexp,
   v,
 } from "@cicada-lang/sexp"
+import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Exp } from "../exp"
 
 export function matchExp(sexp: Sexp): Exp {
   return match<Exp>(sexp, [

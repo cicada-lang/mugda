@@ -2,11 +2,11 @@ import * as Actions from "../actions"
 import { Closure } from "../closure"
 import { Env, EnvCons, lookupValueInEnv } from "../env"
 import * as Errors from "../errors"
+import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Exp } from "../exp"
 import { Mod } from "../mod"
+import type { Value } from "../value"
 import * as Values from "../value"
-import { Value } from "../value"
 
 /**
 

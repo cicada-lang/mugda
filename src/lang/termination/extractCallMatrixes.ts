@@ -1,5 +1,5 @@
+import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Exp } from "../exp"
 import { Mod } from "../mod"
 import { Pattern } from "../pattern"
 import { CallMatrix, createCallMatrix } from "../termination"

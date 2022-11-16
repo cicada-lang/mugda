@@ -5,7 +5,7 @@ import { useGlobals } from "../globals"
 import { Span } from "../span"
 import { Stmt } from "../stmt"
 import { CallMatrix, completeCallMatrixes } from "../termination"
-import { Value } from "../value"
+import type { Value } from "../value"
 
 /**
 
