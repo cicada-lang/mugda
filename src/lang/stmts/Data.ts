@@ -1,7 +1,7 @@
 import * as Exps from "../exp"
 import { Telescope } from "../exp"
 import { Mod } from "../mod"
-import { Span } from "../span"
+import type { Span } from "../span"
 import { Stmt } from "../stmt"
 import * as Values from "../value"
 

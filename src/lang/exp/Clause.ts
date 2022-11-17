@@ -1,6 +1,6 @@
 import type { Exp } from "../exp"
 import { Pattern } from "../pattern"
-import { Span } from "../span"
+import type { Span } from "../span"
 
 export type Clause = {
   patterns: Array<Pattern>

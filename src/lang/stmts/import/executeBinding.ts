@@ -1,7 +1,7 @@
 import { lookupValueInEnv } from "../../env"
 import * as Errors from "../../errors"
 import { Mod } from "../../mod"
-import { Span } from "../../span"
+import type { Span } from "../../span"
 import { ImportBinding } from "../import"
 
 export function executeBinding(

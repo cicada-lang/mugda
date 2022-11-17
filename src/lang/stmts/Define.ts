@@ -1,6 +1,6 @@
 import { evaluate, Exp } from "../exp"
 import { Mod } from "../mod"
-import { Span } from "../span"
+import type { Span } from "../span"
 import { Stmt } from "../stmt"
 
 export class Define extends Stmt {

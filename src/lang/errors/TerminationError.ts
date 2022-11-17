@@ -1,4 +1,4 @@
-import { Span } from "../span"
+import type { Span } from "../span"
 import { LangError } from "./LangError"
 
 export class TerminationError extends LangError {
