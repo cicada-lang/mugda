@@ -1,5 +1,7 @@
 rename `parse/` to `syntax/`
 
+tsconfig -- "importsNotUsedAsValues": "error"
+
 fix command line watch
 
 top level `evaluate/`
