@@ -1,3 +1,5 @@
+rename `parse/` to `syntax/`
+
 fix command line watch
 
 top level `evaluate/`
