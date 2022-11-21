@@ -1,6 +1,14 @@
-top level directory -- `check/`
-top level directory -- `infer/`
-top level directory -- `readback/`
+rename applyClosure to closureApply
+rename lookupValueInEnv to envLookupValue
+rename matchPatterns to match
+
+top level directory -- `match/`
+
+rename completeCallMatrixes callMatrixesComplete
+rename decreasingExp to decreasing
+rename dedupCallMatrixes callMatrixesDedup
+
+mv termination/ to decreasing/
 
 fix command line watch
 
