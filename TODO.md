@@ -1,5 +1,3 @@
-test:mu script
-
 Use unified JSON ADT -- change property names so that there are not preserved property names
 
 ```
