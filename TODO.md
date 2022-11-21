@@ -1,9 +1,3 @@
-rename decreasingExp to decreasing
-
-mv ./lang/termination/decreasingExp.ts ./lang/termination/decreasing.ts
-
-ambr decreasingExp decreasing
-
 mv termination/ to decreasing/
 
 fix command line watch

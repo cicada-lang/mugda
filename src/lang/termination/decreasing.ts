@@ -6,9 +6,9 @@ import type { Pattern } from "../pattern"
 import type { Trilean } from "./Trilean"
 import * as Trileans from "./Trilean"
 
-export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
+export function decreasing(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
   if (pattern["@kind"] === "Compute") {
-    return decreasingExp(mod, exp, pattern.pattern)
+    return decreasing(mod, exp, pattern.pattern)
   }
 
   if (exp["@kind"] === "Var") {
@@ -38,7 +38,7 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
         exp.args.length === pattern.args.length
       ) {
         return Trileans.mul(
-          ...exp.args.map((arg, i) => decreasingExp(mod, arg, pattern.args[i])),
+          ...exp.args.map((arg, i) => decreasing(mod, arg, pattern.args[i])),
         )
       }
 

@@ -42,7 +42,7 @@ export function max(...xs: Array<Trilean>): Trilean {
 
 /**
 
-   The paper is wrong about using `min` instead of `mul` in `decreasingExp`.
+   The paper is wrong about using `min` instead of `mul` in `decreasing`.
    We do not use `min` at all.
 
 **/
