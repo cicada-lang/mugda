@@ -1,31 +1,17 @@
-Use unified JSON ADT -- change property names so that there are not preserved property names
-
-```
-ambr 'family' '"@type"'
-
-ambr '.kind' '["@kind"]'
-ambr 'kind:' '"@kind":'
-
-// in `framework/`
-
-ambr '["@kind"]' '.kind'
-ambr '"@kind":' 'kind:'
-```
-
-[maybe] use unified JSON ADT -- change `CamelCase` to `camelCase`
-
-fix import local file from repl
-
-rename `parse/` to `syntax/`
+rename `parser/` to `syntax/`
 
 tsconfig -- "importsNotUsedAsValues": "error"
 
-fix command line watch
+fix import local file from repl
 
 top level `evaluate/`
 top level `check/`
 top level `infer/`
 top level `readback/`
+
+fix command line watch
+
+- `Mod` has `imported`
 
 # type checking
 
@@ -76,3 +62,7 @@ fix `extractCallMatrixes` scope bug
 # learn
 
 read AA's paper
+
+# maybe
+
+[maybe] use unified JSON ADT -- change `CamelCase` to `camelCase`

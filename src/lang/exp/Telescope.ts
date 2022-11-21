@@ -15,7 +15,7 @@ export type TelescopeBinding =
   | TelescopeBindingParameterPositive
 
 export type TelescopeBindingParameter = {
-  kind: "TelescopeBindingParameter"
+  "@kind": "TelescopeBindingParameter"
   name: string
   type: Exp
 }
@@ -25,14 +25,14 @@ export function TelescopeBindingParameter(
   type: Exp,
 ): TelescopeBindingParameter {
   return {
-    kind: "TelescopeBindingParameter",
+    "@kind": "TelescopeBindingParameter",
     name,
     type,
   }
 }
 
 export type TelescopeBindingParameterPositive = {
-  kind: "TelescopeBindingParameterPositive"
+  "@kind": "TelescopeBindingParameterPositive"
   name: string
   type: Exp
 }
@@ -42,7 +42,7 @@ export function TelescopeBindingParameterPositive(
   type: Exp,
 ): TelescopeBindingParameterPositive {
   return {
-    kind: "TelescopeBindingParameterPositive",
+    "@kind": "TelescopeBindingParameterPositive",
     name,
     type,
   }

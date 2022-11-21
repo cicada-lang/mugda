@@ -15,7 +15,7 @@ import * as Values from "../value"
 **/
 
 export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
-  switch (exp.kind) {
+  switch (exp["@kind"]) {
     case "Var": {
       const value = lookupValueInEnv(env, exp.name)
       if (value !== undefined) {

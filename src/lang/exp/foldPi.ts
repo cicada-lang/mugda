@@ -6,7 +6,7 @@ export function foldPi(bindings: Array<Exps.PiBinding>, retType: Exp): Exp {
 
   const [binding, ...restBindings] = bindings
 
-  switch (binding.kind) {
+  switch (binding["@kind"]) {
     case "PiBindingParameter": {
       return Exps.Pi(binding.name, binding.type, foldPi(restBindings, retType))
     }

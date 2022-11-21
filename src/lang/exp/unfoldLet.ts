@@ -5,7 +5,7 @@ export function unfoldLet(exp: Exp): {
   bindings: Array<Exps.LetBinding>
   ret: Exp
 } {
-  switch (exp.kind) {
+  switch (exp["@kind"]) {
     case "Let": {
       const unfolded = unfoldLet(exp.ret)
       const binding = Exps.LetBindingTyped(exp.name, exp.exp, exp.type)

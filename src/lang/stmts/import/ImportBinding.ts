@@ -1,13 +1,13 @@
 export type ImportBinding = ImportBindingName | ImportBindingRename
 
 export type ImportBindingName = {
-  kind: "ImportBindingName"
+  "@kind": "ImportBindingName"
   name: string
 }
 
 export function ImportBindingName(name: string): ImportBindingName {
   return {
-    kind: "ImportBindingName",
+    "@kind": "ImportBindingName",
     name,
   }
 }
@@ -25,7 +25,7 @@ export function ImportAlias(name: string, alias: string): ImportAlias {
 }
 
 export type ImportBindingRename = {
-  kind: "ImportBindingRename"
+  "@kind": "ImportBindingRename"
   aliases: Array<ImportAlias>
 }
 
@@ -33,7 +33,7 @@ export function ImportBindingRename(
   aliases: Array<ImportAlias>,
 ): ImportBindingRename {
   return {
-    kind: "ImportBindingRename",
+    "@kind": "ImportBindingRename",
     aliases,
   }
 }

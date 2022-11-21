@@ -9,13 +9,14 @@ function matchPattern(
   pattern: Pattern,
   value: Value,
 ): Env | undefined {
-  switch (pattern.kind) {
+  switch (pattern["@kind"]) {
     case "Var": {
       return EnvCons(pattern.name, value, env)
     }
 
     case "Ctor": {
-      if (value.kind !== "Ctor" && value.kind !== "Data") return undefined
+      if (value["@kind"] !== "Ctor" && value["@kind"] !== "Data")
+        return undefined
       if (value.name !== pattern.name) return undefined
       return matchPatterns(env, pattern.args, value.args)
     }

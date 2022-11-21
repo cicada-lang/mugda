@@ -18,7 +18,7 @@ function extractCallMatrixesAux(
   patterns: Array<Pattern>,
   exp: Exp,
 ): Array<CallMatrix> {
-  switch (exp.kind) {
+  switch (exp["@kind"]) {
     case "Var": {
       const name = exp.name
       const arity = mod.arities.get(name)
@@ -113,7 +113,7 @@ function extractCallMatrixesAuxFromApUnfolded(
   target: Exp,
   args: Array<Exp>,
 ): Array<CallMatrix> {
-  switch (target.kind) {
+  switch (target["@kind"]) {
     case "Var": {
       const name = target.name
       const arity = mod.arities.get(name)

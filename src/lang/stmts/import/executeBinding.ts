@@ -10,7 +10,7 @@ export function executeBinding(
   binding: ImportBinding,
   span: Span,
 ): void {
-  switch (binding.kind) {
+  switch (binding["@kind"]) {
     case "ImportBindingName": {
       const { name } = binding
       const value = lookupValueInEnv(importedMod.env, name)

@@ -8,64 +8,64 @@ import { Clause } from "../value"
 export type Value = UntypedNeutral | Type | Pi | Fn | FnMatch | Data | Ctor
 
 export type UntypedNeutral = {
-  family: "Value"
-  kind: "UntypedNeutral"
+  "@type": "Value"
+  "@kind": "UntypedNeutral"
   neutral: Neutral
 }
 
 export function UntypedNeutral(neutral: Neutral): UntypedNeutral {
   return {
-    family: "Value",
-    kind: "UntypedNeutral",
+    "@type": "Value",
+    "@kind": "UntypedNeutral",
     neutral,
   }
 }
 
 export type Type = {
-  family: "Value"
-  kind: "Type"
+  "@type": "Value"
+  "@kind": "Type"
 }
 
 export function Type(): Type {
   return {
-    family: "Value",
-    kind: "Type",
+    "@type": "Value",
+    "@kind": "Type",
   }
 }
 
 export type Pi = {
-  family: "Value"
-  kind: "Pi"
+  "@type": "Value"
+  "@kind": "Pi"
   argType: Value
   retTypeClosure: Closure
 }
 
 export function Pi(argType: Value, retTypeClosure: Closure): Pi {
   return {
-    family: "Value",
-    kind: "Pi",
+    "@type": "Value",
+    "@kind": "Pi",
     argType,
     retTypeClosure,
   }
 }
 
 export type Fn = {
-  family: "Value"
-  kind: "Fn"
+  "@type": "Value"
+  "@kind": "Fn"
   retClosure: Closure
 }
 
 export function Fn(retClosure: Closure): Fn {
   return {
-    family: "Value",
-    kind: "Fn",
+    "@type": "Value",
+    "@kind": "Fn",
     retClosure,
   }
 }
 
 export type FnMatch = {
-  family: "Value"
-  kind: "FnMatch"
+  "@type": "Value"
+  "@kind": "FnMatch"
   type: Value
   clauses: Array<Clause>
   arity: number
@@ -81,8 +81,8 @@ export function FnMatch(
   args: Array<Value>,
 ): FnMatch {
   return {
-    family: "Value",
-    kind: "FnMatch",
+    "@type": "Value",
+    "@kind": "FnMatch",
     type,
     clauses,
     arity,
@@ -97,8 +97,8 @@ export function FnMatch(
 **/
 
 export type Data = {
-  family: "Value"
-  kind: "Data"
+  "@type": "Value"
+  "@kind": "Data"
   name: string
   mod: Mod
   env: Env
@@ -117,8 +117,8 @@ export function Data(
   args: Array<Value>,
 ): Data {
   return {
-    family: "Value",
-    kind: "Data",
+    "@type": "Value",
+    "@kind": "Data",
     name,
     mod,
     env,
@@ -130,8 +130,8 @@ export function Data(
 }
 
 export type Ctor = {
-  family: "Value"
-  kind: "Ctor"
+  "@type": "Value"
+  "@kind": "Ctor"
   name: string
   mod: Mod
   env: Env
@@ -152,8 +152,8 @@ export function Ctor(
   args: Array<Value>,
 ): Ctor {
   return {
-    family: "Value",
-    kind: "Ctor",
+    "@type": "Value",
+    "@kind": "Ctor",
     name,
     mod,
     env,

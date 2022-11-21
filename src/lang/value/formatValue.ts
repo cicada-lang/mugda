@@ -3,7 +3,7 @@ import * as Values from "../value"
 import { formatClause, Value } from "../value"
 
 export function formatValue(value: Value): string {
-  switch (value.kind) {
+  switch (value["@kind"]) {
     case "UntypedNeutral": {
       return Neutrals.formatNeutral(value.neutral)
     }

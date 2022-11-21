@@ -3,7 +3,7 @@ import type { Exp } from "../exp"
 import { Mod } from "../mod"
 
 export type Closure = {
-  kind: "Closure"
+  "@kind": "Closure"
   mod: Mod
   env: Env
   name: string
@@ -12,7 +12,7 @@ export type Closure = {
 
 export function Closure(mod: Mod, env: Env, name: string, body: Exp): Closure {
   return {
-    kind: "Closure",
+    "@kind": "Closure",
     mod,
     env,
     name,

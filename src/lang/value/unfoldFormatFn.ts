@@ -7,7 +7,7 @@ export function unfoldFormatFn(value: Value): {
   bindings: Array<string>
   ret: string
 } {
-  if (value.kind === "Fn") {
+  if (value["@kind"] === "Fn") {
     const name = value.retClosure.name
     const binding = name
     const ret = applyClosure(

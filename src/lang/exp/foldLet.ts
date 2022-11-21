@@ -6,7 +6,7 @@ export function foldLet(bindings: Array<Exps.LetBinding>, ret: Exp): Exp {
 
   const [binding, ...restBindings] = bindings
 
-  switch (binding.kind) {
+  switch (binding["@kind"]) {
     case "LetBindingTyped": {
       return Exps.Let(
         binding.name,

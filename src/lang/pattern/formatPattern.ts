@@ -1,7 +1,7 @@
 import { Pattern } from "../pattern"
 
 export function formatPattern(pattern: Pattern): string {
-  switch (pattern.kind) {
+  switch (pattern["@kind"]) {
     case "Var": {
       return pattern.name
     }

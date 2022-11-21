@@ -6,7 +6,7 @@ export function unfoldFormatAp(neutral: Neutral): {
   target: string
   args: Array<string>
 } {
-  if (neutral.kind === "Ap") {
+  if (neutral["@kind"] === "Ap") {
     const unfolded = unfoldFormatAp(neutral.target)
     return {
       target: unfolded.target,

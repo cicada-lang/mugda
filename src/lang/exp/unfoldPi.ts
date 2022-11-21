@@ -5,7 +5,7 @@ export function unfoldPi(exp: Exp): {
   bindings: Array<Exps.PiBinding>
   retType: Exp
 } {
-  if (exp.kind === "Pi") {
+  if (exp["@kind"] === "Pi") {
     const unfolded = unfoldPi(exp.retType)
     const binding = Exps.PiBindingParameter(exp.name, exp.argType)
     return {

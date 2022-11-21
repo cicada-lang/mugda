@@ -2,7 +2,7 @@ import type { Neutral } from "../neutral"
 import * as Values from "../value"
 
 export function formatNeutral(neutral: Neutral): string {
-  switch (neutral.kind) {
+  switch (neutral["@kind"]) {
     case "Var": {
       return neutral.name
     }

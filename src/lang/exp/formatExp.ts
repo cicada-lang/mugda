@@ -2,7 +2,7 @@ import type { Exp } from "../exp"
 import * as Exps from "../exp"
 
 export function formatExp(exp: Exp): string {
-  switch (exp.kind) {
+  switch (exp["@kind"]) {
     case "Var": {
       return exp.name
     }
@@ -54,7 +54,7 @@ export function formatExp(exp: Exp): string {
 }
 
 function formatPiBinding(binding: Exps.PiBinding): string {
-  switch (binding.kind) {
+  switch (binding["@kind"]) {
     case "PiBindingParameter": {
       const type = formatExp(binding.type)
       return `[${binding.name} ${type}]`
@@ -68,7 +68,7 @@ function formatPiBinding(binding: Exps.PiBinding): string {
 }
 
 function formatLetBinding(binding: Exps.LetBinding): string {
-  switch (binding.kind) {
+  switch (binding["@kind"]) {
     case "LetBindingTyped": {
       const type = formatExp(binding.type)
       return `[${binding.name} ${type}]`

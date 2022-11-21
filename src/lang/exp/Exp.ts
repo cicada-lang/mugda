@@ -14,23 +14,23 @@ export type Exp =
   | LetUnfolded
 
 export type Var = {
-  family: "Exp"
-  kind: "Var"
+  "@type": "Exp"
+  "@kind": "Var"
   name: string
 } & ExpMeta
 
 export function Var(name: string, span?: Span): Var {
   return {
-    family: "Exp",
-    kind: "Var",
+    "@type": "Exp",
+    "@kind": "Var",
     name,
     span,
   }
 }
 
 export type Pi = {
-  family: "Exp"
-  kind: "Pi"
+  "@type": "Exp"
+  "@kind": "Pi"
   name: string
   argType: Exp
   retType: Exp
@@ -38,8 +38,8 @@ export type Pi = {
 
 export function Pi(name: string, argType: Exp, retType: Exp, span?: Span): Pi {
   return {
-    family: "Exp",
-    kind: "Pi",
+    "@type": "Exp",
+    "@kind": "Pi",
     name,
     argType,
     retType,
@@ -48,8 +48,8 @@ export function Pi(name: string, argType: Exp, retType: Exp, span?: Span): Pi {
 }
 
 export type PiUnfolded = {
-  family: "Exp"
-  kind: "PiUnfolded"
+  "@type": "Exp"
+  "@kind": "PiUnfolded"
   bindings: Array<PiBinding>
   retType: Exp
 } & ExpMeta
@@ -60,8 +60,8 @@ export function PiUnfolded(
   span?: Span,
 ): PiUnfolded {
   return {
-    family: "Exp",
-    kind: "PiUnfolded",
+    "@type": "Exp",
+    "@kind": "PiUnfolded",
     bindings,
     retType,
     span,
@@ -71,7 +71,7 @@ export function PiUnfolded(
 export type PiBinding = PiBindingParameter | PiBindingParameterPositive
 
 export type PiBindingParameter = {
-  kind: "PiBindingParameter"
+  "@kind": "PiBindingParameter"
   name: string
   type: Exp
 }
@@ -81,14 +81,14 @@ export function PiBindingParameter(
   type: Exp,
 ): PiBindingParameter {
   return {
-    kind: "PiBindingParameter",
+    "@kind": "PiBindingParameter",
     name,
     type,
   }
 }
 
 export type PiBindingParameterPositive = {
-  kind: "PiBindingParameterPositive"
+  "@kind": "PiBindingParameterPositive"
   name: string
   type: Exp
 }
@@ -98,38 +98,38 @@ export function PiBindingParameterPositive(
   type: Exp,
 ): PiBindingParameterPositive {
   return {
-    kind: "PiBindingParameterPositive",
+    "@kind": "PiBindingParameterPositive",
     name,
     type,
   }
 }
 
 export type Arrow = {
-  family: "Exp"
-  kind: "Arrow"
+  "@type": "Exp"
+  "@kind": "Arrow"
   types: Array<Exp>
 } & ExpMeta
 
 export function Arrow(types: Array<Exp>, span?: Span): Arrow {
   return {
-    family: "Exp",
-    kind: "Arrow",
+    "@type": "Exp",
+    "@kind": "Arrow",
     types,
     span,
   }
 }
 
 export type Fn = {
-  family: "Exp"
-  kind: "Fn"
+  "@type": "Exp"
+  "@kind": "Fn"
   name: string
   ret: Exp
 } & ExpMeta
 
 export function Fn(name: string, ret: Exp, span?: Span): Fn {
   return {
-    family: "Exp",
-    kind: "Fn",
+    "@type": "Exp",
+    "@kind": "Fn",
     name,
     ret,
     span,
@@ -137,16 +137,16 @@ export function Fn(name: string, ret: Exp, span?: Span): Fn {
 }
 
 export type Ap = {
-  family: "Exp"
-  kind: "Ap"
+  "@type": "Exp"
+  "@kind": "Ap"
   target: Exp
   arg: Exp
 } & ExpMeta
 
 export function Ap(target: Exp, arg: Exp, span?: Span): Ap {
   return {
-    family: "Exp",
-    kind: "Ap",
+    "@type": "Exp",
+    "@kind": "Ap",
     target,
     arg,
     span,
@@ -154,8 +154,8 @@ export function Ap(target: Exp, arg: Exp, span?: Span): Ap {
 }
 
 export type ApUnfolded = {
-  family: "Exp"
-  kind: "ApUnfolded"
+  "@type": "Exp"
+  "@kind": "ApUnfolded"
   target: Exp
   args: Array<Exp>
 } & ExpMeta
@@ -166,8 +166,8 @@ export function ApUnfolded(
   span?: Span,
 ): ApUnfolded {
   return {
-    family: "Exp",
-    kind: "ApUnfolded",
+    "@type": "Exp",
+    "@kind": "ApUnfolded",
     target,
     args,
     span,
@@ -175,8 +175,8 @@ export function ApUnfolded(
 }
 
 export type Let = {
-  family: "Exp"
-  kind: "Let"
+  "@type": "Exp"
+  "@kind": "Let"
   name: string
   type: Exp
   exp: Exp
@@ -191,8 +191,8 @@ export function Let(
   span?: Span,
 ): Let {
   return {
-    family: "Exp",
-    kind: "Let",
+    "@type": "Exp",
+    "@kind": "Let",
     name,
     type,
     exp,
@@ -202,8 +202,8 @@ export function Let(
 }
 
 export type LetUnfolded = {
-  family: "Exp"
-  kind: "LetUnfolded"
+  "@type": "Exp"
+  "@kind": "LetUnfolded"
   bindings: Array<LetBinding>
   ret: Exp
 } & ExpMeta
@@ -214,8 +214,8 @@ export function LetUnfolded(
   span?: Span,
 ): LetUnfolded {
   return {
-    family: "Exp",
-    kind: "LetUnfolded",
+    "@type": "Exp",
+    "@kind": "LetUnfolded",
     bindings,
     ret,
     span,
@@ -225,7 +225,7 @@ export function LetUnfolded(
 export type LetBinding = LetBindingTyped
 
 export type LetBindingTyped = {
-  kind: "LetBindingTyped"
+  "@kind": "LetBindingTyped"
   name: string
   exp: Exp
   type: Exp
@@ -237,7 +237,7 @@ export function LetBindingTyped(
   type: Exp,
 ): LetBindingTyped {
   return {
-    kind: "LetBindingTyped",
+    "@kind": "LetBindingTyped",
     name,
     exp,
     type,

@@ -1,7 +1,7 @@
 import { Pattern } from "../pattern"
 
 export function patternBoundNames(pattern: Pattern): Set<string> {
-  switch (pattern.kind) {
+  switch (pattern["@kind"]) {
     case "Var": {
       return new Set([pattern.name])
     }

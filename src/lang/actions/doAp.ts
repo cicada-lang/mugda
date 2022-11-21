@@ -7,7 +7,7 @@ import type { Value } from "../value"
 import * as Values from "../value"
 
 export function doAp(target: Value, arg: Value): Value {
-  switch (target.kind) {
+  switch (target["@kind"]) {
     case "UntypedNeutral": {
       return Values.UntypedNeutral(Neutrals.Ap(target.neutral, arg))
     }
@@ -41,7 +41,7 @@ export function doAp(target: Value, arg: Value): Value {
     }
 
     default: {
-      throw new Errors.EvaluationError(`Can not apply ${target.kind}`)
+      throw new Errors.EvaluationError(`Can not apply ${target["@kind"]}`)
     }
   }
 }
