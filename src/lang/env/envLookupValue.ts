@@ -1,7 +1,7 @@
 import type { Env } from "../env"
 import type { Value } from "../value"
 
-export function lookupValueInEnv(env: Env, name: string): Value | undefined {
+export function envLookupValue(env: Env, name: string): Value | undefined {
   switch (env["@kind"]) {
     case "EnvNull": {
       return undefined
@@ -11,7 +11,7 @@ export function lookupValueInEnv(env: Env, name: string): Value | undefined {
       if (env.name === name) {
         return env.value
       } else {
-        return lookupValueInEnv(env.rest, name)
+        return envLookupValue(env.rest, name)
       }
     }
   }

@@ -1,6 +1,6 @@
 import * as Actions from "../actions"
 import { Closure } from "../closure"
-import { Env, EnvCons, lookupValueInEnv } from "../env"
+import { Env, EnvCons, envLookupValue } from "../env"
 import * as Errors from "../errors"
 import type { Exp } from "../exp"
 import * as Exps from "../exp"
@@ -17,12 +17,12 @@ import * as Values from "../value"
 export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
   switch (exp["@kind"]) {
     case "Var": {
-      const value = lookupValueInEnv(env, exp.name)
+      const value = envLookupValue(env, exp.name)
       if (value !== undefined) {
         return value
       }
 
-      const modValue = lookupValueInEnv(mod.env, exp.name)
+      const modValue = envLookupValue(mod.env, exp.name)
       if (modValue !== undefined) {
         return modValue
       }

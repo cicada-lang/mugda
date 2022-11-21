@@ -1,2 +1,2 @@
 export * from "./Env"
-export * from "./lookupValueInEnv"
+export * from "./envLookupValue"

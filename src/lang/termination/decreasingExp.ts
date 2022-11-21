@@ -1,4 +1,4 @@
-import { lookupValueInEnv } from "../env"
+import { envLookupValue } from "../env"
 import type { Exp } from "../exp"
 import * as Exps from "../exp"
 import type { Mod } from "../mod"
@@ -50,13 +50,13 @@ export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
 }
 
 function isCtorName(mod: Mod, name: string): boolean {
-  const value = lookupValueInEnv(mod.env, name)
+  const value = envLookupValue(mod.env, name)
   if (value === undefined) return false
   return value["@kind"] === "Ctor"
 }
 
 function isDataName(mod: Mod, name: string): boolean {
-  const value = lookupValueInEnv(mod.env, name)
+  const value = envLookupValue(mod.env, name)
   if (value === undefined) return false
   return value["@kind"] === "Data"
 }

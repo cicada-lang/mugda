@@ -1,4 +1,3 @@
-rename lookupValueInEnv to envLookupValue
 rename matchPatterns to match
 
 top level directory -- `match/`

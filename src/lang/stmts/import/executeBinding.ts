@@ -1,4 +1,4 @@
-import { lookupValueInEnv } from "../../env"
+import { envLookupValue } from "../../env"
 import * as Errors from "../../errors"
 import type { Mod } from "../../mod"
 import type { Span } from "../../span"
@@ -13,7 +13,7 @@ export function executeBinding(
   switch (binding["@kind"]) {
     case "ImportBindingName": {
       const { name } = binding
-      const value = lookupValueInEnv(importedMod.env, name)
+      const value = envLookupValue(importedMod.env, name)
       if (value === undefined) {
         throw new Errors.ElaborationError(
           `I can not import undefined name: ${name}, from: ${importedMod.options.url}`,
@@ -26,7 +26,7 @@ export function executeBinding(
 
     case "ImportBindingRename": {
       for (const { name, alias } of binding.aliases) {
-        const value = lookupValueInEnv(importedMod.env, name)
+        const value = envLookupValue(importedMod.env, name)
         if (value === undefined) {
           throw new Errors.ElaborationError(
             `I can not import undefined name: ${name}, from: ${importedMod.options.url}`,
