@@ -1,10 +1,10 @@
 import type { Loader } from "../../loader"
+import { CallMatrix, callMatrixesComplete } from "../decreasing"
 import { Env, EnvCons, EnvNull } from "../env"
 import * as Errors from "../errors"
 import { useGlobals } from "../globals"
 import type { Span } from "../span"
 import type { Stmt } from "../stmt"
-import { CallMatrix, callMatrixesComplete } from "../termination"
 import type { Value } from "../value"
 
 /**

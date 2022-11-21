@@ -1,7 +1,7 @@
+import { CallMatrix } from "."
 import type { Exp } from "../exp"
 import type { Mod } from "../mod"
 import type { Pattern } from "../pattern"
-import { CallMatrix } from "../termination"
 import { decreasing } from "./decreasing"
 import * as Trileans from "./Trilean"
 

@@ -1,4 +1,4 @@
-import { CallMatrix, callMatrixesDedup } from "../termination"
+import { CallMatrix, callMatrixesDedup } from "."
 
 export function callMatrixesComplete(
   matrixes: Array<CallMatrix>,

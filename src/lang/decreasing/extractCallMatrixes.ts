@@ -1,8 +1,8 @@
+import { CallMatrix, createCallMatrix } from "."
 import type { Exp } from "../exp"
 import * as Exps from "../exp"
 import type { Mod } from "../mod"
 import type { Pattern } from "../pattern"
-import { CallMatrix, createCallMatrix } from "../termination"
 
 export function extractCallMatrixes(
   mod: Mod,

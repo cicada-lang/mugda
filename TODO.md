@@ -1,5 +1,3 @@
-mv termination/ to decreasing/
-
 fix command line watch
 
 - `Mod` has `imported`

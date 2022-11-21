@@ -1,5 +1,5 @@
+import type { CallMatrix } from "."
 import { equal } from "../../utils/equal"
-import type { CallMatrix } from "../termination"
 
 export function callMatrixesDedup(
   matrixes: Array<CallMatrix>,
