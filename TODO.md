@@ -1,5 +1,3 @@
-fix import local file from repl
-
 top level `evaluate/`
 top level `check/`
 top level `infer/`
