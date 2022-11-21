@@ -1,5 +1,3 @@
-rename matchPatterns to match
-
 top level directory -- `match/`
 
 rename completeCallMatrixes callMatrixesComplete

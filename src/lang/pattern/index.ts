@@ -1,4 +1,4 @@
 export * from "./formatPattern"
-export * from "./matchPatterns"
+export * from "./match"
 export * from "./Pattern"
 export * from "./patternBoundNames"

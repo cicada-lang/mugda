@@ -18,7 +18,7 @@ function matchPattern(
       if (value["@kind"] !== "Ctor" && value["@kind"] !== "Data")
         return undefined
       if (value.name !== pattern.name) return undefined
-      return matchPatterns(env, pattern.args, value.args)
+      return match(env, pattern.args, value.args)
     }
 
     case "Compute": {
@@ -27,7 +27,7 @@ function matchPattern(
   }
 }
 
-export function matchPatterns(
+export function match(
   env: Env,
   patterns: Array<Pattern>,
   values: Array<Value>,

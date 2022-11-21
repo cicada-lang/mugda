@@ -2,7 +2,7 @@ import { closureApply } from "../closure"
 import * as Errors from "../errors"
 import { evaluate } from "../evaluate"
 import * as Neutrals from "../neutral"
-import { matchPatterns } from "../pattern"
+import { match } from "../pattern"
 import type { Value } from "../value"
 import * as Values from "../value"
 
@@ -20,7 +20,7 @@ export function doAp(target: Value, arg: Value): Value {
       const args = [...target.args, arg]
       if (target.arity === args.length) {
         for (const clause of target.clauses) {
-          const env = matchPatterns(clause.env, clause.patterns, args)
+          const env = match(clause.env, clause.patterns, args)
           if (env !== undefined) {
             return evaluate(clause.mod, env, clause.body)
           }
