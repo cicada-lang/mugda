@@ -2,7 +2,7 @@ import { Loader } from "../../loader"
 import { EnvCons } from "../env"
 import { evaluate } from "../exp"
 import { Mod } from "../mod"
-import { Parser } from "../parser"
+import { Parser } from "../syntax"
 import type { Value } from "../value"
 
 export class GlobalStore {

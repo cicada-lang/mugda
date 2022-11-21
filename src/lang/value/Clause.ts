@@ -1,7 +1,7 @@
 import type { Env } from "../env"
 import type { Exp } from "../exp"
-import { Mod } from "../mod"
-import { Pattern } from "../pattern"
+import type { Mod } from "../mod"
+import type { Pattern } from "../pattern"
 
 export type Clause = {
   mod: Mod

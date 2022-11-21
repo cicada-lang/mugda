@@ -1,5 +1,3 @@
-tsconfig -- "importsNotUsedAsValues": "error"
-
 fix import local file from repl
 
 top level `evaluate/`

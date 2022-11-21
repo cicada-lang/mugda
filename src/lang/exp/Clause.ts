@@ -1,5 +1,5 @@
 import type { Exp } from "../exp"
-import { Pattern } from "../pattern"
+import type { Pattern } from "../pattern"
 import type { Span } from "../span"
 
 export type Clause = {

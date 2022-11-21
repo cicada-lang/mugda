@@ -1,4 +1,4 @@
-import { Exp, Telescope } from "../exp"
+import type { Exp, Telescope } from "../exp"
 
 export type Ctor = {
   name: string

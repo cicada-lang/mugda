@@ -1,6 +1,6 @@
 import type { Ctx } from "../ctx"
 import type { Exp } from "../exp"
-import { Mod } from "../mod"
+import type { Mod } from "../mod"
 
 export function checkType(mod: Mod, ctx: Ctx, exp: Exp): void {
   //

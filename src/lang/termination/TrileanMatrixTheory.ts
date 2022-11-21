@@ -1,6 +1,6 @@
 import { Matrix, MatrixTheory } from "./MatrixTheory"
+import type { Trilean } from "./Trilean"
 import * as Trileans from "./Trilean"
-import { Trilean } from "./Trilean"
 
 export type TrileanMatrix = Matrix<Trilean>
 

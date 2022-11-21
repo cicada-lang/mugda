@@ -1,9 +1,9 @@
-import { Loader } from "../../loader"
+import type { Loader } from "../../loader"
 import { Env, EnvCons, EnvNull } from "../env"
 import * as Errors from "../errors"
 import { useGlobals } from "../globals"
 import type { Span } from "../span"
-import { Stmt } from "../stmt"
+import type { Stmt } from "../stmt"
 import { CallMatrix, completeCallMatrixes } from "../termination"
 import type { Value } from "../value"
 

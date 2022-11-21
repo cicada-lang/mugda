@@ -1,6 +1,6 @@
 import type { Env } from "../env"
 import type { Exp } from "../exp"
-import { Mod } from "../mod"
+import type { Mod } from "../mod"
 
 export type Closure = {
   "@kind": "Closure"

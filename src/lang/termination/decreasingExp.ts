@@ -1,10 +1,10 @@
 import { lookupValueInEnv } from "../env"
 import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Mod } from "../mod"
-import { Pattern } from "../pattern"
+import type { Mod } from "../mod"
+import type { Pattern } from "../pattern"
+import type { Trilean } from "./Trilean"
 import * as Trileans from "./Trilean"
-import { Trilean } from "./Trilean"
 
 export function decreasingExp(mod: Mod, exp: Exp, pattern: Pattern): Trilean {
   if (pattern["@kind"] === "Compute") {

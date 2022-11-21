@@ -1,5 +1,5 @@
 import { evaluate, Exp } from "../exp"
-import { Mod } from "../mod"
+import type { Mod } from "../mod"
 import type { Span } from "../span"
 import { Stmt } from "../stmt"
 

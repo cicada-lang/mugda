@@ -4,7 +4,7 @@ import { Env, EnvCons, lookupValueInEnv } from "../env"
 import * as Errors from "../errors"
 import type { Exp } from "../exp"
 import * as Exps from "../exp"
-import { Mod } from "../mod"
+import type { Mod } from "../mod"
 import type { Value } from "../value"
 import * as Values from "../value"
 

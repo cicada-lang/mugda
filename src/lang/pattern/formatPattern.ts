@@ -1,4 +1,4 @@
-import { Pattern } from "../pattern"
+import type { Pattern } from "../pattern"
 
 export function formatPattern(pattern: Pattern): string {
   switch (pattern["@kind"]) {

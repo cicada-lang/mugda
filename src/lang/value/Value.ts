@@ -1,9 +1,9 @@
-import { Closure } from "../closure"
+import type { Closure } from "../closure"
 import type { Env } from "../env"
-import { Exp, Telescope } from "../exp"
-import { Mod } from "../mod"
+import type { Exp, Telescope } from "../exp"
+import type { Mod } from "../mod"
 import type { Neutral } from "../neutral"
-import { Clause } from "../value"
+import type { Clause } from "../value"
 
 export type Value = UntypedNeutral | Type | Pi | Fn | FnMatch | Data | Ctor
 

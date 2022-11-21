@@ -1,6 +1,6 @@
 import { Parser as SexpParser } from "@cicada-lang/sexp"
 import type { Exp } from "../exp"
-import { Stmt } from "../stmt"
+import type { Stmt } from "../stmt"
 import { matchExp } from "./matchExp"
 import { matchStmt } from "./matchStmt"
 

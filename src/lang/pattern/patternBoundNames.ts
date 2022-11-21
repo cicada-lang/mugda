@@ -1,4 +1,4 @@
-import { Pattern } from "../pattern"
+import type { Pattern } from "../pattern"
 
 export function patternBoundNames(pattern: Pattern): Set<string> {
   switch (pattern["@kind"]) {
