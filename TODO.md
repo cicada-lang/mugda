@@ -1,4 +1,3 @@
-rename applyClosure to closureApply
 rename lookupValueInEnv to envLookupValue
 rename matchPatterns to match
 

@@ -1,4 +1,4 @@
-import { applyClosure } from "../closure"
+import { closureApply } from "../closure"
 import * as Errors from "../errors"
 import { evaluate } from "../evaluate"
 import * as Neutrals from "../neutral"
@@ -13,7 +13,7 @@ export function doAp(target: Value, arg: Value): Value {
     }
 
     case "Fn": {
-      return applyClosure(target.retClosure, arg)
+      return closureApply(target.retClosure, arg)
     }
 
     case "FnMatch": {

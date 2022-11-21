@@ -1,4 +1,4 @@
-import { applyClosure } from "../closure"
+import { closureApply } from "../closure"
 import * as Neutrals from "../neutral"
 import * as Values from "../value"
 import { formatValue, Value } from "../value"
@@ -10,7 +10,7 @@ export function unfoldFormatPi(value: Value): {
   if (value["@kind"] === "Pi") {
     const name = value.retTypeClosure.name
     const binding = `[${name} ${formatValue(value.argType)}]`
-    const retType = applyClosure(
+    const retType = closureApply(
       value.retTypeClosure,
       Values.UntypedNeutral(Neutrals.Var(name)),
     )
