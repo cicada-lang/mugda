@@ -1,6 +1,14 @@
-rename completeCallMatrixes callMatrixesComplete
+rename dedupCallMatrixes to callMatrixesDedup
+
+mv ./lang/termination/dedupCallMatrixes.ts ./lang/termination/callMatrixesDedup.ts
+
+ambr dedupCallMatrixes callMatrixesDedup
+
 rename decreasingExp to decreasing
-rename dedupCallMatrixes callMatrixesDedup
+
+mv ./lang/termination/decreasingExp.ts ./lang/termination/decreasing.ts
+
+ambr decreasingExp decreasing
 
 mv termination/ to decreasing/
 

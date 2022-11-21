@@ -1,5 +1,5 @@
 export * from "./CallMatrix"
-export * from "./completeCallMatrixes"
+export * from "./callMatrixesComplete"
 export * from "./createCallMatrix"
 export * from "./decreasingExp"
 export * from "./dedupCallMatrixes"

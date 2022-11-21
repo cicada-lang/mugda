@@ -4,7 +4,7 @@ import * as Errors from "../errors"
 import { useGlobals } from "../globals"
 import type { Span } from "../span"
 import type { Stmt } from "../stmt"
-import { CallMatrix, completeCallMatrixes } from "../termination"
+import { CallMatrix, callMatrixesComplete } from "../termination"
 import type { Value } from "../value"
 
 /**
@@ -67,7 +67,7 @@ export class Mod {
   }
 
   checkCallMatrixes(callMatrixes: Array<CallMatrix>, span: Span): void {
-    this.callMatrixes = completeCallMatrixes([
+    this.callMatrixes = callMatrixesComplete([
       ...this.callMatrixes,
       ...callMatrixes,
     ])

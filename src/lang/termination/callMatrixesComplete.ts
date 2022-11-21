@@ -1,6 +1,6 @@
 import { CallMatrix, dedupCallMatrixes } from "../termination"
 
-export function completeCallMatrixes(
+export function callMatrixesComplete(
   matrixes: Array<CallMatrix>,
 ): Array<CallMatrix> {
   matrixes = dedupCallMatrixes(matrixes)
