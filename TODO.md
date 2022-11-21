@@ -1,7 +1,6 @@
-top level `evaluate/`
-top level `check/`
-top level `infer/`
-top level `readback/`
+top level directory -- `check/`
+top level directory -- `infer/`
+top level directory -- `readback/`
 
 fix command line watch
 

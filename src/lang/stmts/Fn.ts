@@ -1,6 +1,7 @@
 import * as Errors from "../errors"
+import { evaluate } from "../evaluate"
 import type * as Exps from "../exp"
-import { evaluate, Exp } from "../exp"
+import type { Exp } from "../exp"
 import type { Mod } from "../mod"
 import type { Span } from "../span"
 import { Stmt } from "../stmt"

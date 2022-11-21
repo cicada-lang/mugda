@@ -1,6 +1,6 @@
 import { applyClosure } from "../closure"
 import * as Errors from "../errors"
-import { evaluate } from "../exp"
+import { evaluate } from "../evaluate"
 import * as Neutrals from "../neutral"
 import { matchPatterns } from "../pattern"
 import type { Value } from "../value"
