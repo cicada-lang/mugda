@@ -1,9 +1,9 @@
-import { CallMatrix, dedupCallMatrixes } from "../termination"
+import { CallMatrix, callMatrixesDedup } from "../termination"
 
 export function callMatrixesComplete(
   matrixes: Array<CallMatrix>,
 ): Array<CallMatrix> {
-  matrixes = dedupCallMatrixes(matrixes)
+  matrixes = callMatrixesDedup(matrixes)
 
   while (true) {
     const next = step(matrixes)
@@ -22,5 +22,5 @@ function step(matrixes: Array<CallMatrix>): Array<CallMatrix> {
     }
   }
 
-  return dedupCallMatrixes([...matrixes, ...composed])
+  return callMatrixesDedup([...matrixes, ...composed])
 }

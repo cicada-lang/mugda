@@ -1,7 +1,7 @@
 import { equal } from "../../utils/equal"
 import type { CallMatrix } from "../termination"
 
-export function dedupCallMatrixes(
+export function callMatrixesDedup(
   matrixes: Array<CallMatrix>,
 ): Array<CallMatrix> {
   const results: Array<CallMatrix> = []
