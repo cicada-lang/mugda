@@ -51,7 +51,3 @@ fix `extractCallMatrixes` scope bug
 # learn
 
 read AA's paper
-
-# maybe
-
-[maybe] use unified JSON ADT -- change `CamelCase` to `camelCase`
