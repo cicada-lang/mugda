@@ -1,5 +1,3 @@
-top level directory -- `match/`
-
 rename completeCallMatrixes callMatrixesComplete
 rename decreasingExp to decreasing
 rename dedupCallMatrixes callMatrixesDedup

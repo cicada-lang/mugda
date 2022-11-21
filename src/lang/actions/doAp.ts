@@ -1,8 +1,8 @@
 import { closureApply } from "../closure"
 import * as Errors from "../errors"
 import { evaluate } from "../evaluate"
+import { match } from "../match"
 import * as Neutrals from "../neutral"
-import { match } from "../pattern"
 import type { Value } from "../value"
 import * as Values from "../value"
 
