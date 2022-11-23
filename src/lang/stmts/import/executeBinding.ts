@@ -17,7 +17,7 @@ export function executeBinding(
       if (value === undefined) {
         throw new Errors.ElaborationError(
           `I can not import undefined name: ${name}, from: ${importedMod.options.url}`,
-          span,
+          { span },
         )
       }
       mod.define(name, value)
@@ -30,7 +30,7 @@ export function executeBinding(
         if (value === undefined) {
           throw new Errors.ElaborationError(
             `I can not import undefined name: ${name}, from: ${importedMod.options.url}`,
-            span,
+            { span },
           )
         }
         mod.define(alias, value)

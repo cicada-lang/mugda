@@ -28,10 +28,9 @@ export function evaluate(mod: Mod, env: Env, exp: Exp): Value {
       }
 
       if (exp.span) {
-        throw new Errors.ElaborationError(
-          `Undefined name: ${exp.name}`,
-          exp.span,
-        )
+        throw new Errors.ElaborationError(`Undefined name: ${exp.name}`, {
+          span: exp.span,
+        })
       } else {
         throw new Errors.EvaluationError(`Undefined name: ${exp.name}`)
       }

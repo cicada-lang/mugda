@@ -27,13 +27,13 @@ export class Fn extends Stmt {
       } else if (arity !== clause.patterns.length) {
         throw new Errors.ElaborationError(
           `Clauses arity mismatch, found ${arity} and ${clause.patterns.length}`,
-          clause.span,
+          { span: clause.span },
         )
       }
     }
 
     if (arity === undefined) {
-      throw new Errors.ElaborationError("Empty clauses", this.span)
+      throw new Errors.ElaborationError("Empty clauses", { span: this.span })
     }
 
     return arity
