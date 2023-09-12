@@ -29,47 +29,12 @@ is learnt from ["The Little Typer"](https://mitpress.mit.edu/9780262536431/the-l
 
 ## Usages
 
-### Online playground
-
-Visit the [Mugda Playground](https://mugda.cicada-lang.org/playground/KGRhdGEgTmF0ICgpICgpCiAgW3plcm8gKCkgTmF0XQogIFthZGQxIChbcHJldiBOYXRdKSBOYXRdKQoKKGZuIGFkZCAoLT4gTmF0IE5hdCBOYXQpCiAgWyh4ICh6ZXJvKSkgeF0KICBbKHggKGFkZDEgeSkpIChhZGQxIChhZGQgeCB5KSldKQoKKGRlZmluZSBvbmUgTmF0IChhZGQxIHplcm8pKQooZGVmaW5lIHR3byBOYXQgKGFkZDEgb25lKSkKCihhZGQgdHdvIHR3bykK).
-
-### Use our server
-
-[**mugda-server:**](https://github.com/cicada-lang/mugda-server) A server that can run mugda code.
-
-Run a file:
-
-```bash
-curl https://mu.cic.run --data-binary @<file>
-```
-
-Run multiline text (bash and zsh):
-
-```bash
-curl https://mu.cic.run --data-binary @-<< END
-
-(data Nat () ()
-  [zero () Nat]
-  [add1 ([prev Nat]) Nat])
-
-(fn add (-> Nat Nat Nat)
-  [(x (zero)) x]
-  [(x (add1 y)) (add1 (add x y))])
-
-(define one Nat (add1 zero))
-(define two Nat (add1 one))
-
-(add two two)
-
-END
-```
-
 ### Command line tool
 
 Install it by the following command:
 
 ```sh
-sudo npm install -g @cicada-lang/mugda
+npm install -g @cicada-lang/mugda
 ```
 
 The command line program is called `mu`.
@@ -198,16 +163,6 @@ Please read the [STYLE-GUIDE.md](STYLE-GUIDE.md) before you change the code.
 Remember to add yourself to [AUTHORS](AUTHORS).
 Your line belongs to you, you can write a little
 introduction to yourself but not too long.
-
-It is assumed that all non draft PRs are ready to be merged.
-If your PR is not ready to be merged yet, please make it a draft PR:
-
-- [Creating draft PR](https://github.blog/2019-02-14-introducing-draft-pull-requests)
-- [Changing a PR to draft](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)
-
-During the development of your PR, you can make use of
-the [TODO.md](TODO.md) file to record ideas temporarily,
-and this file should be clean again at the end of your development.
 
 ## License
 
