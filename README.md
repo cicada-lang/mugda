@@ -63,14 +63,6 @@ Run a file and watch file change:
 mu run tests/basic/id.test.mu --watch
 ```
 
-Run a URL:
-
-- All files in this repo, can be fetched from: [`https://cdn.mu.cic.run/<path>`](https://cdn.mu.cic.run)
-
-```sh
-mu run https://cdn.mu.cic.run/tests/basic/id.test.mu
-```
-
 ## Examples
 
 Please see [**tests/**](tests/) and [**std/**](std/) for more examples.
@@ -128,7 +120,7 @@ add
   [null () (List A)]
   [cons ([head A] [tail (List A)]) (List A)])
 
-(import "https://cdn.mu.cic.run/std/nat/index.mu" Nat zero add1)
+(import "../nat/index.mu" Nat zero add1)
 
 (fn length (Pi ([A Type]) (-> (List A) Nat))
   [(A (null A)) zero]
