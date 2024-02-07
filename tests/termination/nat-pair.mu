@@ -1,9 +1,9 @@
 (import "../../std/nat/index.mu" Nat zero add1)
 
-(data NatPair () ()
-  [pair ([left Nat] [right Nat]) NatPair])
+(data Nat-Pair () ()
+  [pair ([left Nat] [right Nat]) Nat-Pair])
 
-(fn add-pair (-> NatPair Nat)
+(fn add-pair (-> Nat-Pair Nat)
   [((pair (zero) right)) right]
   [((pair (add1 prev) right)) (add1 (add-pair (pair prev right)))])
 
