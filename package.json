@@ -4,6 +4,7 @@
   "repository": "github:cicada-lang/mugda",
   "main": "./lib/index.js",
   "files": [
+    "src",
     "lib"
   ],
   "bin": {
@@ -14,13 +15,9 @@
     "build:watch": "tsc --watch",
     "test:ts": "vitest --dir src --threads false --run",
     "test:watch": "vitest --dir src --threads false",
-    "test:coverage": "vitest --dir src --threads false --run --coverage ",
-    "test:gui": "vitest --dir src --threads false --ui",
-    "test:mu:tests": "test-runner snapshot './bin/mu.js' 'tests/**/*.(mu|md)' --exclude 'tests/**/*.error.(mu|md)'",
-    "test:mu:tests-error": "test-runner snapshot-error './bin/mu.js' 'tests/**/*.error.(mu|md)'",
-    "test:mu:std": "test-runner snapshot './bin/mu.js' 'std/**/*.(mu|md)' --exclude 'std/**/*.error.(mu|md)'",
-    "test:mu:std-error": "test-runner snapshot-error './bin/mu.js' 'std/**/*.error.(mu|md)'",
-    "test:mu": "npm run test:mu:tests && npm run test:mu:tests-error && npm run test:mu:std && npm run test:mu:std-error",
+    "test:mu:docs": "test-runner snapshot './bin/mu.js' 'docs/**/*.(mu|md)' --exclude 'docs/**/*.error.(mu|md)'",
+    "test:mu:docs-error": "test-runner snapshot-error './bin/mu.js' 'docs/**/*.error.(mu|md)'",
+    "test:mu": "npm run test:mu:docs && npm run test:mu:docs-error",
     "test": "npm run test:ts && npm run test:mu",
     "format": "prettier src --write"
   },
@@ -40,14 +37,10 @@
     "@types/commonmark": "^0.27.7",
     "@types/lodash": "^4.14.198",
     "@types/node": "^20.6.0",
-    "@vitest/coverage-c8": "^0.29.3",
-    "@vitest/coverage-istanbul": "^0.34.4",
-    "@vitest/ui": "^0.34.4",
     "@xieyuheng/test-runner": "^0.2.9",
     "prettier": "^3.0.3",
     "prettier-plugin-organize-imports": "^3.2.3",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9",
     "vitest": "^0.34.4"
   },
   "license": "GPL-3.0-or-later"
